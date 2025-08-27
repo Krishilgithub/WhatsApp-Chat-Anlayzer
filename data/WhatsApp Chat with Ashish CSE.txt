@@ -1,0 +1,4557 @@
+14/07/2023, 10:30 - Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them. Learn more.
+25/07/2023, 16:08 - Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them. Learn more.
+16/08/2023, 11:34 - Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them. Learn more.
+12/11/2023, 10:08 - Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them. Learn more.
+21/07/2024, 21:29 - Disappearing messages were turned off. Tap to change.
+21/07/2024, 21:29 - Ashish CSE: <Media omitted>
+21/07/2024, 21:29 - Krishil Agrawal: <Media omitted>
+21/07/2024, 21:29 - Krishil Agrawal: <Media omitted>
+21/07/2024, 23:21 - Ashish CSE: <Media omitted>
+21/07/2024, 23:21 - Ashish CSE: <Media omitted>
+21/07/2024, 23:24 - Krishil Agrawal: Maru roll no. edited Karine mokal ne
+21/07/2024, 23:25 - Ashish CSE: Roll number bol
+21/07/2024, 23:25 - Krishil Agrawal: 001
+21/07/2024, 23:25 - Krishil Agrawal: 🤬
+21/07/2024, 23:28 - Krishil Agrawal: ??
+21/07/2024, 23:34 - Krishil Agrawal: null
+21/07/2024, 23:46 - Ashish CSE: <Media omitted>
+21/07/2024, 23:54 - Ashish CSE: <Media omitted>
+21/07/2024, 23:54 - Ashish CSE: <Media omitted>
+23/07/2024, 09:55 - Krishil Agrawal: Hio
+23/07/2024, 09:55 - Krishil Agrawal: ml na event ma gayo che
+23/07/2024, 09:56 - Ashish CSE: Na bhai na
+23/07/2024, 09:56 - Ashish CSE: Hostel e chu
+23/07/2024, 10:06 - Krishil Agrawal: kam??
+23/07/2024, 10:08 - Ashish CSE: 9 12 vage uthiyo
+23/07/2024, 10:21 - Krishil Agrawal: to mare su
+23/07/2024, 10:25 - Ashish CSE: Kav chodu khali Kem na avo
+23/07/2024, 10:29 - Krishil Agrawal: ohk
+23/07/2024, 10:29 - Krishil Agrawal: to amna ml ma avse
+23/07/2024, 10:30 - Krishil Agrawal: ame badha jaye che
+23/07/2024, 10:30 - Ashish CSE: ketlva vage
+23/07/2024, 10:30 - Krishil Agrawal: 11:10 pachi
+23/07/2024, 10:30 - Ashish CSE: jamvanu su
+23/07/2024, 10:30 - Ashish CSE: kon kon jay che
+23/07/2024, 10:31 - Krishil Agrawal: tane kau hu 11:10 e phone karine
+23/07/2024, 10:31 - Ashish CSE: ok
+23/07/2024, 18:04 - Ashish CSE: elden ring
+23/07/2024, 18:06 - Ashish CSE: <Media omitted>
+23/07/2024, 18:06 - Krishil Agrawal: ohk
+25/07/2024, 21:23 - Krishil Agrawal: #include <iostream>
+using namespace std;
+
+void enqueueR(int n, int arr[]);
+void dequeueF(int arr[]);
+void enqueueF(int n, int arr[]);
+void display(int arr[]);
+
+int front = -1, rear = -1;
+
+int main()
+{
+    int n, choice;
+    cout << "Enter the size of the array: ";
+    cin >> n;
+    int arr[n];
+
+    do
+    {
+        cout << "Output Restricted DEQueue" << endl;
+        cout << "Enter 1 : To Enqueue From the Rear" << endl;
+        cout << "Enter 2 : To Enqueue From Front" << endl;
+        cout << "Enter 3 : To Dequeue From the Front" << endl;
+        cout << "Enter 4 : To Display" << endl;
+        cout << "Enter 5 : To Exit" << endl;
+        cin >> choice;
+
+        switch (choice)
+        {
+        case 1:
+            enqueueR(n, arr);
+            break;
+        case 2:
+            enqueueF(n, arr);
+            break;
+        case 3:
+            dequeueF(arr);
+            break;
+        case 4:
+            display(arr);
+            break;
+        case 5:
+            exit(0);
+        default:
+            cout << "Enter correct choice !!" << endl;
+            break;
+        }
+    } while (choice != 5);
+
+    return 0;
+}
+
+void enqueueR(int n, int arr[])
+{
+    if ((rear + 1) % n == front)
+    {
+        cout << "Queue overflow\n" << endl;
+    }
+    else
+    {
+        if (front == -1)
+        {
+            front = 0;
+        }
+        rear = (rear + 1) % n;
+        cout << "Enter the element you want to enqueue: ";
+        int val;
+        cin >> val;
+        arr[rear] = val;
+        cout << val << " has been successfully inserted\n" << endl;
+    }
+}
+
+void dequeueF(int arr[])
+{
+    if (front == -1)
+    {
+        cout << "Queue is empty!!\n" << endl;
+    }
+    else
+    {
+        cout << arr[front] << " has been successfully removed\n" << endl;
+        if (front == rear)
+        {
+            front = rear = -1; // Reset the queue if it becomes empty
+        }
+        else
+        {
+            front = (front + 1) % n;
+        }
+    }
+}
+
+void enqueueF(int n, int arr[])
+{
+    if ((rear + 1) % n == front)
+    {
+        cout << "Queue overflow\n" << endl;
+    }
+    else
+    {
+        if (front == -1)
+        {
+            front = rear = 0;
+        }
+        else
+        {
+            front = (front - 1 + n) % n;
+        }
+        cout << "Enter the element you want to enqueue: ";
+        int val;
+        cin >> val;
+        arr[front] = val;
+        cout << val << " has been successfully inserted\n" << endl;
+    }
+}
+
+void display(int arr[])
+{
+    if (front == -1)
+    {
+        cout << "Queue is empty\n" << endl;
+    }
+    else
+    {
+        int i = front;
+        while (true)
+        {
+            cout << arr[i] << " ";
+            if (i == rear)
+                break;
+            i = (i + 1) % n;
+        }
+        cout << endl;
+    }
+}
+25/07/2024, 21:23 - Krishil Agrawal: #include <iostream>
+using namespace std;
+
+void enqueueR(int n, int arr[]);
+void dequeueF(int arr[]);
+void dequeueR(int arr[], int n);
+void display(int arr[]);
+
+int front = -1, rear = -1;
+
+int main()
+{
+    int n, choice;
+    cout << "Enter the size of the array: ";
+    cin >> n;
+    int arr[n];
+
+    do
+    {
+        cout << "Input Restricted DEQueue" << endl;
+        cout << "Enter 1 : To Enqueue From the Rear" << endl;
+        cout << "Enter 2 : To Dequeue From the Front" << endl;
+        cout << "Enter 3 : To Dequeue From the Rear" << endl;
+        cout << "Enter 4 : To Display" << endl;
+        cout << "Enter 5 : To Exit" << endl;
+        cin >> choice;
+
+        switch (choice)
+        {
+        case 1:
+            enqueueR(n, arr);
+            break;
+        case 2:
+            dequeueF(arr);
+            break;
+        case 3:
+            dequeueR(arr, n);
+            break;
+        case 4:
+            display(arr);
+            break;
+        case 5:
+            exit(0);
+        default:
+            cout << "Enter correct choice !!" << endl;
+            break;
+        }
+    } while (choice != 5);
+
+    return 0;
+}
+
+void enqueueR(int n, int arr[])
+{
+    if ((rear + 1) % n == front)
+    {
+        cout << "Queue overflow\n" << endl;
+    }
+    else
+    {
+        if (front == -1)
+        {
+            front = 0;
+        }
+        rear = (rear + 1) % n;
+        cout << "Enter the element you want to enqueue: ";
+        int val;
+        cin >> val;
+        arr[rear] = val;
+        cout << val << " has been successfully inserted\n" << endl;
+    }
+}
+
+void dequeueF(int arr[])
+{
+    if (front == -1)
+    {
+        cout << "Queue is empty!!\n" << endl;
+    }
+    else
+    {
+        cout << arr[front] << " has been successfully removed\n" << endl;
+        if (front == rear)
+        {
+            front = rear = -1; // Reset the queue if it becomes empty
+        }
+        else
+        {
+            front = (front + 1) % n;
+        }
+    }
+}
+
+void dequeueR(int arr[], int n)
+{
+    if (rear == -1)
+    {
+        cout << "Queue is empty!!\n" << endl;
+    }
+    else
+    {
+        cout << arr[rear] << " has been successfully removed\n" << endl;
+        if (front == rear)
+        {
+            front = rear = -1; // Reset the queue if it becomes empty
+        }
+        else
+        {
+            rear = (rear - 1 + n) % n;
+        }
+    }
+}
+
+void display(int arr[])
+{
+    if (front == -1)
+    {
+        cout << "Queue is empty\n" << endl;
+    }
+    else
+    {
+        int i = front;
+        while (true)
+        {
+            cout << arr[i] << " ";
+            if (i == rear)
+                break;
+            i = (i + 1) % n;
+        }
+        cout << endl;
+    }
+}
+26/07/2024, 01:48 - Ashish CSE: This message was deleted
+26/07/2024, 06:57 - Krishil Agrawal: Aa message tu 2 time upar vachi sakto hase
+1. 1.46 jage Ane aa message vache ji saru nath Ane hu tane sui javani salah apu
+2. Tu message savre vache che he saru che Ane tari ajno divas kharab jay evi Mari subhkamnavo
+3. Ane aa message ma Kai vachva jevu nathi etle hu kav ke sui ja 
+4. Personally  aa badhu hu time pass karva mate karu
+5. I know someone named haming moon in name 😉
+26/07/2024, 06:58 - Krishil Agrawal: Tu vach
+08/08/2024, 12:14 - Ashish CSE: https://motordesk.com/dealership-management/car-dealer-website/template/ = video template for website
+https://images.jazelc.com/uploads/jazelauto/2018/06/auto-mall-2.png= homepage
+09/08/2024, 10:15 - Krishil Agrawal: #include <iostream>
+using namespace std;
+
+int count=0;
+
+struct Node{
+    int data;
+    Node *next, *prev;
+};
+
+void insertFromFront(Node *&head, Node *&tail, int data){
+    Node *newNode = new Node();
+    newNode->data=data;
+
+    if(head==nullptr){
+        head=newNode;
+        tail=head;
+        return;
+    }
+
+    head->prev=newNode;
+    newNode->next=head;
+    head=newNode;
+    count++;
+}
+
+void insertAtEnd(Node *&head, Node *&tail, int data){
+    Node *newNode = new Node();
+    newNode->data=data;
+
+    if(head==nullptr){
+        cout<<"Linked List is Empty"<<endl;
+    }
+
+    tail->next=newNode;
+    newNode->prev=tail;
+    tail=newNode;
+    count++;
+}
+
+void insertFromBetween(Node *&head, Node *&tail, int data, int pos){
+
+    if (pos < 1) {
+        cout << "Invalid position!" << endl;
+        return;
+    }
+
+    Node *newNode = new Node();
+    newNode->data=data;
+
+    if(pos>count){
+        cout<<"Enter proper position"<<endl;
+        return;
+    }
+
+    Node *temp=head;
+    int i=1;
+    while(i<pos-1){
+        temp=temp->next;
+    }
+    newNode->next=temp->next->next;
+    temp->next->prev=newNode;
+    temp->next=newNode;
+    count++;
+}
+
+void deleteAtStart(Node *&head, Node *&tail){
+    if(head == nullptr){
+        cout<<"Linked List is already empty !!"<<endl;
+        return;
+    }
+
+    Node *temp = head;
+    if(head->next==nullptr){
+        head=tail=nullptr;
+    }
+    else{
+        head=head->next;
+        head->prev=nullptr;
+    }
+    delete temp;
+}
+
+void deleteFromBetween(Node *&head, Node *&tail, int pos) {
+    if(head==nullptr){
+        cout<<"Linked List is empty"<<endl;
+        return;
+    }
+
+    if(head->next==nullptr){
+        delete head;
+        delete tail;
+        return;   //! Warning
+    }
+
+    int i=1;
+    Node *temp = head;
+    Node *Prev = nullptr;
+    while(i<(pos-1)){
+        temp=temp->next;
+        i++;
+    }
+    Prev=temp->next;
+    temp->next=temp->next->next;
+    temp->next->next->prev=temp;
+    temp->next->next=nullptr;
+    temp->next->prev=nullptr;
+    temp->next=nullptr;
+
+    delete Prev;
+}
+
+void printList(Node* head) {
+    Node* current = head;
+    while (current != nullptr) {
+        cout << current->data << " ";
+        current = current->next;
+    }
+    cout << std::endl;
+}
+
+int main() {
+
+    int choice, pos, data;
+    Node *head=nullptr;
+    Node *tail=nullptr;
+    
+    do{
+        cout<<"Enter 1 : Insert from start"<<endl;
+        cout<<"Enter 2 : Insert from between"<<endl;
+        cout<<"Enter 3 : Insert from end"<<endl;
+        cout<<"Enter 4 : Delete from start"<<endl;
+        cout<<"Enter 5 : Delete from between"<<endl;
+        cout<<"Enter 6 : Delete from end"<<endl;
+        cout<<"Enter 7 : To Display"<<endl;
+        cout<<"Enter 8 : To Exit"<<endl;
+        cin>>choice;
+
+        switch (choice)
+        {
+        case 1:
+            cout<<"Enter the data: ";
+            cin>>data;
+            insertFromFront(head, tail, data);
+            break;
+
+        case 2:
+            cout<<"Enter position: ";
+            cin>>pos;
+            cout<<"Enter the data: ";
+            cin>>data;
+            insertFromBetween(head, tail, data, pos);
+            break;
+        
+        case 3:
+            cout<<"Enter the data: ";
+            cin>>data;
+            insertAtEnd(head, tail, data);
+            break;
+
+        case 5:
+            cout<<"Enter the pos: ";
+            cin>>pos;
+            deleteFromBetween(head, tail, pos);
+            break;
+
+        case 7:
+            printList(head);
+            break;
+        
+        default:
+            break;
+        }
+    }while(choice!=8);
+    
+    return 0;
+}
+14/08/2024, 00:06 - Ashish CSE: <Media omitted>
+14/08/2024, 00:06 - Ashish CSE: Ela aa Dubey chodu gate na questions puche che lodo
+14/08/2024, 00:23 - Krishil Agrawal: bhai tu kyar thi gate karva maindo
+14/08/2024, 00:39 - Ashish CSE: E Lambo vat pachi kok di kai
+14/08/2024, 00:50 - Krishil Agrawal: Koi di nai
+14/08/2024, 00:50 - Krishil Agrawal: Kale
+14/08/2024, 00:50 - Krishil Agrawal: Sorry aje 😅
+14/08/2024, 00:51 - Krishil Agrawal: Hui j
+14/08/2024, 00:51 - Krishil Agrawal: Su jagto che
+14/08/2024, 00:51 - Ashish CSE: Tane lage mara jevo vyakti gate kare jene maths ma fafa padta hoi
+14/08/2024, 00:51 - Krishil Agrawal: Muthi mares
+14/08/2024, 00:51 - Ashish CSE: A atyre na hoi
+14/08/2024, 00:51 - Krishil Agrawal: Ha
+14/08/2024, 00:51 - Ashish CSE: Kale vat kariye apde
+14/08/2024, 00:51 - Krishil Agrawal: To kyare
+14/08/2024, 00:51 - Ashish CSE: This message was deleted
+14/08/2024, 00:51 - Ashish CSE: This message was deleted
+14/08/2024, 00:52 - Ashish CSE: Ane be kale aliye
+14/08/2024, 00:52 - Krishil Agrawal: Gf??
+14/08/2024, 00:52 - Krishil Agrawal: Tari ..
+14/08/2024, 00:52 - Ashish CSE: Kai nai sui ja
+14/08/2024, 00:52 - Krishil Agrawal: Nai suvu
+14/08/2024, 00:52 - Ashish CSE: Pleas
+14/08/2024, 00:52 - Krishil Agrawal: Muthi marvi che
+14/08/2024, 00:52 - Ashish CSE: Kale badhu samjavi dais
+14/08/2024, 00:52 - Krishil Agrawal: Tara nudes mokal
+14/08/2024, 00:52 - Ashish CSE: null
+14/08/2024, 00:53 - Ashish CSE: Thank you dard samjva mate
+14/08/2024, 08:04 - Krishil Agrawal: Hu toh samju chu
+14/08/2024, 08:04 - Krishil Agrawal: Khali tuj nahi samjhto
+20/08/2024, 19:51 - Ashish CSE: Bol
+20/08/2024, 19:51 - Krishil Agrawal: Hi
+20/08/2024, 19:51 - Krishil Agrawal: Ala OTP aya hoga
+20/08/2024, 19:51 - Krishil Agrawal: Prime ka
+20/08/2024, 19:51 - Ashish CSE: Kone joiye
+20/08/2024, 19:52 - Krishil Agrawal: Mera log out ho gaya hai
+20/08/2024, 19:52 - Krishil Agrawal: Ala maru j che
+20/08/2024, 19:52 - Ashish CSE: Hindi Kem bole
+20/08/2024, 19:52 - Krishil Agrawal: Kem ke hi hindu chu
+20/08/2024, 19:52 - Ashish CSE: Bija ne tu deto nai pachi mare nai hale Ane OTP apu
+20/08/2024, 19:52 - Krishil Agrawal: Ha
+20/08/2024, 19:52 - Krishil Agrawal: I know
+20/08/2024, 19:52 - Ashish CSE: 636926
+20/08/2024, 19:53 - Krishil Agrawal: Ohk 👍
+20/08/2024, 20:32 - Ashish CSE: <Media omitted>
+20/08/2024, 20:32 - Ashish CSE: ela ama kai saru dekhay eva suggestion pane
+21/08/2024, 15:48 - Krishil Agrawal: Hi
+21/08/2024, 15:48 - Krishil Agrawal: ala mam e ena pachi kasu kidhu
+21/08/2024, 15:49 - Krishil Agrawal: hu leave thai gaylo
+21/08/2024, 15:49 - Ashish CSE: Khbar nai
+21/08/2024, 15:49 - Krishil Agrawal: kem
+21/08/2024, 15:49 - Krishil Agrawal: meeting ma nathi
+21/08/2024, 15:49 - Ashish CSE: Na Kai kidhu to nathi
+28/08/2024, 14:59 - Ashish CSE: This message was deleted
+06/09/2024, 00:29 - Ashish CSE: oy su karyu project nu
+06/09/2024, 08:32 - Krishil Agrawal: Paitu amare
+11/09/2024, 14:51 - Ashish CSE: code mokal
+11/09/2024, 15:00 - Ashish CSE: null
+11/09/2024, 15:00 - Ashish CSE: code moklane lagga
+11/09/2024, 15:00 - Krishil Agrawal: class ProducerConsumerWithArray {
+    private final int[] buffer;
+    private int count = 0;
+    private final int capacity;
+
+    public ProducerConsumerWithArray(int size) {
+        buffer = new int[size];
+        capacity = size;
+    }
+
+    // Producer method
+    public void produce() throws InterruptedException {
+        int value = 0;
+        while (true) {
+            synchronized (this) {
+                // If buffer is full, producer will wait
+                while (count == capacity) {
+                    wait();
+                }
+                
+                // Add produced item to buffer
+                buffer[count] = value;
+                System.out.println("Produced: " + value);
+                value++;
+                count++;
+
+                // Notify the consumer that an item is available
+                notify();
+            }
+            // Simulate some delay in production
+            Thread.sleep(500);
+        }
+    }
+
+    // Consumer method
+    public void consume() throws InterruptedException {
+        while (true) {
+            synchronized (this) {
+                // If buffer is empty, consumer will wait
+                while (count == 0) {
+                    wait();
+                }
+
+                // Consume an item from buffer
+                int value = buffer[count - 1];
+                System.out.println("Consumed: " + value);
+                count--;
+
+                // Notify the producer that space is available
+                notify();
+            }
+            // Simulate some delay in consumption
+            Thread.sleep(500);
+        }
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        ProducerConsumerWithArray pc = new ProducerConsumerWithArray(5); // buffer size = 5
+
+        // Create producer thread
+        Thread producerThread = new Thread(() -> {
+            try {
+                pc.produce();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        });
+
+        // Create consumer thread
+        Thread consumerThread = new Thread(() -> {
+            try {
+                pc.consume();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        });
+
+        // Start both threads
+        producerThread.start();
+        consumerThread.start();
+
+        // Wait for both threads to finish
+        producerThread.join();
+        consumerThread.join();
+    }
+}
+11/09/2024, 15:00 - Krishil Agrawal: lagga ?
+11/09/2024, 15:00 - Ashish CSE: navi gar avi market ma
+11/09/2024, 15:01 - Krishil Agrawal: ohk
+25/09/2024, 11:12 - Krishil Agrawal: <Media omitted>
+25/09/2024, 11:12 - Ashish CSE: https://youtu.be/w8MvmdQsjwA?si=f7lPm2jpwExsL18O
+27/09/2024, 18:04 - Ashish CSE: null
+27/09/2024, 18:10 - Krishil Agrawal: reinforcement
+07/10/2024, 23:28 - Ashish CSE: Kale java ma no avto
+08/10/2024, 00:48 - Krishil Agrawal: Ala akho week nai avano
+08/10/2024, 00:48 - Ashish CSE: aje akho di avo to
+08/10/2024, 00:49 - Krishil Agrawal: Hara land active vaj hoy dar vakhte
+08/10/2024, 00:49 - Krishil Agrawal: Very good 😊👌👍
+08/10/2024, 00:49 - Krishil Agrawal: <Media omitted>
+08/10/2024, 00:50 - Ashish CSE: ye kyu bhai
+08/10/2024, 00:51 - Krishil Agrawal: Bas ese hi
+08/10/2024, 00:51 - Ashish CSE: kuch boliye app
+08/10/2024, 00:51 - Krishil Agrawal: Stree 2 Amazon prime par che
+08/10/2024, 00:51 - Ashish CSE: amazon puru thyu bata
+08/10/2024, 00:51 - Krishil Agrawal: <Media omitted>
+08/10/2024, 00:51 - Krishil Agrawal: To fari thi lai lene
+08/10/2024, 00:51 - Ashish CSE: 3 mahina pura thay yar
+08/10/2024, 01:01 - Ashish CSE: <Media omitted>
+14/10/2024, 21:48 - Krishil Agrawal: bol bhai
+14/10/2024, 21:48 - Krishil Agrawal: phone karu tu
+16/10/2024, 11:31 - Ashish CSE: https://github.com/ashish5151/JAVA_PRACTICLE_23DCS024.git
+16/10/2024, 14:45 - Ashish CSE: <Media omitted>
+29/11/2024, 00:36 - Ashish CSE: <Media omitted>
+29/11/2024, 00:38 - Krishil Agrawal: Chutiya
+29/11/2024, 00:38 - Krishil Agrawal: Bhenchod
+29/11/2024, 00:38 - Ashish CSE: 😁😁😁😁
+29/11/2024, 00:38 - Ashish CSE: Kesa laga mera majak
+29/11/2024, 00:38 - Krishil Agrawal: Tari saumya nu banav
+29/11/2024, 00:38 - Ashish CSE: 😁😁😁
+29/11/2024, 00:38 - Ashish CSE: 🤣🤣🤣🤣🤣
+29/11/2024, 00:38 - Ashish CSE: <Media omitted>
+29/11/2024, 00:39 - Krishil Agrawal: Hara chutiya 😂
+29/11/2024, 00:39 - Ashish CSE: <Media omitted>
+29/11/2024, 00:39 - Krishil Agrawal: Bs exam ma aj kar
+29/11/2024, 00:40 - Ashish CSE: <Media omitted>
+29/11/2024, 00:40 - Krishil Agrawal: Ughi ja ave khetar ma
+29/11/2024, 00:40 - Ashish CSE: Hehhehehehhe
+19/12/2024, 14:48 - Ashish CSE: Bol bhai
+19/12/2024, 16:55 - Krishil Agrawal: Kai nai Kam Thai gyu
+20/12/2024, 19:54 - Krishil Agrawal: null
+21/12/2024, 15:52 - Krishil Agrawal: As a fourth-semester Computer Science Engineering student, I am deeply committed to advancing my education and acquiring the skills necessary for a successful career. However, financial limitations make it difficult for me to afford the cost of this course. My family’s financial situation is stretched, with most resources allocated to essential living expenses and my ongoing academic needs.
+
+This course is a vital step in my educational journey, offering specialized knowledge that directly complements my studies and aligns with my career goals. By gaining access to this program, I aim to enhance my understanding, apply the knowledge practically, and improve my prospects for future employment.
+
+Financial aid would significantly ease my financial burden and allow me to focus on excelling in my studies. I am committed to making the most of this opportunity and sincerely appreciate your consideration of my application.
+
+
+
+
+
+The selected Red Hat course on Coursera is highly relevant to my academic curriculum in Computer Science Engineering and my career aspirations in IT. As a student, I aim to build expertise in system administration, cloud computing, and enterprise-level IT solutions, which are essential skills in the evolving technology landscape.
+
+This course provides comprehensive knowledge of Red Hat Enterprise Linux, including system configuration, user management, network protocols, and security settings. These skills directly complement my studies in operating systems, networking, and cybersecurity, enabling me to apply theoretical concepts in practical, real-world scenarios.
+
+Moreover, Red Hat certifications are industry-recognized and valued by employers globally. Completing this course will strengthen my resume and increase my employability in IT roles, such as system administrator or cloud engineer.
+
+By mastering Red Hat tools and techniques, I will be better equipped to manage enterprise IT systems, making this course a vital step in achieving my educational and professional goals.
+23/12/2024, 10:32 - Ashish CSE: create database rudra;
+use rudra;
+create table job(
+job_id varchar(15),
+job_title varchar(30),
+min_sal numeric(7,2),
+max_sal numeric(7,2)
+);
+
+select * from job;
+
+create table employee(
+emp_no numeric(3),
+emp_name varchar(30),
+emp_sal numeric(8,2),
+emp_column numeric(6,1),
+dept_no numeric(3)
+);
+
+select * from employee;
+23/12/2024, 10:48 - Krishil Agrawal: <Media omitted>
+23/12/2024, 21:00 - Krishil Agrawal: <Media omitted>
+23/12/2024, 21:00 - Krishil Agrawal: <Media omitted>
+24/12/2024, 12:31 - Ashish CSE: https://youtube.com/playlist?list=PLSDeUiTMfxW5vCie_cwsV6UPcZijHce8j&si=MVOGaFvmgCvLtwcX
+24/12/2024, 13:39 - Krishil Agrawal: select job_id, job_title into newJob from job
+
+select * from newJob;
+
+select * into newJob1 from job where 1=0
+
+select * from newJob1
+
+insert into newJob1 select * from job  where job_title=1
+
+select * from newJob1
+25/12/2024, 15:21 - Ashish CSE: <Media omitted>
+25/12/2024, 15:21 - Ashish CSE: Might be helpful to you
+25/12/2024, 15:24 - Krishil Agrawal: 😘😍😍 thanks bro
+26/12/2024, 10:00 - Krishil Agrawal: a = (1, 1.03, "Krishil")
+b = (1,2,3)
+c = (1.00, 2.021, 3.04)
+d = ("Krishil", "Kumar", "Shrestha")
+
+print(a[-1:-3:-1])
+print(a[0])
+print(a[-1])
+
+for i in b:
+    print(str(i) + "with index" + str(b.index(i)))
+
+print("The length of tuple a is", len(a))
+print("The maximum value of tuple c is", max(c))
+print("The minimum value of tuple c is", min(c))
+print("The sum of tuple c is", sum(c))
+26/12/2024, 10:00 - Krishil Agrawal: a = [1,3,4,6,8,10]
+
+print(a[0]),
+print(a[-1])
+print(a[0:3])
+print(a[0:6:2])
+a[0] = 100
+print(a)
+a.append(200)
+print(a)
+a.insert(2, 300)
+print(a)
+a.remove(100)
+print(a)
+a.pop(2)  ## Will remove the element at index 2
+print(a)
+# a.clear()
+# print(a)
+a.sort()
+
+# b= a.copy()
+b=[1,2,3,4,5]
+# a.extend(b)
+print(a)
+print("using operators")
+print(a+b)
+
+c=[1,4,9,16,25,36,49,64,81,100]
+for i in c:
+  if i%2==0:
+    print(i)
+
+c.reverse()
+print(c)
+c.sort()
+print(c)
+
+d=c.copy()
+print(d)
+
+## Program to remove duplicates from a list
+e=[1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10]
+f=[]
+for i in e:
+  if i not in f:
+    f.append(i)
+print(f)
+26/12/2024, 10:25 - Krishil Agrawal: https://w0hbmvf2-5173.inc1.devtunnels.ms/
+26/12/2024, 10:47 - Krishil Agrawal: https://lambent-crostata-f86dce.netlify.app
+26/12/2024, 15:42 - Krishil Agrawal: #include <iostream>
+using namespace std;
+
+void linearSearch(int arr[], int n, int x, int &position, int &comparisons) {
+    comparisons = 0;
+    position = -1;
+    for (int i = 0; i < n; ++i) {
+        comparisons++;
+        if (arr[i] == x) {
+            position = i + 1;
+            return;
+        }
+    }
+}
+
+void binarySearch(int arr[], int n, int x, int &position, int &comparisons) {
+    comparisons = 0;
+    position = -1;
+    int left = 0, right = n - 1;
+    while (left <= right) {
+        int mid = (right + left) / 2;
+        comparisons++;
+        if (arr[mid] == x) {
+            position = mid + 1;
+            right = mid - 1;
+        } else if (arr[mid] < x) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+}
+
+int main() {
+    int n, x;
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
+    cin >> x;
+
+    int linearPosition, linearComparisons;
+    int binaryPosition, binaryComparisons;
+
+    linearSearch(arr, n, x, linearPosition, linearComparisons);
+
+    binarySearch(arr, n, x, binaryPosition, binaryComparisons);
+
+    cout << linearPosition << " " << linearComparisons << " " << binaryComparisons << endl;
+
+    return 0;
+}
+26/12/2024, 16:11 - Krishil Agrawal: #include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+
+  int n, count = -1;
+  cin >> n;
+  int arr[n];
+  for (int i = 0; i < n; i++)
+  {
+    cin >> arr[i];
+  }
+
+  for (int i = n-1; i >= 0; i--)
+  {
+    int low = arr[i];
+    int j = i;
+    ++count;
+    while (j < (n-1) && arr[j-1] > low )
+    {
+      arr[j] = arr[j - 1];
+      j--;
+    }
+
+    arr[j] = low;
+  }
+
+  cout << count;
+
+
+  return 0;
+}
+26/12/2024, 21:05 - Ashish CSE: Oi
+26/12/2024, 21:05 - Ashish CSE: Air mate su su karvanu message ekarje ne
+26/12/2024, 21:22 - Krishil Agrawal: su air??
+26/12/2024, 21:22 - Ashish CSE: Eliya air nai AI
+26/12/2024, 21:22 - Krishil Agrawal: are bhai amna muk
+26/12/2024, 21:22 - Krishil Agrawal: scribble ramu chu
+26/12/2024, 21:23 - Ashish CSE: Ha pachi mokli daje
+26/12/2024, 21:23 - Ashish CSE: Apde jaldi nai
+26/12/2024, 21:23 - Krishil Agrawal: ohk
+27/12/2024, 00:17 - Krishil Agrawal: Kale vaaat kariye
+27/12/2024, 00:55 - Ashish CSE: Ohk
+31/12/2024, 12:25 - Krishil Agrawal: https://www.oracle.com/database/sqldeveloper/technologies/download/
+31/12/2024, 12:28 - Krishil Agrawal: https://www.oracle.com/database/technologies/oracle21c-windows-downloads.html
+31/12/2024, 12:39 - Krishil Agrawal: use Practical2;
+
+create table employees (
+	emp_id numeric primary key,
+	emp_name varchar(50) not null,
+	emp_age numeric not null,
+	emp_city varchar(50) not null,
+	emp_salary numeric not null,
+	constraint age_check check (emp_age>=18)
+);
+
+create table job_profiles (
+	job_id numeric primary key,
+	job_title varchar(50) not null,
+	job_name varchar(50) not null,
+	job_salary numeric not null,
+);
+
+create table customers_acc (
+	cust_id numeric primary key,
+	cust_name varchar(50) not null,
+	cust_acc_type varchar(50) not null,
+	cust_acc_num numeric not null,
+);
+
+create table loan_info (
+	loan_id numeric primary key,
+	loan_amount numeric not null,
+	loan_interest numeric not null,
+	loan_period numeric not null
+);
+
+INSERT INTO employees (emp_id, emp_name, emp_age, emp_city, emp_salary) VALUES
+	(1, 'John Doe', 28, 'New York', 55000),
+	(2, 'Alice Smith', 32, 'Los Angeles', 60000),
+	(3, 'Robert Brown', 24, 'Chicago', 48000),
+	(4, 'Maria Johnson', 29, 'Houston', 52000),
+	(5, 'David Wilson', 35, 'Phoenix', 67000);
+
+INSERT INTO job_profiles (job_id, job_title, job_name, job_salary) VALUES
+	(1, 'Software Engineer', 'Developer', 85000),
+	(2, 'Data Analyst', 'Analyst', 75000),
+	(3, 'Project Manager', 'Manager', 95000),
+	(4, 'UI/UX Designer', 'Designer', 70000),
+	(5, 'System Administrator', 'Administrator', 68000);
+
+
+INSERT INTO customers_acc (cust_id, cust_name, cust_acc_type, cust_acc_num) VALUES
+	(1, 'Emma Thomas', 'Savings', 101234567),
+	(2, 'Liam Johnson', 'Current', 102345678),
+	(3, 'Olivia Davis', 'Savings', 103456789),
+	(4, 'Noah Garcia', 'Fixed Deposit', 104567890),
+	(5, 'Sophia Martinez', 'Current', 105678901);
+
+INSERT INTO loan_info (loan_id, loan_amount, loan_interest, loan_period) VALUES
+	(1, 50000, 5.5, 24),
+	(2, 75000, 6.2, 36),
+	(3, 120000, 4.8, 48),
+	(4, 20000, 7.0, 12),
+	(5, 100000, 5.0, 60);
+
+select * from employees;
+select * from job_profiles;
+select * from customers_acc;
+select * from loan_info;
+
+--drop table employees;
+--drop table job_profiles;
+--drop table customers_acc;
+--drop table loan_info;
+
+-- Task 1
+
+-- Approach 1
+create table supplier (
+	sup_id numeric primary key,
+	sup_name varchar(50) not null,
+	sup_product varchar(50) not null,
+	emp_name varchar(50) not null,
+	emp_age numeric not null,
+	emp_city varchar(50) not null,
+	emp_salary numeric not null,
+	constraint age_check check (emp_age>=18)
+);
+
+-- Approach 2
+--create table supplier as select * from employees
+select * into supplier from employees
+
+--drop table supplier
+select * from supplier
+31/12/2024, 13:10 - Krishil Agrawal: use Practical2;
+
+create table employees (
+	emp_id numeric primary key,
+	emp_name varchar(50) not null,
+	emp_age numeric not null,
+	emp_city varchar(50) not null,
+	emp_salary numeric not null,
+	constraint age_check check (emp_age>=18)
+);
+
+create table job_profiles (
+	job_id numeric primary key,
+	job_title varchar(50) not null,
+	job_name varchar(50) not null,
+	job_salary numeric not null,
+);
+
+create table customers_acc (
+	cust_id numeric primary key,
+	cust_name varchar(50) not null,
+	cust_acc_type varchar(50) not null,
+	cust_acc_num numeric not null,
+);
+
+create table loan_info (
+	loan_id numeric primary key,
+	loan_amount numeric not null,
+	loan_interest numeric not null,
+	loan_period numeric not null
+);
+
+INSERT INTO employees (emp_id, emp_name, emp_age, emp_city, emp_salary) VALUES
+	(1, 'John Doe', 28, 'New York', 55000),
+	(2, 'Alice Smith', 32, 'Los Angeles', 60000),
+	(3, 'Robert Brown', 24, 'Chicago', 48000),
+	(4, 'Maria Johnson', 29, 'Houston', 52000),
+	(5, 'David Wilson', 35, 'Phoenix', 67000);
+
+INSERT INTO job_profiles (job_id, job_title, job_name, job_salary) VALUES
+	(1, 'Software Engineer', 'Developer', 85000),
+	(2, 'Data Analyst', 'Analyst', 75000),
+	(3, 'Project Manager', 'Manager', 95000),
+	(4, 'UI/UX Designer', 'Designer', 70000),
+	(5, 'System Administrator', 'Administrator', 68000);
+
+
+INSERT INTO customers_acc (cust_id, cust_name, cust_acc_type, cust_acc_num) VALUES
+	(1, 'Emma Thomas', 'Savings', 101234567),
+	(2, 'Liam Johnson', 'Current', 102345678),
+	(3, 'Olivia Davis', 'Savings', 103456789),
+	(4, 'Noah Garcia', 'Fixed Deposit', 104567890),
+	(5, 'Sophia Martinez', 'Current', 105678901);
+
+INSERT INTO loan_info (loan_id, loan_amount, loan_interest, loan_period) VALUES
+	(1, 50000, 5.5, 24),
+	(2, 75000, 6.2, 36),
+	(3, 120000, 4.8, 48),
+	(4, 20000, 7.0, 12),
+	(5, 100000, 5.0, 60);
+
+select * from employees;
+select * from job_profiles;
+select * from customers_acc;
+select * from loan_info;
+
+--drop table employees;
+--drop table job_profiles;
+--drop table customers_acc;
+--drop table loan_info;
+
+-- Task 1
+
+-- Approach 1
+create table supplier (
+	sup_id numeric primary key,
+	sup_name varchar(50) not null,
+	sup_product varchar(50) not null,
+	emp_name varchar(50) not null,
+	emp_age numeric not null,
+	emp_city varchar(50) not null,
+	emp_salary numeric not null,
+	constraint age_check check (emp_age>=18)
+);
+
+-- Approach 2
+--create table supplier as select * from employees
+select * into supplier from employees
+
+--drop table supplier
+select * from supplier
+
+-- Task 2
+select emp_id, emp_name into sup1 from employees
+
+select * from sup1;
+
+-- Task 3
+select * into sup2 from employees where 1=0  -- Copies structure only
+
+-- Task 4
+insert into sup2 (emp_id, emp_name, emp_age, emp_city, emp_salary)
+	select emp_id, emp_name, emp_age, emp_city, emp_salary
+	from employees
+	where emp_name='Anita'
+
+-- Task 5
+EXEC sp_rename 'sup2', 'supplier_new';
+
+-- Task 6
+drop table sup1;
+
+-- Task 7
+alter table employees 
+	add phone varchar(10)
+
+-- Task 8
+alter table employees
+	alter column phone char(10)
+
+-- Task 9
+select emp_id, emp_name, emp_age, emp_city, emp_salary 
+	into supplier_new from employees
+
+select emp_id, emp_name, emp_age, emp_city, emp_salary
+	into temp_supplier from supplier_new
+
+drop table supplier_new;
+
+exec sp_rename 'temp_supplier', 'supplier_new'
+01/01/2025, 19:06 - Krishil Agrawal: <Media omitted>
+01/01/2025, 22:12 - Ashish CSE: g
+02/01/2025, 00:54 - Ashish CSE: <Media omitted>
+02/01/2025, 00:55 - Ashish CSE: Sui ja
+02/01/2025, 00:55 - Ashish CSE: 1 vaga sudhi kemon jage che
+02/01/2025, 00:55 - Ashish CSE: Kemno
+02/01/2025, 00:55 - Krishil Agrawal: Le pote jagi ne Mane suvanu ke che
+02/01/2025, 00:55 - Krishil Agrawal: Waah beta waah
+02/01/2025, 00:56 - Ashish CSE: Hu to gym rat chu
+02/01/2025, 00:56 - Ashish CSE: Tu hetvi rat che
+02/01/2025, 00:56 - Ashish CSE: Sorry
+02/01/2025, 00:56 - Krishil Agrawal: Hmmmm haaa
+02/01/2025, 00:56 - Krishil Agrawal: Kale maddd
+02/01/2025, 00:56 - Ashish CSE: Sorry bolyo me bhai
+02/01/2025, 00:56 - Krishil Agrawal: Kai nai chal
+02/01/2025, 00:56 - Ashish CSE: 260kg
+02/01/2025, 00:56 - Ashish CSE: Ok
+02/01/2025, 11:53 - Ashish CSE: <Media omitted>
+03/01/2025, 09:22 - Krishil Agrawal: Hi
+03/01/2025, 09:22 - Krishil Agrawal: .
+03/01/2025, 09:22 - Ashish CSE: bol
+03/01/2025, 09:23 - Krishil Agrawal: Ala bhai e mara mate natu
+03/01/2025, 09:23 - Krishil Agrawal: mara friend mate hatu
+03/01/2025, 09:23 - Ashish CSE: pan me kya kai kidhu
+03/01/2025, 09:23 - Krishil Agrawal: ehoy to Aditya ne puchile
+03/01/2025, 09:23 - Ashish CSE: hut to khali vat karu
+03/01/2025, 09:23 - Krishil Agrawal: ja jootha
+03/01/2025, 09:23 - Ashish CSE: aj to me hetvi nu nam pan nai lidhu
+03/01/2025, 09:25 - Krishil Agrawal: link mokal
+03/01/2025, 09:25 - Krishil Agrawal: software ni
+03/01/2025, 09:25 - Krishil Agrawal: jaldi
+03/01/2025, 09:25 - Krishil Agrawal: .
+03/01/2025, 09:25 - Krishil Agrawal: .
+03/01/2025, 09:25 - Krishil Agrawal: .
+03/01/2025, 09:25 - Krishil Agrawal: .
+03/01/2025, 09:25 - Krishil Agrawal: .
+03/01/2025, 09:25 - Krishil Agrawal: .
+03/01/2025, 09:25 - Ashish CSE: https://www.computernetworkingnotes.com/ccna-study-guide/download-packet-tracer-for-windows-and-linux.html
+03/01/2025, 10:11 - Ashish CSE: su karvanu hc
+03/01/2025, 10:16 - Ashish CSE: su karvanu che
+03/01/2025, 10:16 - Krishil Agrawal: are karine moklu tane
+03/01/2025, 10:16 - Ashish CSE: photiu votu mokal kaik
+03/01/2025, 10:16 - Krishil Agrawal: ubhore
+03/01/2025, 10:16 - Ashish CSE: ok
+03/01/2025, 10:18 - Krishil Agrawal: hara loda
+03/01/2025, 10:18 - Krishil Agrawal: chutiya
+03/01/2025, 10:18 - Ashish CSE: mute rakhai bhosdina
+03/01/2025, 10:18 - Ashish CSE: api dahe last ma chinta na karis
+03/01/2025, 10:18 - Krishil Agrawal: ala silent aj hatu
+03/01/2025, 10:18 - Krishil Agrawal: ha khabar che
+03/01/2025, 10:19 - Krishil Agrawal: mara notifications nathi
+sir na vage che
+03/01/2025, 10:19 - Ashish CSE: ok hal
+03/01/2025, 10:46 - Ashish CSE: એક જાડ માથે બેસેલો મોર અને પેલી માટી ના માટલા ભરી લઈ જતી ભાદરવા મહીના મા ભાદર ના કાંઠે મે જોયુ ચિત્ર અને થયું મારું મન મોહી
+03/01/2025, 10:48 - Krishil Agrawal: Here is the last column with the hexadecimal values:
+
+| **Hexadecimal (0x)** |
+|----------------------|
+| `0x4`                |
+| `0x5`                |
+| `0x0`                |
+| `0x0`                |
+| `0x0`                |
+| `0x2`                |
+| `0x8`                |
+| `0xB`                |
+| `0xF`                |
+| `0xD`                |
+| `0x2`                |
+| `0x4`                |
+| `0x0`                |
+| `0x0`                |
+| `0x2`                |
+| `0x0`                |
+| `0x1`                |
+| `0xB`                |
+| `0x3`                |
+| `0xB`                |
+| `0x0`                |
+| `0x6`                |
+| `0x7`                |
+| `0x1`                |
+| `0x8`                |
+| `0x3`                |
+| `0x2`                |
+| `0xA`                |
+| `0xA`                |
+| `0xC`                |
+| `0x11`               |
+| `0x10`               |
+| `0x00`               |
+| `0x02`               |
+| `0x22`               |
+| `0x2F`               |
+| `0x3D`               |
+| `0x09`               |
+| `0x00`               |
+| `0x00`               |
+| `0x20`               |
+| `0x01`               |
+| `0x2C`               |
+| `0x3B`               |
+| `0x10`               |
+| `0x19`               |
+| `0x33`               |
+| `0x2E`               |
+| `0x18`               |
+| `0x19`               |
+| `0x2A`               |
+| `0x30`               |
+| `0x10`               |
+| `0x03`               |
+| `0x07`               |
+| `0x2C`               |
+| `0x4500`             |
+| `0x0008`             |
+| `0xBFD2`             |
+| `0x4002AFF`          |
+| `0x44000020`         |
+| `0x1B36C63`          |
+05/01/2025, 13:57 - Krishil Agrawal: Hii
+05/01/2025, 13:58 - Krishil Agrawal: Taro room no video padi ne mokal
+05/01/2025, 14:50 - Ashish CSE: Moklu
+05/01/2025, 14:52 - Krishil Agrawal: jaldiii
+05/01/2025, 14:53 - Ashish CSE: Ha bhai
+05/01/2025, 14:53 - Ashish CSE: <Media omitted>
+05/01/2025, 14:55 - Krishil Agrawal: bathroom and washroom attach che
+05/01/2025, 14:55 - Krishil Agrawal: ??
+05/01/2025, 14:58 - Ashish CSE: Ha
+05/01/2025, 15:02 - Krishil Agrawal: ane garam pani nu kevu che
+05/01/2025, 15:02 - Krishil Agrawal: ?
+05/01/2025, 15:08 - Ashish CSE: Savre ave
+05/01/2025, 15:11 - Krishil Agrawal: hmm
+05/01/2025, 15:13 - Ashish CSE: Pan jamvanu badhi hostel karta amre saru he
+05/01/2025, 15:14 - Krishil Agrawal: e badhane evuj lage <This message was edited>
+05/01/2025, 15:14 - Ashish CSE: Na bhai tu puchi laje bija hostel varane
+05/01/2025, 15:14 - Ashish CSE: Khbar padi jahe
+05/01/2025, 15:14 - Krishil Agrawal: ha
+05/01/2025, 15:14 - Krishil Agrawal: 4 sharing che ne tare
+05/01/2025, 15:15 - Ashish CSE: Ha
+05/01/2025, 15:15 - Krishil Agrawal: ane price su che
+05/01/2025, 15:15 - Krishil Agrawal: ??
+05/01/2025, 15:15 - Ashish CSE: 95k
+05/01/2025, 15:15 - Krishil Agrawal: ohk
+05/01/2025, 15:15 - Ashish CSE: 3 na 102k
+05/01/2025, 15:15 - Krishil Agrawal: ane savare dikat nai pade tamne
+05/01/2025, 15:15 - Krishil Agrawal: attach bathroom mate
+05/01/2025, 15:15 - Ashish CSE: + rojni 1 jodi kapda thoi ape
+05/01/2025, 15:15 - Ashish CSE: Na
+05/01/2025, 15:15 - Krishil Agrawal: ohhhhh
+05/01/2025, 15:16 - Ashish CSE: Badhne 15 minit male
+05/01/2025, 15:16 - Krishil Agrawal: 3 sharing ni room pan same j che
+05/01/2025, 15:16 - Ashish CSE: Ane hu to ratre nai nakhu
+05/01/2025, 15:16 - Ashish CSE: Na e upar na nale
+05/01/2025, 15:16 - Ashish CSE: Hu ground floor
+05/01/2025, 15:16 - Ashish CSE: Male
+05/01/2025, 15:16 - Krishil Agrawal: matlab
+05/01/2025, 15:16 - Krishil Agrawal: ?
+05/01/2025, 15:17 - Ashish CSE: Matlab floor
+05/01/2025, 15:17 - Krishil Agrawal: ..
+05/01/2025, 15:17 - Ashish CSE: Ha size 4 sharing jtlo
+05/01/2025, 15:17 - Ashish CSE: Pan 3 ben
+05/01/2025, 15:17 - Krishil Agrawal: ane kai extra facility
+05/01/2025, 15:17 - Ashish CSE: Tane 3 sharing ka fridge shoe rack and clothes hanger ape
+05/01/2025, 15:18 - Krishil Agrawal: ohk
+05/01/2025, 23:07 - Krishil Agrawal: <Media omitted>
+05/01/2025, 23:07 - Krishil Agrawal: <Media omitted>
+05/01/2025, 23:07 - Ashish CSE: Hetvi ne aj phota mokla ta
+05/01/2025, 23:08 - Krishil Agrawal: na la khali tanej moklu chu
+05/01/2025, 23:08 - Ashish CSE: Ha eto have saru lagdvaate kevu pade
+05/01/2025, 23:08 - Ashish CSE: Vandho nai halne
+05/01/2025, 23:08 - Ashish CSE: It's you matter that I can't interfere
+05/01/2025, 23:08 - Ashish CSE: 🙃
+05/01/2025, 23:08 - Krishil Agrawal: ohhhhh
+05/01/2025, 23:08 - Krishil Agrawal: sudhri gayo bhai
+05/01/2025, 23:08 - Ashish CSE: Nai
+05/01/2025, 23:09 - Krishil Agrawal: <Media omitted>
+05/01/2025, 23:09 - Ashish CSE: Sui ja
+05/01/2025, 23:09 - Krishil Agrawal: <Media omitted>
+05/01/2025, 23:09 - Ashish CSE: <Media omitted>
+05/01/2025, 23:09 - Ashish CSE: This message was deleted
+05/01/2025, 23:10 - Krishil Agrawal: hara sharam nai avti
+05/01/2025, 23:10 - Ashish CSE: Kem
+05/01/2025, 23:10 - Krishil Agrawal: ekla ekla solve karo
+05/01/2025, 23:10 - Ashish CSE: Tamre yar hetvi he mare kon he
+05/01/2025, 23:10 - Ashish CSE: He javab to de
+05/01/2025, 23:11 - Krishil Agrawal: <Media omitted>
+05/01/2025, 23:11 - Ashish CSE: Ohh hetvi ne khotu lagse evi
+05/01/2025, 23:11 - Krishil Agrawal: Chal muk ave
+05/01/2025, 23:11 - Ashish CSE: Nai hetvi ne thodi mukai
+05/01/2025, 23:12 - Krishil Agrawal: <Media omitted>
+05/01/2025, 23:12 - Krishil Agrawal: Vato karva de ave
+05/01/2025, 23:12 - Ashish CSE: Ha kar hetvi hare
+05/01/2025, 23:12 - Krishil Agrawal: <Media omitted>
+05/01/2025, 23:12 - Ashish CSE: Badhi chat moklje ta
+05/01/2025, 23:12 - Ashish CSE: Muthiya marva
+05/01/2025, 23:13 - Krishil Agrawal: Hmm kale moklis
+05/01/2025, 23:13 - Ashish CSE: Loda sui ja
+05/01/2025, 23:13 - Ashish CSE: Kale moklis vari
+05/01/2025, 23:13 - Krishil Agrawal: Amna vato karva de chal
+05/01/2025, 23:13 - Ashish CSE: Saram nai avti tane
+05/01/2025, 23:13 - Krishil Agrawal: Jarak e nai
+05/01/2025, 23:13 - Ashish CSE: Chodina sui ja
+05/01/2025, 23:13 - Ashish CSE: Mare gadi pachi varvi padi te to no vari
+05/01/2025, 23:14 - Krishil Agrawal: Ha bhai
+05/01/2025, 23:15 - Ashish CSE: Chal bye hetvi
+05/01/2025, 23:15 - Ashish CSE: <Media omitted>
+05/01/2025, 23:15 - Ashish CSE: <Media omitted>
+05/01/2025, 23:15 - Krishil Agrawal: Bye jaaanu 🥰
+05/01/2025, 23:15 - Krishil Agrawal: Je vastu ene mokal Vani hoy e tane moklu chu
+05/01/2025, 23:25 - Ashish CSE: Ha bhai ha tame hosiyar yar
+05/01/2025, 23:26 - Ashish CSE: Amro level nai Tamra jetlo
+05/01/2025, 23:26 - Ashish CSE: 😮‍💨
+05/01/2025, 23:57 - Ashish CSE: <Media omitted>
+06/01/2025, 00:26 - Ashish CSE: Me bhul mathi pela ans file mokli ali Ane Ane have questions file moklu hu
+06/01/2025, 00:27 - Krishil Agrawal: Ha Kai nai
+07/01/2025, 09:04 - Krishil Agrawal: <Media omitted>
+07/01/2025, 14:31 - Ashish CSE: Bol
+07/01/2025, 14:31 - Krishil Agrawal: Kai nai
+07/01/2025, 14:31 - Ashish CSE: Lab ma he
+07/01/2025, 14:31 - Krishil Agrawal: Lab ma gyo ke nai e puch vanu hatu
+07/01/2025, 14:31 - Krishil Agrawal: Hu nathi amna
+07/01/2025, 20:06 - Ashish CSE: null
+08/01/2025, 20:24 - Krishil Agrawal: <Media omitted>
+09/01/2025, 22:49 - Ashish CSE: This message was deleted
+10/01/2025, 09:06 - Krishil Agrawal: <Media omitted>
+10/01/2025, 09:21 - Ashish CSE: <Media omitted>
+10/01/2025, 09:23 - Krishil Agrawal: Hu ali dais
+10/01/2025, 09:23 - Krishil Agrawal: Tu kyare pata vano saumya ne <This message was edited>
+10/01/2025, 09:25 - Ashish CSE: Topic fhervma bhai tu
+10/01/2025, 09:25 - Krishil Agrawal: Hu ferav toh nathi
+10/01/2025, 09:26 - Krishil Agrawal: Baki sachu topic par au chu
+10/01/2025, 09:26 - Ashish CSE: Are bhai bhagwan ne banavi hase jodi to Thai jase bhegu
+10/01/2025, 09:26 - Krishil Agrawal: Acha thik 😅🙃
+10/01/2025, 09:26 - Krishil Agrawal: Ane bhai linked in premium nu Jo ne
+10/01/2025, 09:26 - Krishil Agrawal: Kaik
+10/01/2025, 09:27 - Ashish CSE: Linked in premium enu su Kam che
+10/01/2025, 09:27 - Krishil Agrawal: Are tane samjavu pade yaar
+10/01/2025, 09:27 - Krishil Agrawal: Smji ja ave
+10/01/2025, 09:27 - Ashish CSE: Ohh Ema profile badhu batve je normal ne na batave evu ka
+10/01/2025, 09:28 - Ashish CSE: Ena mate telegram kato GitHub mali jase
+10/01/2025, 09:28 - Krishil Agrawal: Badhu j thay ena thi
+10/01/2025, 09:28 - Krishil Agrawal: Are me joyu telegram par
+10/01/2025, 09:28 - Krishil Agrawal: Pan nai madyu
+10/01/2025, 09:28 - Ashish CSE: Dark web par ek var chakkar marto av
+10/01/2025, 09:43 - Krishil Agrawal: Ha jaldi fari ne avje
+10/01/2025, 10:27 - Krishil Agrawal: <Media omitted>
+10/01/2025, 22:57 - Ashish CSE: Ek hi dil he kitni bar todoge
+10/01/2025, 23:17 - Ashish CSE: <Media omitted>
+11/01/2025, 00:08 - Ashish CSE: https://www.instagram.com/reel/DEJPB8Gz4m0/?igsh=MThhcHh2eGh1Y3F6cw==
+11/01/2025, 00:08 - Ashish CSE: 🙂🙂
+11/01/2025, 00:08 - Ashish CSE: Smile in PAIN😌
+11/01/2025, 00:17 - Krishil Agrawal: Toh hastp reh akho divas 😏🙎
+11/01/2025, 00:19 - Krishil Agrawal: Ene lakh 
+No one cares about ur achievements
+11/01/2025, 00:43 - Ashish CSE: Na ela ene yar pachi khotu lagi
+11/01/2025, 00:43 - Ashish CSE: Ane apdo kai intention na hoi ke ene khotu lagi jai
+11/01/2025, 00:43 - Ashish CSE: Etle evu nath larvu
+11/01/2025, 00:43 - Ashish CSE: Karvu
+11/01/2025, 08:33 - Krishil Agrawal: Kai nai
+11/01/2025, 18:27 - Ashish CSE: This message was deleted
+11/01/2025, 18:30 - Ashish CSE: <Media omitted>
+11/01/2025, 18:30 - Ashish CSE: <Media omitted>
+11/01/2025, 18:33 - Ashish CSE: This message was deleted
+11/01/2025, 18:40 - Krishil Agrawal: <Media omitted>
+11/01/2025, 18:41 - Krishil Agrawal: Tane su Lage ke Mane backup karta nai avde 😏
+11/01/2025, 18:52 - Ashish CSE: Ha yar level Kem bhulai
+11/01/2025, 18:52 - Ashish CSE: <Media omitted>
+11/01/2025, 18:53 - Krishil Agrawal: Kai bank luti ne ayo
+11/01/2025, 18:53 - Ashish CSE: Bank of Baroda
+11/01/2025, 18:54 - Krishil Agrawal: Ai ne toh batao aiya
+11/01/2025, 18:54 - Ashish CSE: Next money hiest season joi laje
+11/01/2025, 18:54 - Krishil Agrawal: Okay
+11/01/2025, 18:54 - Krishil Agrawal: Kyare avani
+11/01/2025, 18:55 - Ashish CSE: Bank lutai pachi
+12/01/2025, 02:06 - Ashish CSE: <Media omitted>
+12/01/2025, 08:26 - Krishil Agrawal: Waah bhai
+12/01/2025, 08:26 - Krishil Agrawal: Atlu motivation ene dekhad
+12/01/2025, 08:26 - Krishil Agrawal: Toh shayad ayi pan jay
+12/01/2025, 14:26 - Ashish CSE: Yehi to mushkil he
+13/01/2025, 03:29 - Ashish CSE: <Media omitted>
+13/01/2025, 03:30 - Ashish CSE: Note:hu 2 vaga sudhi su to hase etle kai pan keva pela mani laje 2 vga pachi reply avse
+13/01/2025, 03:30 - Ashish CSE: Ane react ma felling ave he
+13/01/2025, 03:30 - Ashish CSE: Ane aa feeling share karvani man thayu etle tane video moklu
+13/01/2025, 03:30 - Ashish CSE: Mane lagu etli mehnat karu kok appreciate karva varu hovu joiye 😅
+13/01/2025, 03:31 - Ashish CSE: Ane je chutiya keva mate na phone avata e khali hu bovj navro hato etle hata baki mane pan khabr ke avi bakchodi no karay
+13/01/2025, 03:31 - Ashish CSE: Etle sorry
+13/01/2025, 03:31 - Ashish CSE: Ane havethi nai vae
+13/01/2025, 03:31 - Ashish CSE: Bye
+13/01/2025, 18:58 - Ashish CSE: oy krishil
+13/01/2025, 18:58 - Ashish CSE: Type Script Karai ke no karai
+13/01/2025, 19:29 - Krishil Agrawal: Web domain  ma javu hoy toh karile
+13/01/2025, 19:29 - Krishil Agrawal: Baki atlu pan Kam nai lage typescript
+13/01/2025, 19:30 - Krishil Agrawal: Yt par 1kalak no video che
+13/01/2025, 19:30 - Krishil Agrawal: E joi leje
+13/01/2025, 19:30 - Krishil Agrawal: Agar karwani icha hoy toh
+13/01/2025, 19:33 - Ashish CSE: ok kari nakhu
+13/01/2025, 19:33 - Ashish CSE: ane peali Saas karvani jarur
+13/01/2025, 21:08 - Ashish CSE: Syntactically
+14/01/2025, 02:33 - Ashish CSE: Happy kheear
+14/01/2025, 02:33 - Ashish CSE: Amari baju makar sankranti khier  key chr
+14/01/2025, 03:59 - Ashish CSE: <Media omitted>
+14/01/2025, 04:24 - Ashish CSE: <Media omitted>
+14/01/2025, 04:25 - Ashish CSE: how was it my first react handheld project
+14/01/2025, 09:44 - Krishil Agrawal: <Media omitted>
+14/01/2025, 18:03 - Ashish CSE: Ela farmer motion karai ke no karai
+14/01/2025, 18:03 - Ashish CSE: R
+Ane redux toolkit su che A
+14/01/2025, 18:03 - Ashish CSE: Kema upyog thai
+14/01/2025, 18:04 - Krishil Agrawal: Ala bhai patang chakai le
+14/01/2025, 18:04 - Krishil Agrawal: Ane chakava de
+14/01/2025, 18:04 - Ashish CSE: Ketlik chhavi savrano to chagavu
+14/01/2025, 18:04 - Krishil Agrawal: Aa badhi moh maya ma nai oad
+14/01/2025, 18:05 - Ashish CSE: Ok bhai sorry
+14/01/2025, 18:05 - Krishil Agrawal: Ja jootha
+14/01/2025, 18:05 - Ashish CSE: Kasam thi yar
+14/01/2025, 18:05 - Krishil Agrawal: Kha saumya ni sam
+14/01/2025, 18:05 - Ashish CSE: Mane pan bov sikh che
+14/01/2025, 18:05 - Ashish CSE: Sokh
+14/01/2025, 18:05 - Krishil Agrawal: Motions, animations mate j che
+14/01/2025, 18:05 - Krishil Agrawal: Ha toh chakav
+14/01/2025, 18:06 - Krishil Agrawal: 2 divas muki devanu
+14/01/2025, 18:06 - Krishil Agrawal: Bhanvanu
+14/01/2025, 18:06 - Ashish CSE: Any Kai de bhai khali baki chagava rakhje
+14/01/2025, 19:01 - Krishil Agrawal: Idk about redux toolki6
+14/01/2025, 19:02 - Ashish CSE: Ok
+16/01/2025, 19:20 - Ashish CSE: I achieved something big today
+16/01/2025, 19:20 - Krishil Agrawal: what big ??
+16/01/2025, 19:20 - Krishil Agrawal: dildo ?
+16/01/2025, 19:20 - Ashish CSE: I masterbated 7 times in one day
+16/01/2025, 19:21 - Krishil Agrawal: toh jive che kai rite
+16/01/2025, 19:21 - Krishil Agrawal: atli vaar ma toh isan ne mari javu joye
+16/01/2025, 19:21 - Ashish CSE: 8 ma e atki gyo pachi blood dekhai gyu etle pachi limit 7 ni rakhi
+16/01/2025, 19:21 - Krishil Agrawal: waah jadiya
+16/01/2025, 19:21 - Krishil Agrawal: pachi ko ke koi madti j nathi
+16/01/2025, 19:22 - Ashish CSE: Ane pelu Thala For a Reason
+16/01/2025, 19:22 - Ashish CSE: Ela bhai
+16/01/2025, 19:22 - Krishil Agrawal: actually tamne koini jarur j nathi
+16/01/2025, 19:22 - Krishil Agrawal: tame self satisfied cho
+16/01/2025, 19:22 - Ashish CSE: Ela bhai tane lage me muthiya mara hase
+16/01/2025, 19:22 - Krishil Agrawal: haaaaaaaaaaaaaaaaaaaaa
+16/01/2025, 19:22 - Ashish CSE: Me muthiya marvanu 2024 ma bandh Kari dhidhu
+16/01/2025, 19:23 - Krishil Agrawal: ja la jootha
+16/01/2025, 19:23 - Krishil Agrawal: savar thi koi madyo nai
+16/01/2025, 19:23 - Ashish CSE: Are bhai kai nath mara ato bathroom ma betho betho koi timepass mate goto hato Ane tu online dekhayo etle
+16/01/2025, 19:23 - Krishil Agrawal: hara
+16/01/2025, 19:23 - Krishil Agrawal: ch**ya
+16/01/2025, 19:24 - Ashish CSE: Su thayu
+16/01/2025, 19:24 - Ashish CSE: BC have 100% sachi vat karu email Manas ne vandho he
+16/01/2025, 19:24 - Ashish CSE: Email nai pan emai
+16/01/2025, 19:24 - Krishil Agrawal: ha ohk
+16/01/2025, 19:24 - Krishil Agrawal: mani lidhu bs
+16/01/2025, 19:24 - Krishil Agrawal: ave muk chal
+16/01/2025, 19:24 - Ashish CSE: Eto bandhu smajanu
+16/01/2025, 19:25 - Ashish CSE: Peli hare Kai navi conservation kari
+16/01/2025, 19:25 - Ashish CSE: Conversation aa autocorrect ni mano Ane beno pico
+16/01/2025, 19:26 - Ashish CSE: Keto khari ke bus nai kevanu kai amne
+16/01/2025, 19:27 - Ashish CSE: Vandho nai kari lyo ignore jovai jase
+16/01/2025, 19:27 - Krishil Agrawal: hmm joi leje maru
+16/01/2025, 19:28 - Ashish CSE: Ok hal nai puchu enu kai bus koi divas level nu pan nai kai tari koi divas eni hare masti pan nai kari
+16/01/2025, 19:28 - Ashish CSE: Bus khush tame loko
+16/01/2025, 19:29 - Krishil Agrawal: ala yaar atlu motu nai lakh
+16/01/2025, 19:29 - Krishil Agrawal: vachvanu katado avto che
+16/01/2025, 19:31 - Ashish CSE: <Media omitted>
+16/01/2025, 19:34 - Krishil Agrawal: Ala bhai tu toh serious thai gayo
+16/01/2025, 19:34 - Krishil Agrawal: Mari vaat ne koi divas atlu serious nai levanu
+16/01/2025, 19:35 - Ashish CSE: Hu kya serious chu
+16/01/2025, 19:35 - Ashish CSE: Reva de hangi lidhu pachi vat karisu
+16/01/2025, 19:36 - Krishil Agrawal: ohk
+18/01/2025, 20:40 - Ashish CSE: <Media omitted>
+18/01/2025, 20:41 - Ashish CSE: what should add in this list any suggestion
+18/01/2025, 21:12 - Krishil Agrawal: Na bs
+18/01/2025, 21:13 - Krishil Agrawal: Ave Mane karva de thoduk pachi tu karje <This message was edited>
+18/01/2025, 21:34 - Ashish CSE: Ela yar seriously ke
+21/01/2025, 18:55 - Ashish CSE: Aunty apni gand me bam lagati taki uncle unki gand na mar pahe or beta apne land kat deta taki aunty muh me na le paye ab batavo isme se sabse ganda kon he
+21/01/2025, 19:11 - Krishil Agrawal: Tu
+21/01/2025, 19:25 - Ashish CSE: 🥲
+22/01/2025, 18:12 - Ashish CSE: https://youtu.be/M9O5AjEFzKw?si=q3Qg05af_b9eyZbM
+22/01/2025, 19:18 - Krishil Agrawal: Joi lidhu che ? <This message was edited>
+22/01/2025, 19:20 - Ashish CSE: Nope
+22/01/2025, 19:21 - Krishil Agrawal: Tohh Sana mate moklu
+22/01/2025, 19:22 - Krishil Agrawal: ML karva lag
+22/01/2025, 19:22 - Krishil Agrawal: Web Kai kamnu nathi
+22/01/2025, 20:01 - Krishil Agrawal: https://docs.google.com/spreadsheets/d/1o9fIseP3o65cwUCO0sYeM6EJrvlkNpVSb9_EHY70z-Y/edit?usp=sharing
+22/01/2025, 20:02 - Krishil Agrawal: <Media omitted>
+22/01/2025, 20:06 - Ashish CSE: Wah
+22/01/2025, 20:06 - Ashish CSE: Karo ml topic suggest
+22/01/2025, 20:06 - Ashish CSE: Kari nakhsu
+22/01/2025, 20:08 - Krishil Agrawal: ..
+22/01/2025, 20:09 - Krishil Agrawal: Aa jo
+22/01/2025, 20:09 - Krishil Agrawal: ek hackathon che indus ma
+22/01/2025, 20:09 - Krishil Agrawal: karvu hoy toh register kari leje
+22/01/2025, 20:09 - Ashish CSE: Joi lai hal
+22/01/2025, 20:09 - Krishil Agrawal: hmm
+23/01/2025, 18:27 - Krishil Agrawal: <Media omitted>
+23/01/2025, 19:06 - Ashish CSE: Tentative Project Plan, Timeline and individual role 
+
+The project timeline provides the project schedule, highlighting key milestones, deadlines, and the duration of each phase.
+23/01/2025, 23:15 - Krishil Agrawal: saru che 👍
+23/01/2025, 23:23 - Ashish CSE: Lagga tane bhulmathi mokli gyu
+23/01/2025, 23:23 - Ashish CSE: Meta ai ma moklu tu
+23/01/2025, 23:47 - Krishil Agrawal: su yaaar
+23/01/2025, 23:47 - Krishil Agrawal: atlo moto thai ne pan bhul kare che
+25/01/2025, 03:59 - Ashish CSE: Ahiya message nakhje ke reply apke mare nptl nu 1 week bharvu che bhulto nai
+25/01/2025, 07:56 - Krishil Agrawal: Banev nu kari leje daa ane DBMS nu
+25/01/2025, 13:18 - Ashish CSE: Haji ek var nakhje
+25/01/2025, 13:18 - Krishil Agrawal: su?
+25/01/2025, 13:18 - Krishil Agrawal: land??
+25/01/2025, 13:19 - Ashish CSE: Are modo modo reply nakhje
+25/01/2025, 18:41 - Krishil Agrawal: You deleted this message
+25/01/2025, 20:37 - Ashish CSE: <Media omitted>
+25/01/2025, 20:37 - Ashish CSE: Ela mare daa na mentor ma avu ave
+25/01/2025, 20:37 - Ashish CSE: Su karvu
+25/01/2025, 20:37 - Krishil Agrawal: Refresh mar
+25/01/2025, 20:38 - Ashish CSE: Ketli var Maru me
+25/01/2025, 20:38 - Krishil Agrawal: Mentor selection avese andar
+25/01/2025, 20:38 - Krishil Agrawal: Toh date jati Rahi hase
+25/01/2025, 20:38 - Krishil Agrawal: Modu karyu bhai
+25/01/2025, 20:38 - Ashish CSE: To have
+25/01/2025, 20:39 - Ashish CSE: Bolne yar
+25/01/2025, 20:59 - Ashish CSE: Nilesh dubay no mail moklje ta
+26/01/2025, 00:06 - Krishil Agrawal: kale moklu
+26/01/2025, 00:06 - Krishil Agrawal: yaad apvaje savare
+26/01/2025, 00:07 - Ashish CSE: ha
+26/01/2025, 15:07 - Ashish CSE: Hello
+26/01/2025, 15:07 - Ashish CSE: Yaad apavu chu
+26/01/2025, 16:31 - Krishil Agrawal: +91 97269 64512
+26/01/2025, 16:32 - Krishil Agrawal: Mail nathi yaar
+26/01/2025, 16:32 - Krishil Agrawal: Ene msg karile
+26/01/2025, 16:33 - Ashish CSE: Mail mali gyo Ane kari dhidho
+26/01/2025, 16:34 - Krishil Agrawal: Toh su kidhu ene
+26/01/2025, 16:35 - Ashish CSE: Reply nai avo
+26/01/2025, 16:35 - Ashish CSE: <Media omitted>
+05/02/2025, 15:05 - Ashish CSE: Su karo che bhai tame
+05/02/2025, 15:05 - Krishil Agrawal: Band kar chutiya
+05/02/2025, 15:05 - Ashish CSE: Su thayu
+05/02/2025, 15:05 - Krishil Agrawal: Khabar che msg bombing kare che
+05/02/2025, 15:05 - Krishil Agrawal: Band kar latha
+05/02/2025, 15:06 - Ashish CSE: Ela yar hu Kai nai karto
+05/02/2025, 15:06 - Krishil Agrawal: Mane pn avde che
+05/02/2025, 15:06 - Ashish CSE: Nai ela karto hu
+05/02/2025, 15:06 - Ashish CSE: Khrekhar
+05/02/2025, 15:06 - Krishil Agrawal: Hu chalu Karu
+05/02/2025, 15:06 - Ashish CSE: Are bhai Kasam thi Kai karto hoi to
+05/02/2025, 15:06 - Krishil Agrawal: Ja la jutha
+05/02/2025, 15:06 - Ashish CSE: Me to khali message Karo atyre ketlai di thaya nahto karo etle
+05/02/2025, 15:06 - Ashish CSE: Ma Kassam karto hoi to
+05/02/2025, 15:06 - Krishil Agrawal: Kai nai chal
+05/02/2025, 15:07 - Ashish CSE: Ok
+05/02/2025, 15:07 - Ashish CSE: Ha bhai tamara indus hackathon joya ta phota
+05/02/2025, 15:09 - Krishil Agrawal: Hmm
+05/02/2025, 15:09 - Krishil Agrawal: Sara lagya ne
+05/02/2025, 15:21 - Ashish CSE: Ha bhai joine level khbar padi gai
+05/02/2025, 16:40 - Krishil Agrawal: Hmm shabash
+05/02/2025, 19:32 - Ashish CSE: Ratre kari tane thodo kam ma hu
+05/02/2025, 19:33 - Krishil Agrawal: Na bhai
+05/02/2025, 19:33 - Krishil Agrawal: Amna kar
+05/02/2025, 19:33 - Ashish CSE: Kav tane jarav
+10/02/2025, 19:51 - Krishil Agrawal: <Media omitted>
+11/02/2025, 12:18 - Krishil Agrawal: <Media omitted>
+11/02/2025, 12:18 - Krishil Agrawal: <Media omitted>
+11/02/2025, 12:18 - Krishil Agrawal: <Media omitted>
+11/02/2025, 12:20 - Krishil Agrawal: koi bijane mokal toh nai
+11/02/2025, 12:20 - Krishil Agrawal: mari file nathi aa
+11/02/2025, 12:20 - Krishil Agrawal: bija ni che
+11/02/2025, 12:20 - Krishil Agrawal: ene kidhelu ke koi nai moklto 
+pn me tane moikli che
+11/02/2025, 12:24 - Ashish CSE: 4 ane 5 no mokal
+11/02/2025, 12:29 - Ashish CSE: pela 5 practicle ni sql file mokal
+11/02/2025, 12:30 - Krishil Agrawal: are baki che 5mu
+11/02/2025, 12:30 - Krishil Agrawal: <Media omitted>
+11/02/2025, 12:30 - Krishil Agrawal: <Media omitted>
+11/02/2025, 12:30 - Krishil Agrawal: <Media omitted>
+11/02/2025, 12:30 - Krishil Agrawal: pehla ni amna nai madti
+11/02/2025, 12:30 - Krishil Agrawal: e pchi moklu
+11/02/2025, 12:31 - Krishil Agrawal: pchi moklu
+12/02/2025, 10:40 - Krishil Agrawal: Great choice! The story of The Monkey and the Crocodile is engaging and carries an important moral. Below is the speech divided into six paragraphs, so each group member can take turns speaking:
+
+
+---
+
+Speech on "The Monkey and the Crocodile"
+
+Paragraph 1: Introduction
+
+Once upon a time, in a dense forest, there was a clever monkey who lived on a tall tree near a river. This tree was special because it bore delicious, sweet fruits. The monkey enjoyed his peaceful life, jumping from branch to branch and eating the fruits. One day, a crocodile came near the riverbank, looking tired and hungry. The kind-hearted monkey saw him and offered some fruits. The crocodile was delighted and started visiting the monkey every day to eat the sweet fruits.
+
+Paragraph 2: Growing Friendship
+
+As days passed, the monkey and the crocodile became close friends. They talked for hours about the forest, animals, and the world around them. The monkey was happy to have a companion, and the crocodile was grateful for the monkey’s generosity. One day, the crocodile took some fruits home for his wife. She loved the taste but soon got a wicked idea. She thought, “If the monkey eats such delicious fruits every day, his heart must be even sweeter!” She told the crocodile that she wanted to eat the monkey’s heart.
+
+Paragraph 3: The Crocodile’s Dilemma
+
+The crocodile was shocked and refused at first. He valued his friendship with the monkey, but his wife kept insisting. She warned him that if he did not bring the monkey’s heart, she would stop talking to him. Unable to resist his wife’s demands, the crocodile finally agreed. He devised a plan to trick the monkey. The next day, he invited the monkey to his home on the other side of the river, saying his wife would love to meet him. The innocent monkey agreed and climbed onto the crocodile’s back.
+
+Paragraph 4: The Monkey’s Cleverness
+
+As they reached the middle of the river, the crocodile could no longer hide his intentions. He told the monkey, “My wife wants to eat your heart, so I have to take you to her.” The monkey was shocked but remained calm. He quickly thought of a plan and said, “Oh dear friend, you should have told me earlier! I don’t carry my heart with me; I have left it on the tree. Let’s go back, and I will give it to you.” The foolish crocodile believed him and turned back toward the tree.
+
+Paragraph 5: The Monkey Escapes
+
+As soon as they reached the riverbank, the monkey swiftly jumped off the crocodile’s back and climbed up his tree. He looked down at the crocodile and
+12/02/2025, 10:51 - Krishil Agrawal: Give me the 6 paragraphs on the story lion and hare with moral
+12/02/2025, 10:52 - Krishil Agrawal: ### **The Lion and the Hare**  
+
+Once upon a time, in a dense forest, there lived a mighty lion who was feared by all the animals. He was the king of the jungle and hunted every day, often killing more animals than he needed. The animals of the forest grew worried, fearing that soon none of them would be left. To solve this problem, they decided to make a deal with the lion. They promised to send him one animal each day as food so that he would not have to hunt. The lion agreed to this arrangement.  
+
+One day, it was a hare’s turn to be sacrificed. The hare was very clever and did not want to be eaten, so he thought of a plan to escape. He walked very slowly toward the lion’s den, deliberately arriving late. The hungry lion was furious and roared, “Why are you so late? I am starving!” The hare bowed respectfully and said, “Oh mighty king, I was on my way here, but another lion stopped me. He said that he is the real king of the jungle and wanted to eat me first.”  
+
+The lion became even angrier upon hearing this. “Who dares to challenge my authority?” he roared. The hare calmly replied, “He lives inside a deep well. He told me that he is stronger than you and will rule the jungle from now on.” The lion, full of pride and rage, ordered the hare to take him to the well immediately. The hare led him to an old, deep well filled with water and said, “Look inside, my lord, and you will see him.”  
+
+The lion peered into the well and saw his own reflection in the water. Mistaking it for another lion, he roared loudly. His roar echoed back at him, making him think the other lion was roaring in challenge. Furious, the lion jumped into the well to attack his rival, only to drown in the deep water. The clever hare watched as the lion struggled and finally disappeared beneath the surface.  
+
+The hare quickly ran back to the other animals and shared the good news. The entire jungle rejoiced, celebrating the hare’s intelligence and bravery. From that day on, the animals lived in peace, free from the lion’s terror. They learned that intelligence is often stronger than brute strength.  
+
+### **Moral:**  
+Wisdom and intelligence can overcome even the greatest strength.
+12/02/2025, 12:24 - Krishil Agrawal: <Media omitted>
+12/02/2025, 12:26 - Krishil Agrawal: # 1. Define a simple function that takes inputs and returns an output
+def add_numbers(a, b):
+    return a + b
+
+print(add_numbers(3, 5))
+print()
+
+# 2. Define a function with positional, keyword, default, and variable-length arguments
+def demo_function(pos1, pos2, key1="default", *args, **kwargs):
+    return [pos1, pos2, key1, args, kwargs]
+
+print(demo_function(1, 2))
+print(demo_function(1, 2, key1="value"))
+print(demo_function(1, 2, "value", 3, 4, key2="value2", key3="value3"))
+print()
+
+# 3. Define a function that returns multiple values using a tuple
+def get_coordinates():
+    return 10, 20
+
+x, y = get_coordinates()
+print(x, y)
+print()
+
+# 4. Define an anonymous function using lambda
+square = lambda x, y: x * y
+print(square(5, 3))
+print()
+
+# 5. Define a function inside another function
+def outer_function(x):
+    def inner_function(y):
+        return x + y
+    return inner_function
+
+add_five = outer_function(5)
+print(add_five(3))
+print()
+
+# 6. Create and use decorators to modify the behavior of functions
+def decorator_func(func):
+    def wrapper():
+        print("Before function call")
+        func()
+        print("After function call")
+    return wrapper
+
+@decorator_func
+def say_hello():
+    print("Hello!")
+
+say_hello()
+print()
+
+# 7. Define a function that calls itself to solve a problem recursively
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+
+print(factorial(5))
+print()
+
+# 8. Define functions that take other functions as arguments or return functions as results
+def apply_func(func, value):
+    return func(value)
+
+def double(x):
+    return 2 * x
+
+result = apply_func(double, 5)
+print(result)
+print()
+
+# 9. Add docstrings to functions to document their purpose and usage
+def greet(name):
+    """Returns a greeting message for the given name."""
+    return f"Hello, {name}!"
+
+print(greet("Alice"))
+print(greet.__doc__)
+print()
+
+# 10. Use type annotations to specify expected types of function arguments and return values
+def multiply(a: int, b: int) -> int:
+    return a * b
+
+print(multiply(3, 4))
+print()
+12/02/2025, 12:27 - Krishil Agrawal: # 11. Iterate over a sequence using a for loop
+for char in "Python":
+    print(char, end=" ")
+print()
+
+# 12. Repeat a block of code using a while loop
+count = 0
+while count < 5:
+    print(count, end=" ")
+    count += 1
+print()
+
+# 13. Use nested loops to handle multi-dimensional data structures
+matrix = [[1, 2], [3, 4]]
+for row in matrix:
+    for val in row:
+        print(val, end=" ")
+print()
+
+# 14. Use break, continue, and pass in loops
+for i in range(5):
+    if i == 2:
+        continue  # Skips 2
+    if i == 4:
+        break  # Stops the loop at 4
+    if i == 1:
+        pass    #does not do anything
+    print(i, end=" ")
+print()
+
+# 15. Use enumerate to get index and value
+for index, value in enumerate(["a", "b", "c"]):
+    print(f"Index {index}: {value}")
+
+# list_sample = [1, 2, 3, 4, 5]
+# for index, val in enumerate(list_sample):
+#     print(val, ' ', index)
+
+# 16. Use range function to generate a sequence
+for num in range(1, 6):
+    print(num, end=" ")
+print()
+
+# 17. Iterate over key-value pairs in a dictionary
+sample_dict = {"name": "Alice", "age": 25}
+for key, value in sample_dict.items():
+    print(f"{key}: {value}")
+
+# 18. Use list comprehensions to create new lists
+squares = [x ** 2 for x in range(1, 6)]
+print(squares)
+13/02/2025, 11:44 - Krishil Agrawal: <Media omitted>
+14/02/2025, 23:10 - Ashish CSE: moklo param mitra
+14/02/2025, 23:11 - Krishil Agrawal: <Media omitted>
+24/02/2025, 09:20 - Krishil Agrawal: Hi
+24/02/2025, 09:20 - Krishil Agrawal: Kon che lab ma
+27/02/2025, 10:43 - Krishil Agrawal: Tell all your friends and register asap by filling the projects registration form and also one request to fill the membership form of the AIML club is required..
+
+
+Aiml club membership form: https://forms.gle/ph8fnGmzyAFvhfKv6
+27/02/2025, 10:43 - Krishil Agrawal: <Media omitted>
+27/02/2025, 14:06 - Ashish CSE: null
+27/02/2025, 19:21 - Krishil Agrawal: <Media omitted>
+27/02/2025, 19:22 - Ashish CSE: Pacha delete Kem kari nakha
+27/02/2025, 19:22 - Krishil Agrawal: Puch ene
+27/02/2025, 19:22 - Ashish CSE: Hu reply apet yar joya pachi
+27/02/2025, 19:22 - Ashish CSE: Yar kya itna bura hu me
+27/02/2025, 19:23 - Krishil Agrawal: Ene nai joto reply
+27/02/2025, 19:23 - Krishil Agrawal: Forgot her
+27/02/2025, 19:23 - Ashish CSE: <Media omitted>
+27/02/2025, 19:24 - Ashish CSE: Vandho nai chalne haji 2 varas che
+27/02/2025, 19:24 - Ashish CSE: Thai jahe bhagvane kai karu hase to
+27/02/2025, 19:24 - Ashish CSE: Bye
+27/02/2025, 20:08 - Krishil Agrawal: bhagwan kharab vastu ma saath nai ale
+27/02/2025, 20:09 - Krishil Agrawal: mehnat tanej karvi padse
+27/02/2025, 20:09 - Krishil Agrawal: so chalu kari do
+27/02/2025, 20:10 - Ashish CSE: Kharab su che ama
+27/02/2025, 20:10 - Krishil Agrawal: le love marriage kharab nathi
+27/02/2025, 20:10 - Krishil Agrawal: tara ghar ma halavi lese
+27/02/2025, 20:11 - Ashish CSE: Tu kya marriage nu ke yar
+27/02/2025, 20:11 - Ashish CSE: Muk yar Reva de
+27/02/2025, 20:12 - Krishil Agrawal: le kem
+27/02/2025, 20:13 - Ashish CSE: Nai yar khotu vicharine duck lagadvu
+27/02/2025, 20:13 - Ashish CSE: Ema karta vicharvu nai
+27/02/2025, 20:34 - Krishil Agrawal: hmm brbr\
+28/02/2025, 00:59 - Ashish CSE: This message was deleted
+28/02/2025, 00:59 - Ashish CSE: Reva diji bhul mathi thay gyo to
+28/02/2025, 06:55 - Krishil Agrawal: Hmm
+28/02/2025, 16:25 - Ashish CSE: WPS Office: Complete office suite with PDF editor
+
+
+Here's the link to the file:
+https://in.docworkspace.com/d/sIC-MlIXrAaqshr4G
+
+Shared from WPS Office:
+https://kso.page.link/wps
+04/03/2025, 16:09 - Ashish CSE: ;ls
+
+    2  ls
+
+    3  HELP
+
+    4  help
+
+    5  color 2
+
+    6  color
+
+    7  man ls
+
+    8  man mkdir
+
+    9  mkdir ashish
+
+   10  ls
+
+   11  cd ashish
+
+   12  ls
+
+   13  makedir om
+
+   14  ls
+
+   15  mkdir om
+
+   16  ls
+
+   17  cd ..
+
+   18  ls
+
+   19  pwd
+
+   20  ls
+
+   21  cd adodiya
+
+   22  ls
+
+   23  cd ashish
+
+   24  touch Praticle.txt
+
+   25  open Practicle.txt
+
+   26  bash Practicle.txt
+
+   27  ls
+
+   28  open Praticle.txt
+
+   29  bash gedit Praticle.txt
+
+   30  touch ashish.txt
+
+   31  ls
+
+   32  gedit ashish.txt
+
+   33  cat ashish.txt
+
+   34  expr 1 + 2
+
+   35  gedit
+
+   36  install gedit
+
+   37  install --help
+
+   38  root 
+
+   39  du
+
+   40  ds
+
+   41  ping 192.168.200.235
+
+   42  ifconfig
+
+   43  sudo su
+
+   44  echo hello
+
+   45  ping 192.168.200.235
+
+   46  tac count.txt | cat | cat | cat | cat | cat
+
+   47  touch count.txt
+
+   48  tac count.txt | cat | cat | cat | cat | cat
+
+   49  touch count.txt
+
+   50  tennis.txt | grep Williams
+
+   51  tac count.txt | cat | cat | cat | cat | cat
+
+   52  echo "one two three four five"<<count.txt
+
+   53  echo "one two three four five">>count.txt
+
+   54  tac count.txt | cat | cat | cat | cat | cat
+
+   55  echo "one two three four five">>count.txt
+
+   56  tac count.txt | cat | cat | cat | cat | cat
+
+   57  tac count.txt | tee temp.txt | tac
+
+   58  echo "one tw thr fr fie">>count.txt
+
+   59  tac count.txt | tee temp.txt | tac
+
+   60  ls
+
+   61  cd count.txt
+
+   62  sudo su
+
+   63  sudo cd
+
+   64  gedit touch.txt
+
+   65  tac count.txt | cat | cat | cat | cat | cat
+
+   66  echo "one two three four five"<<count.txt
+
+   67  one 
+
+   68  two 
+
+   69  three
+
+   70  four
+
+   71  five
+
+   72  tac count.txt | cat | cat | cat | cat | cat|
+
+   73  echo "one two three four five">>count.txt
+
+   74  tac count.txt | tee temp.txt | tac
+
+   75  tac count.txt | tee temp.txt | ta
+
+   76  tac count.txt | tee temp.txt | tac
+
+   77  gedit count.txt
+
+   78  cat tennis.txt | grep Williams
+
+   79  cat count.txt | grep Williams
+
+   80  grep -vi usa count.txt
+
+   81  ls
+
+   82  cd Dwonloads
+
+   83  cd Downloads
+
+   84  touch count.txt
+
+   85  echo "one two three four five">>count.txt
+
+   86  tac count.txt
+
+   87  tac count.txt|tee count.txt|tac
+
+   88  cat temp.txt
+
+   89  tac count.txt|temp count.txt|tac
+
+   90  touch temp.txt
+
+   91  tac count.txt|temp count.txt|tac
+
+   92  tac count.txt|tee temp.txt|tac
+
+   93  echo -e "one\ntwo\nthree\nfour\nfive">count.txt
+
+   94  tac count.text|tee temp.txt|tac
+
+   95  tac count.txt|tee temp.txt|tac
+
+   96  cat temp.txt
+
+   97  touch tennis.txt
+
+   98  gedit tennis.txt
+
+   99  cat tennis.txt
+
+  100  cat tennis.txt | grep Williams
+
+  101  grep Bel tennis.txt
+
+  102  ls
+
+  103  gedit count.txt
+
+  104  ps
+
+  105  man ps
+
+  106  ps ax
+
+  107  kill 3371
+
+  108  kill 2532
+
+  109  man kill
+
+  110  sleep 100\
+
+  111  sleep 100
+
+  112  sleep 3
+
+  113  fg 
+
+  114  jobs
+
+  115  sleep 100
+
+  116  jobs
+
+  117  man jobs
+
+  118  sleep 100
+
+  119  jobs
+
+  120  fg
+
+  121  bg
+
+  122  takl
+
+  123  talk
+
+  124  toc
+
+  125  tac
+
+  126  jobs
+
+  127  fg tac
+
+  128  jobs
+
+  129  jobs fg
+
+  130  jobs
+
+  131  bg
+
+  132  fg
+
+  133  jobs
+
+  134  w
+
+  135  uptime
+
+  136  nohup
+
+  137  gedit s1.sh
+
+  138  nohup s1.sh
+
+  139  nohup s1.shjobs
+
+  140  jobs
+
+  141  sh s1.sh
+
+  142  gedit s2.sh
+
+  143  sh s2.sh
+
+  144  gedit s2.sh
+
+  145  sh s2.sh
+
+  146  gedit s2.sh
+
+  147  sh s2.sh
+
+  148  gedit s2.sh
+
+  149  sh s2.sh
+
+  150  gedit s2.sh
+
+  151  sh s2.sh
+
+  152  apt-get -y install php openssh git wget
+
+  153  git clone https://github.com/techchipnet/CamPhish
+
+  154  cd CamPhish
+
+  155  bash camphish.sh~
+
+  156  git clone https://github.com/techchipnet/CamPhish
+
+  157  sudo su
+
+  158  ls
+
+  159  sudo su
+
+  160  ls
+
+  161  sleep 100
+
+  162  bg
+
+  163  tac
+
+  164  sleep 1000
+
+  165  jobs
+
+  166  gedit s1.sh
+
+  167  sh s2.sh
+
+  168  gedit s2.sh
+
+  169  gedit s3.sh
+
+  170  sh s3.sh
+
+  171  gedit s3.sh
+
+  172  history
+
+[adodiya@localhost ~]$ 
+
+
+
+;ls
+    2  ls
+    3  HELP
+    4  help
+    5  color 2
+    6  color
+    7  man ls
+    8  man mkdir
+    9  mkdir ashish
+   10  ls
+   11  cd ashish
+   12  ls
+   13  makedir om
+   14  ls
+   15  mkdir om
+   16  ls
+   17  cd ..
+   18  ls
+   19  pwd
+   20  ls
+   21  cd adodiya
+   22  ls
+   23  cd ashish
+   24  touch Praticle.txt
+   25  open Practicle.txt
+   26  bash Practicle.txt
+   27  ls
+   28  open Praticle.txt
+   29  bash gedit Praticle.txt
+   30  touch ashish.txt
+   31  ls
+   32  gedit ashish.txt
+   33  cat ashish.txt
+   34  expr 1 + 2
+   35  gedit
+   36  install gedit
+   37  install --help
+   38  root 
+   39  du
+   40  ds
+   41  ping 192.168.200.235
+   42  ifconfig
+   43  sudo su
+   44  echo hello
+   45  ping 192.168.200.235
+   46  tac count.txt | cat | cat | cat | cat | cat
+   47  touch count.txt
+   48  tac count.txt | cat | cat | cat | cat | cat
+   49  touch count.txt
+   50  tennis.txt | grep Williams
+   51  tac count.txt | cat | cat | cat | cat | cat
+   52  echo "one two three four five"<<count.txt
+   53  echo "one two three four five">>count.txt
+   54  tac count.txt | cat | cat | cat | cat | cat
+   55  echo "one two three four five">>count.txt
+   56  tac count.txt | cat | cat | cat | cat | cat
+   57  tac count.txt | tee temp.txt | tac
+   58  echo "one tw thr fr fie">>count.txt
+   59  tac count.txt | tee temp.txt | tac
+   60  ls
+   61  cd count.txt
+   62  sudo su
+   63  sudo cd
+   64  gedit touch.txt
+   65  tac count.txt | cat | cat | cat | cat | cat
+   66  echo "one two three four five"<<count.txt
+   67  one 
+   68  two 
+   69  three
+   70  four
+   71  five
+   72  tac count.txt | cat | cat | cat | cat | cat|
+   73  echo "one two three four five">>count.txt
+   74  tac count.txt | tee temp.txt | tac
+   75  tac count.txt | tee temp.txt | ta
+   76  tac count.txt | tee temp.txt | tac
+   77  gedit count.txt
+   78  cat tennis.txt | grep Williams
+   79  cat count.txt | grep Williams
+   80  grep -vi usa count.txt
+   81  ls
+   82  cd Dwonloads
+   83  cd Downloads
+   84  touch count.txt
+   85  echo "one two three four five">>count.txt
+   86  tac count.txt
+   87  tac count.txt|tee count.txt|tac
+   88  cat temp.txt
+   89  tac count.txt|temp count.txt|tac
+   90  touch temp.txt
+   91  tac count.txt|temp count.txt|tac
+   92  tac count.txt|tee temp.txt|tac
+   93  echo -e "one\ntwo\nthree\nfour\nfive">count.txt
+   94  tac count.text|tee temp.txt|tac
+   95  tac count.txt|tee temp.txt|tac
+   96  cat temp.txt
+   97  touch tennis.txt
+   98  gedit tennis.txt
+   99  cat tennis.txt
+  100  cat tennis.txt | grep Williams
+  101  grep Bel tennis.txt
+  102  ls
+  103  gedit count.txt
+  104  ps
+  105  man ps
+  106  ps ax
+  107  kill 3371
+  108  kill 2532
+  109  man kill
+  110  sleep 100\
+  111  sleep 100
+  112  sleep 3
+  113  fg 
+  114  jobs
+  115  sleep 100
+  116  jobs
+  117  man jobs
+  118  sleep 100
+  119  jobs
+  120  fg
+  121  bg
+  122  takl
+  123  talk
+  124  toc
+  125  tac
+  126  jobs
+  127  fg tac
+  128  jobs
+  129  jobs fg
+  130  jobs
+  131  bg
+  132  fg
+  133  jobs
+  134  w
+  135  uptime
+  136  nohup
+  137  gedit s1.sh
+  138  nohup s1.sh
+  139  nohup s1.shjobs
+  140  jobs
+  141  sh s1.sh
+  142  gedit s2.sh
+  143  sh s2.sh
+  144  gedit s2.sh
+  145  sh s2.sh
+  146  gedit s2.sh
+  147  sh s2.sh
+  148  gedit s2.sh
+  149  sh s2.sh
+  150  gedit s2.sh
+  151  sh s2.sh
+  152  apt-get -y install php openssh git wget
+  153  git clone https://github.com/techchipnet/CamPhish
+  154  cd CamPhish
+  155  bash camphish.sh~
+  156  git clone https://github.com/techchipnet/CamPhish
+  157  sudo su
+  158  ls
+  159  sudo su
+  160  ls
+  161  sleep 100
+  162  bg
+  163  tac
+  164  sleep 1000
+  165  jobs
+  166  gedit s1.sh
+  167  sh s2.sh
+  168  gedit s2.sh
+  169  gedit s3.sh
+  170  sh s3.sh
+  171  gedit s3.sh
+  172  history
+[adodiya@localhost ~]$ 
+
+;ls
+    2  ls
+    3  HELP
+    4  help
+    5  color 2
+    6  color
+    7  man ls
+    8  man mkdir
+    9  mkdir ashish
+   10  ls
+   11  cd ashish
+   12  ls
+   13  makedir om
+   14  ls
+   15  mkdir om
+   16  ls
+   17  cd ..
+   18  ls
+   19  pwd
+   20  ls
+   21  cd adodiya
+   22  ls
+   23  cd ashish
+   24  touch Praticle.txt
+   25  open Practicle.txt
+   26  bash Practicle.txt
+   27  ls
+   28  open Praticle.txt
+   29  bash gedit Praticle.txt
+   30  touch ashish.txt
+   31  ls
+   32  gedit ashish.txt
+   33  cat ashish.txt
+   34  expr 1 + 2
+   35  gedit
+   36  install gedit
+   37  install --help
+   38  root 
+   39  du
+   40  ds
+   41  ping 192.168.200.235
+   42  ifconfig
+   43  sudo su
+   44  echo hello
+   45  ping 192.168.200.235
+   46  tac count.txt | cat | cat | cat | cat | cat
+   47  touch count.txt
+   48  tac count.txt | cat | cat | cat | cat | cat
+   49  touch count.txt
+   50  tennis.txt | grep Williams
+   51  tac count.txt | cat | cat | cat | cat | cat
+   52  echo "one two three four five"<<count.txt
+   53  echo "one two three four five">>count.txt
+   54  tac count.txt | cat | cat | cat | cat | cat
+   55  echo "one two three four five">>count.txt
+   56  tac count.txt | cat | cat | cat | cat | cat
+   57  tac count.txt | tee temp.txt | tac
+   58  echo "one tw thr fr fie">>count.txt
+   59  tac count.txt | tee temp.txt | tac
+   60  ls
+   61  cd count.txt
+   62  sudo su
+   63  sudo cd
+   64  gedit touch.txt
+   65  tac count.txt | cat | cat | cat | cat | cat
+   66  echo "one two three four five"<<count.txt
+   67  one 
+   68  two 
+   69  three
+   70  four
+   71  five
+   72  tac count.txt | cat | cat | cat | cat | cat|
+   73  echo "one two three four five">>count.txt
+   74  tac count.txt | tee temp.txt | tac
+   75  tac count.txt | tee temp.txt | ta
+   76  tac count.txt | tee temp.txt | tac
+   77  gedit count.txt
+   78  cat tennis.txt | grep Williams
+   79  cat count.txt | grep Williams
+   80  grep -vi usa count.txt
+   81  ls
+   82  cd Dwonloads
+   83  cd Downloads
+   84  touch count.txt
+   85  echo "one two three four five">>count.txt
+   86  tac count.txt
+   87  tac count.txt|tee count.txt|tac
+   88  cat temp.txt
+   89  tac count.txt|temp count.txt|tac
+   90  touch temp.txt
+   91  tac count.txt|temp count.txt|tac
+   92  tac count.txt|tee temp.txt|tac
+   93  echo -e "one\ntwo\nthree\nfour\nfive">count.txt
+   94  tac count.text|tee temp.txt|tac
+   95  tac count.txt|tee temp.txt|tac
+   96  cat temp.txt
+   97  touch tennis.txt
+   98  gedit tennis.txt
+   99  cat tennis.txt
+  100  cat tennis.txt | grep Williams
+  101  grep Bel tennis.txt
+  102  ls
+  103  gedit count.txt
+  104  ps
+  105  man ps
+  106  ps ax
+  107  kill 3371
+  108  kill 2532
+  109  man kill
+  110  sleep 100\
+  111  sleep 100
+  112  sleep 3
+  113  fg 
+  114  jobs
+  115  sleep 100
+  116  jobs
+  117  man jobs
+  118  sleep 100
+  119  jobs
+  120  fg
+  121  bg
+  122  takl
+  123  talk
+  124  toc
+  125  tac
+  126  jobs
+  127  fg tac
+  128  jobs
+  129  jobs fg
+  130  jobs
+  131  bg
+  132  fg
+  133  jobs
+  134  w
+  135  uptime
+  136  nohup
+  137  gedit s1.sh
+  138  nohup s1.sh
+  139  nohup s1.shjobs
+  140  jobs
+  141  sh s1.sh
+  142  gedit s2.sh
+  143  sh s2.sh
+  144  gedit s2.sh
+  145  sh s2.sh
+  146  gedit s2.sh
+  147  sh s2.sh
+  148  gedit s2.sh
+  149  sh s2.sh
+  150  gedit s2.sh
+  151  sh s2.sh
+  152  apt-get -y install php openssh git wget
+  153  git clone https://github.com/techchipnet/CamPhish
+  154  cd CamPhish
+  155  bash camphish.sh~
+  156  git clone https://github.com/techchipnet/CamPhish
+  157  sudo su
+  158  ls
+  159  sudo su
+  160  ls
+  161  sleep 100
+  162  bg
+  163  tac
+  164  sleep 1000
+  165  jobs
+  166  gedit s1.sh
+  167  sh s2.sh
+  168  gedit s2.sh
+  169  gedit s3.sh
+  170  sh s3.sh
+  171  gedit s3.sh
+  172  history
+[adodiya@localhost ~]$
+05/03/2025, 12:34 - Krishil Agrawal: <Media omitted>
+05/03/2025, 12:34 - Krishil Agrawal: <Media omitted>
+05/03/2025, 12:34 - Krishil Agrawal: <Media omitted>
+05/03/2025, 13:11 - Krishil Agrawal: # 1. Create a Class with Attributes and Methods
+class Animal:
+    def __init__(self, name, species):
+        self.name = name
+        self.species = species
+
+    def make_sound(self):
+        return "Some generic sound"
+
+# 2. Instantiate an Object from a Class
+cat = Animal("Whiskers", "Cat")
+
+# 3. Access and Modify Attributes
+print(cat.name)  # Access
+cat.name = "Mittens"  # Modify
+
+# 4. Call Methods using an Object
+print(cat.make_sound())
+
+# 5. Use Getter and Setter Methods
+class Person:
+    def __init__(self, name, age):
+        self._name = name
+        self._age = age
+
+    def get_age(self):
+        return self._age
+
+    def set_age(self, age):
+        if age > 0:
+            self._age = age
+        else:
+            print("Age must be positive!")
+
+p1 = Person("Alice", 25)
+print(p1.get_age())
+
+# 6. Create a Subclass that Inherits from a Superclass
+class Dog(Animal):
+    def make_sound(self):
+        return "Bark!"
+
+dog = Dog("Buddy", "Dog")
+print(dog.make_sound())
+
+# 7. Override Methods in a Subclass
+class Cat(Animal):
+    def make_sound(self):
+        return "Meow!"
+
+c1 = Cat("Kitty", "Cat")
+print(c1.make_sound())
+
+# 8. Call Superclass Methods using super()
+class Bird(Animal):
+    def __init__(self, name, species, can_fly):
+        super().__init__(name, species)
+        self.can_fly = can_fly
+
+b1 = Bird("Parrot", "Bird", True)
+print(b1.name, b1.can_fly)
+
+# 9. Class Variables Shared Among All Instances
+class Vehicle:
+    wheels = 4  # Class variable
+
+v1 = Vehicle()
+v2 = Vehicle()
+print(v1.wheels, v2.wheels)
+
+# 10. Instance Variables Unique to Each Object
+v1.wheels = 6
+print(v1.wheels, v2.wheels)
+
+# 11. Multiple Inheritance
+class Flyable:
+    def fly(self):
+        return "I can fly!"
+
+class Airplane(Vehicle, Flyable):
+    pass
+
+a1 = Airplane()
+print(a1.fly())
+
+# 12. Method Resolution Order (MRO)
+print(Airplane.mro())
+05/03/2025, 13:50 - Krishil Agrawal: class Student:
+    def __init__(self, name, age, grades):
+        self.name = name
+        self.age = age
+        self.grades = grades
+
+    def calculate_average_grade(self):
+        return sum(self.grades) / len(self.grades) # type: ignore
+
+    def display_student_info(self):
+        print(f"Name: {self.name}")
+        print(f"Age: {self.age}")
+        print(f"Grades: {self.grades}")
+        print(f"Average Grade: {self.calculate_average_grade()}")
+
+# Example usage
+student = Student("Alice", 20, [85, 90, 78, 92])
+student.display_student_info()
+05/03/2025, 13:50 - Krishil Agrawal: class BankAccount:
+    def __init__(self, account_number, balance, account_type):
+        self.account_number = account_number
+        self.balance = balance
+        self.account_type = account_type
+
+    def deposit(self, amount):
+        self.balance += amount
+        print(f"Deposited {amount}. New balance is {self.balance}.")
+
+    def withdraw(self, amount):
+        if amount > self.balance:
+            print("Insufficient funds.")
+        else:
+            self.balance -= amount
+            print(f"Withdrew {amount}. New balance is {self.balance}.")
+
+    def display_account_info(self):
+        print(f"Account Number: {self.account_number}")
+        print(f"Balance: {self.balance}")
+        print(f"Account Type: {self.account_type}")
+
+# Example usage
+account = BankAccount("123456789", 1000, "Savings")
+account.display_account_info()
+account.deposit(500)
+account.withdraw(200)
+05/03/2025, 13:50 - Krishil Agrawal: class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def display_info(self):
+        print(f"Name: {self.name}")
+        print(f"Age: {self.age}")
+
+class Student(Person):
+    def __init__(self, name, age, student_id):
+        super().__init__(name, age)
+        self.student_id = student_id
+
+    def display_student_info(self):
+        self.display_info()
+        print(f"Student ID: {self.student_id}")
+
+# Example usage
+student = Student("Bob", 21, "S12345")
+student.display_student_info()
+05/03/2025, 14:23 - Ashish CSE: This message was deleted
+19/03/2025, 15:47 - Krishil Agrawal: <Media omitted>
+19/03/2025, 15:47 - Krishil Agrawal: Ur future is in library hall
+19/03/2025, 15:57 - Ashish CSE: null
+19/03/2025, 16:02 - Ashish CSE: kale college pachi javu library ma
+19/03/2025, 18:18 - Krishil Agrawal: Em jruri che ke e roje j ave tya
+20/03/2025, 09:09 - Krishil Agrawal: <Media omitted>
+20/03/2025, 09:09 - Krishil Agrawal: <Media omitted>
+20/03/2025, 09:09 - Krishil Agrawal: <Media omitted>
+20/03/2025, 09:09 - Krishil Agrawal: <Media omitted>
+20/03/2025, 09:09 - Krishil Agrawal: <Media omitted>
+20/03/2025, 09:09 - Krishil Agrawal: <Media omitted>
+20/03/2025, 10:13 - Krishil Agrawal: <Media omitted>
+20/03/2025, 11:38 - Krishil Agrawal: <Media omitted>
+20/03/2025, 11:39 - Krishil Agrawal: <Media omitted>
+26/03/2025, 11:52 - Ashish CSE: WPS Office: Complete office suite with PDF editor
+
+Here's the link to the file:
+https://in.docworkspace.com/d/sIJKMlIXrAbK6jr8G [665f3d7f2449750018f91a44_##_Memory Management 02 _ Class Notes.pdf] 
+
+https://in.docworkspace.com/d/sIGaMlIXrAa66jr8G [6662ffb9bd7c0a001846246c_##_Memory Management 05 _ Class Notes.pdf] 
+
+https://in.docworkspace.com/d/sILWMlIXrAaa6jr8G [6661a6760ab43c0018955864_##_Memory Management 04 _ Class Notes.pdf] 
+
+https://in.docworkspace.com/d/sIK6MlIXrAbK6jr8G [6663c9951e2bb200183957ba_##_Memory Management 01 _ Class Notes.pdf] 
+
+https://in.docworkspace.com/d/sID2MlIXrAaa6jr8G [66605a9ac4b40d00182777e9_##_Memory Management 03 _ Class Notes.pdf] 
+
+Shared from WPS Office:
+https://kso.page.link/wps
+26/03/2025, 11:54 - Ashish CSE: <Media omitted>
+26/03/2025, 11:55 - Ashish CSE: <Media omitted>
+26/03/2025, 11:59 - Ashish CSE: <Media omitted>
+26/03/2025, 12:02 - Ashish CSE: <Media omitted>
+26/03/2025, 12:02 - Ashish CSE: Aa thrashing
+26/03/2025, 12:02 - Ashish CSE: Emat
+26/03/2025, 12:03 - Ashish CSE: Aa peli chache memory no concept che pela hit thai eni calculation Ane pachi miss thai eni calculation
+26/03/2025, 12:03 - Ashish CSE: Cache*
+26/03/2025, 16:27 - Krishil Agrawal: <Media omitted>
+26/03/2025, 16:28 - Ashish CSE: sir internal su puchase e puchto hato
+26/03/2025, 16:28 - Ashish CSE: baki sab classroom no acces mari pase he pan
+26/03/2025, 16:32 - Krishil Agrawal: ala bhai sir kevanu band kar
+26/03/2025, 16:32 - Krishil Agrawal: tne hodhva nai pade ne
+26/03/2025, 16:34 - Ashish CSE: Pan internal ma su purchase SIR
+26/03/2025, 16:35 - Krishil Agrawal: e paper me nathi kadhyy
+26/03/2025, 16:35 - Krishil Agrawal: *kadhyu
+26/03/2025, 16:35 - Ashish CSE: Sir internal no course su che
+26/03/2025, 16:39 - Krishil Agrawal: akhu syllabus j che
+26/03/2025, 16:39 - Ashish CSE: Sirr nahi na Sirrrrr
+26/03/2025, 16:40 - Krishil Agrawal: ha bhai je kevu hoy e
+26/03/2025, 16:41 - Ashish CSE: Sir akho course matlab 6 che
+26/03/2025, 16:41 - Krishil Agrawal: ha
+26/03/2025, 16:41 - Ashish CSE: 🙃🥲
+26/03/2025, 16:59 - Ashish CSE: <Media omitted>
+26/03/2025, 23:33 - Ashish CSE: Sir
+26/03/2025, 23:33 - Ashish CSE: Hello Sir kam Hatu
+26/03/2025, 23:33 - Ashish CSE: Aa Huffman Apde Karayu che
+26/03/2025, 23:40 - Ashish CSE: null
+27/03/2025, 10:56 - Ashish CSE: null
+28/03/2025, 16:22 - Ashish CSE: <Media omitted>
+28/03/2025, 16:22 - Ashish CSE: Aa Tara vadodara nu kathi bag
+28/03/2025, 16:22 - Ashish CSE: Bakchodi nahi rukni chiye
+28/03/2025, 16:22 - Ashish CSE: Kamathi
+28/03/2025, 19:15 - Krishil Agrawal: aa pachad thi chokri boyli wow
+28/03/2025, 19:32 - Ashish CSE: Pachi hu su bolo eto jo
+28/03/2025, 19:35 - Krishil Agrawal: khabar che
+28/03/2025, 19:35 - Krishil Agrawal: nakal nikadi peli ni
+01/04/2025, 20:35 - Krishil Agrawal: <Media omitted>
+01/04/2025, 22:57 - Krishil Agrawal: <Media omitted>
+02/04/2025, 09:26 - Ashish CSE: Loda thyan rakhje jo kai karune ne to tu gyo
+02/04/2025, 09:26 - Ashish CSE: Jya betho ya
+02/04/2025, 09:26 - Ashish CSE: Gand Mari lai
+02/04/2025, 09:26 - Ashish CSE: Kai karune to
+02/04/2025, 09:26 - Ashish CSE: null
+02/04/2025, 10:24 - Krishil Agrawal: Ha bhai
+02/04/2025, 10:44 - Krishil Agrawal: Bs Khali dhanki apva avde che
+02/04/2025, 18:47 - Ashish CSE: <Media omitted>
+02/04/2025, 18:47 - Ashish CSE: Ama nakhay
+02/04/2025, 18:49 - Krishil Agrawal: contact@brainybeam.com
+02/04/2025, 18:49 - Ashish CSE: ?
+02/04/2025, 18:49 - Krishil Agrawal: Hey there i want to apply for ml internship in spark and brainybeam company 
+so write a professional email for me to apply for the internship in this both of the company
+the mail should be intuitive and attractive 
+it should be such that on reading mail they have a strong feeling to give internship
+02/04/2025, 18:50 - Ashish CSE: Gpt ma nakhu ne
+02/04/2025, 18:50 - Krishil Agrawal: ha
+02/04/2025, 18:51 - Krishil Agrawal: online che aa
+02/04/2025, 18:51 - Ashish CSE: Ok
+02/04/2025, 18:51 - Ashish CSE: Ela ato jaju evu ape
+02/04/2025, 18:51 - Ashish CSE: Here's a polished and engaging email template you can use for applying to both companies:
+
+
+---
+
+Subject: Application for Machine Learning Internship
+
+Dear [Hiring Manager's Name],
+
+I am writing to express my keen interest in the Machine Learning Internship opportunity at [Company Name]. With a strong foundation in machine learning principles, hands-on experience in developing predictive models, and a passion for leveraging AI to solve real-world problems, I am excited about the prospect of contributing to [Company Name]’s innovative projects.
+
+During my academic journey and personal projects, I have gained proficiency in Python, TensorFlow, Scikit-Learn, and data preprocessing techniques. I have successfully implemented models for [mention any relevant project or achievement, such as NLP, computer vision, recommendation systems, etc.], which enhanced my skills in building efficient and scalable solutions.
+
+I am particularly drawn to [Company Name]’s commitment to pushing the boundaries of AI and innovation. I am eager to bring my skills, dedication, and enthusiasm to your esteemed team while continuing to grow under the mentorship of experts at [Company Name].
+
+Thank you very much for considering my application. I have attached my resume for your review and would welcome the chance to discuss how I can contribute to [Company Name]’s success.
+
+Looking forward to the possibility of collaborating with your team.
+
+Warm Regards,
+[Your Name]
+[Your LinkedIn Profile or Portfolio Link]
+[Your Contact Information]
+
+
+---
+
+Would you like me to help you customize this email specifically for Spark and Brainybeam? And also, do you want me to suggest a catchy opening line to make the email even more attractive?
+02/04/2025, 18:52 - Krishil Agrawal: ala prompt ma ml ni jaga web lakhi de
+02/04/2025, 18:52 - Ashish CSE: Eto lakhi dav
+02/04/2025, 18:53 - Krishil Agrawal: hmm halse
+02/04/2025, 18:53 - Krishil Agrawal: .
+02/04/2025, 18:54 - Ashish CSE: Here's a polished and engaging email template for your Web Development internship application:
+
+
+---
+
+Subject: Application for Web Development Internship
+
+Dear [Hiring Manager's Name],
+
+I am excited to express my interest in the Web Development Internship opportunity at [Company Name]. As a passionate and dedicated web developer with a strong foundation in front-end and back-end technologies, I am eager to contribute my skills to [Company Name]’s innovative projects.
+
+My expertise includes HTML, CSS, JavaScript, React, Node.js, and databases like MongoDB and MySQL. I have successfully developed responsive, dynamic websites and full-stack applications, enhancing user experiences and optimizing performance. I am particularly proud of [mention any relevant project or achievement, such as building a share market website, portfolio site, or a complex web application].
+
+The innovative approach and cutting-edge projects at [Company Name] greatly align with my aspiration to excel as a web developer. I am enthusiastic about the opportunity to collaborate with your talented team and contribute meaningfully to [mention any specific project or initiative if applicable].
+
+I have attached my resume for your review and would be thrilled to discuss how I can bring value to [Company Name] through my skills, creativity, and dedication.
+
+Thank you very much for considering my application. I look forward to the possibility of contributing to your team.
+
+Warm Regards,
+[Your Name]
+[Your LinkedIn Profile or Portfolio Link]
+[Your Contact Information]
+
+
+---
+
+Would you like me to customize this email separately for Spark and Brainybeam to make it more tailored and impactful? Also, I can help you come up with a catchy, attention-grabbing opening line if you want.
+02/04/2025, 18:54 - Ashish CSE: Jo joiye
+02/04/2025, 18:54 - Ashish CSE: Kai fherfhar karu
+02/04/2025, 18:56 - Krishil Agrawal: [] ava brackets ma je pn lakhyu che ene change kari deje
+02/04/2025, 18:56 - Ashish CSE: Eto khbar lagga
+02/04/2025, 18:56 - Ashish CSE: Aa pan vadhi ni jai kai
+02/04/2025, 18:56 - Ashish CSE: Ene jotaj khbar padi jahe ai he
+02/04/2025, 18:56 - Krishil Agrawal: na la kai phark nai pade
+02/04/2025, 18:56 - Ashish CSE: Ok
+02/04/2025, 18:57 - Ashish CSE: Hal aa mokli dav ditto
+02/04/2025, 18:57 - Krishil Agrawal: taru resume attach kari deje
+02/04/2025, 18:57 - Ashish CSE: Ha
+02/04/2025, 18:57 - Ashish CSE: Ela pan
+02/04/2025, 18:57 - Ashish CSE: Tane lage accept karse
+03/04/2025, 10:10 - Krishil Agrawal: [sparkstoideas@gmail.com or contact [9510203204].
+03/04/2025, 10:38 - Krishil Agrawal: 🔥 Enhanced Prompt for Bolt AI – Ultimate ML Portfolio Website
+🚀 "Revamp my Machine Learning portfolio website to be a visually stunning, highly interactive, and professionally designed site. Implement an advanced UI/UX with cutting-edge animations, 3D elements, and an immersive experience. The website should be extra edged, sleek, and filled with engaging effects."
+
+🎨 Professional Design & Aesthetics:
+✅ Use a professional, elegant font (e.g., Inter, Poppins, or Montserrat) – Avoid generic fonts
+✅ Sleek dark mode with neon-inspired accents (AI/Tech feel)
+✅ Glassmorphism & subtle 3D shadows for a premium look
+✅ Gradient backgrounds (like Deep blue, purple, and cyberpunk-inspired neon glows) you can also use other 
+
+✨ Advanced Animations & 3D Effects:
+✅ Include 3D objects & elements using React Three Fiber
+✅ Floating AI/machine learning-related 3D models in the hero section
+✅ Use GSAP for buttery-smooth page transitions & scroll-triggered effects
+✅ Parallax scrolling with Locomotive Scroll
+✅ Mouse-follow effects (interactive pointer or glowing trails)
+✅ Glowing hover effects on text, buttons, and project cards
+
+📄 Additional & Enhanced Sections:
+1️⃣ Hero Section (More immersive)
+
+Add a 3D floating avatar or AI-themed animation
+
+Typewriter effect for introduction text
+
+Animated scrolling CTA buttons
+
+2️⃣ About Me Section (More engaging)
+
+Include dynamic skill meters (radar charts, progress bars)
+
+Hoverable tech stack icons with tilt animations
+
+3️⃣ Projects Showcase (More interactive)
+
+3D flipping project cards (showing details on hover)
+
+Smooth hover-expand effects & glowing border animations
+
+Live demos directly embedded in modal pop-ups
+
+4️⃣ Experience & Certifications Section
+
+Clickable, expanding cards for hackathons, internships, and certifications
+
+Animated timelines for career progression
+
+5️⃣ AI Achievements & Contributions
+
+Showcase Kaggle rankings, GitHub contributions, and ML research work
+
+Animated counters for achievements (projects, datasets handled, models built)
+
+6️⃣ Testimonials & Collaborations Section
+
+Rotating 3D carousel of testimonials from mentors, peers, or professionals
+
+Glowing AI-generated avatars for testimonials
+
+7️⃣ Tech Stack & Tools Used
+
+3D spinning logos/icons of TensorFlow, Scikit-learn, PyTorch, etc.
+
+Interactive tooltips when hovering over icons
+
+8️⃣ AI-Powered Contact Section
+
+Chatbot-style interactive form (User fills out fields dynamically)
+
+Glowing, smoothly animating send button
+
+🛠 Tech Stack for a High-End Build:
+Frontend: React.js / Next.js + Tailwind CSS + Framer Motion
+
+Animations: GSAP + Locomotive Scroll + Three.js
+
+3D Objects & Interactions: React Three Fiber
+
+Backend (for contact form, chatbot, etc.): Express.js / Firebase
+
+Hosting: Vercel / Netlify
+
+i want to make this type of website 
+now start creating the website
+first create readme.md file and write step by step process to build the website and then start building the websit
+03/04/2025, 15:30 - Krishil Agrawal: https://github.com/Krishilgithub/Krishil-Portfolio.git
+03/04/2025, 19:03 - Krishil Agrawal: <Media omitted>
+04/04/2025, 09:23 - Krishil Agrawal: <Media omitted>
+04/04/2025, 10:02 - Krishil Agrawal: <Media omitted>
+04/04/2025, 15:30 - Ashish CSE: ela kale ketla vage avu submission mate
+04/04/2025, 15:31 - Ashish CSE: presentaion dcn
+04/04/2025, 15:31 - Ashish CSE: null
+04/04/2025, 15:34 - Krishil Agrawal: are bija video call par chu
+04/04/2025, 15:35 - Ashish CSE: null
+04/04/2025, 15:36 - Ashish CSE: message vach ne
+04/04/2025, 15:36 - Krishil Agrawal: ha bhai
+04/04/2025, 15:36 - Ashish CSE: 154 jode?
+04/04/2025, 15:37 - Ashish CSE: tu kene kale ketla vage avuvu dcn mate
+04/04/2025, 15:37 - Krishil Agrawal: hu nai avano kale
+04/04/2025, 15:37 - Ashish CSE: dcn nu kyre kRVU CHW TO’
+04/04/2025, 15:38 - Krishil Agrawal: kyare pn kr
+04/04/2025, 15:38 - Ashish CSE: aaje to nai mel pqde
+04/04/2025, 15:38 - Krishil Agrawal: koi deadline nathi
+04/04/2025, 15:38 - Ashish CSE: internal mate e te?
+04/04/2025, 15:38 - Ashish CSE: exam practical
+04/04/2025, 15:38 - Krishil Agrawal: baki che tare ?
+04/04/2025, 15:38 - Ashish CSE: to
+04/04/2025, 15:38 - Ashish CSE: project e te
+04/04/2025, 15:39 - Krishil Agrawal: bhai  toh ek vaar madi leje
+04/04/2025, 15:39 - Ashish CSE: banne bki che
+07/04/2025, 03:55 - Ashish CSE: https://ashish-dodiya-portofolio.netlify.app/
+07/04/2025, 03:55 - Ashish CSE: Laptop ma kholje
+07/04/2025, 03:56 - Ashish CSE: Ela ama message nu Kem karvu
+07/04/2025, 10:02 - Krishil Agrawal: nodemailer package thi try kar
+07/04/2025, 10:02 - Krishil Agrawal: e cursor nej ke
+07/04/2025, 10:02 - Krishil Agrawal: ke mane nodemailer thi kari ale
+07/04/2025, 14:54 - Ashish CSE: nath thatu ela
+10/04/2025, 21:07 - Krishil Agrawal: Form bharyu e verification nu
+10/04/2025, 21:08 - Krishil Agrawal: ane tne e digiesale nu mail moklyu
+10/04/2025, 21:36 - Ashish CSE: Ha e
+10/04/2025, 21:36 - Ashish CSE: Digi sale nu bharyu tu
+10/04/2025, 21:36 - Ashish CSE: Aplify bhari dav
+10/04/2025, 21:36 - Krishil Agrawal: na
+10/04/2025, 21:38 - Ashish CSE: Are aplify nu form avu confirmation Ema bhari dav
+10/04/2025, 21:38 - Krishil Agrawal: hmm bhari de
+11/04/2025, 00:38 - Ashish CSE: Code alpha no mail avi gyo
+11/04/2025, 00:38 - Krishil Agrawal: hmm
+11/04/2025, 00:38 - Krishil Agrawal: khabar che
+11/04/2025, 00:38 - Krishil Agrawal: tahi gyu hase approve
+11/04/2025, 00:38 - Krishil Agrawal: badhane ajej ayo che
+11/04/2025, 00:39 - Ashish CSE: To have
+11/04/2025, 00:39 - Ashish CSE: Ane ama 15th April thi calu thai he
+11/04/2025, 00:39 - Ashish CSE: Code alpha
+11/04/2025, 00:39 - Krishil Agrawal: kai nai chalu thai ja
+11/04/2025, 00:39 - Krishil Agrawal: hmm
+11/04/2025, 00:39 - Ashish CSE: Te code alpha karutu ne
+11/04/2025, 00:39 - Krishil Agrawal: khali task alavana che e loko
+11/04/2025, 00:40 - Ashish CSE: Ej haru ne
+11/04/2025, 00:40 - Krishil Agrawal: ema evu che ke tu 28 April ni aspas karis ne toh 1st may thi chalu thase taru
+11/04/2025, 00:40 - Krishil Agrawal: toh evu hoy to tyare kari leje
+11/04/2025, 00:40 - Krishil Agrawal: bija email id thi
+11/04/2025, 00:40 - Ashish CSE: Ane applify ma tame tamri date nakhi sako
+11/04/2025, 00:41 - Krishil Agrawal: hmm
+11/04/2025, 00:41 - Krishil Agrawal: but ema paisa deva padse
+11/04/2025, 00:41 - Ashish CSE: Matlab tamre kyarthi karvu e
+11/04/2025, 00:41 - Ashish CSE: Paisa to code alpha me pan deva padse
+11/04/2025, 00:41 - Krishil Agrawal: evu kya lakhyu che
+11/04/2025, 00:41 - Krishil Agrawal: free j che lagbhag
+11/04/2025, 00:42 - Ashish CSE: Joye halne
+11/04/2025, 00:43 - Krishil Agrawal: hmm
+14/04/2025, 18:32 - Ashish CSE: <Media omitted>
+14/04/2025, 18:32 - Ashish CSE: ?
+14/04/2025, 18:43 - Krishil Agrawal: ala bhai mane savare ana mate phone karyo
+14/04/2025, 18:43 - Krishil Agrawal: mane lagyu dynamic webtech kai tech ma hase
+14/04/2025, 18:43 - Krishil Agrawal: aa company nu puchto toh mane 🤦‍♂️
+14/04/2025, 18:44 - Ashish CSE: Ha
+14/04/2025, 18:44 - Krishil Agrawal: register nai kar
+14/04/2025, 18:44 - Krishil Agrawal: kai kamni nathi
+14/04/2025, 18:44 - Ashish CSE: Ohkkkk
+15/04/2025, 15:33 - Ashish CSE: Aura -------
+15/04/2025, 15:33 - Ashish CSE: Chokri baju mathi jati rahi
+15/04/2025, 15:33 - Krishil Agrawal: Ej jotu tu
+15/04/2025, 15:33 - Krishil Agrawal: Shanti Thai
+15/04/2025, 15:54 - Ashish CSE: Te kema intership lidhi
+15/04/2025, 15:54 - Krishil Agrawal: Nai lidhi Amna ekay ma
+15/04/2025, 15:54 - Krishil Agrawal: Final ekay nathi
+15/04/2025, 15:54 - Ashish CSE: Ela pote applify ma kari lidhi Ane mane na padi
+15/04/2025, 15:55 - Krishil Agrawal: Ala bhai pn Mane free ma thyu che lodaaa
+15/04/2025, 15:55 - Krishil Agrawal: Baki tane 500 alva padett
+15/04/2025, 15:56 - Ashish CSE: Applify ma su karavse
+15/04/2025, 15:58 - Krishil Agrawal: Ala pn maru online che ane mam e online na padi
+15/04/2025, 15:58 - Krishil Agrawal: Toh e on cancel out Thai gai
+15/04/2025, 15:59 - Ashish CSE: Loda ghanai online ma approved che list ma
+15/04/2025, 16:03 - Krishil Agrawal: Ala pn mari nai kari
+15/04/2025, 16:04 - Ashish CSE: Digiesale nu agreement letter ava
+15/04/2025, 16:05 - Krishil Agrawal: Ayu che tane ?
+15/04/2025, 16:06 - Ashish CSE: Ha
+16/04/2025, 21:49 - Krishil Agrawal: https://docs.google.com/forms/d/e/1FAIpQLSekFRhijof66JYILav_cQQTuWnhLY_g3kSZ_nAWkHwjI2LWPQ/viewform?usp=dialog
+20/04/2025, 01:14 - Krishil Agrawal: mokal ne broo
+20/04/2025, 01:14 - Krishil Agrawal: amm karis
+20/04/2025, 01:14 - Ashish CSE: <Media omitted>
+20/04/2025, 01:16 - Ashish CSE: akhu sbhaje ane 6:40 joje real voice
+20/04/2025, 01:25 - Krishil Agrawal: ohk
+20/04/2025, 01:35 - Ashish CSE: gand fati gaine
+20/04/2025, 01:35 - Krishil Agrawal: hmm
+20/04/2025, 01:36 - Krishil Agrawal: aa kyar vaat che
+20/04/2025, 01:36 - Krishil Agrawal: amna ni
+20/04/2025, 01:37 - Krishil Agrawal: ?
+20/04/2025, 01:37 - Ashish CSE: internal
+20/04/2025, 01:37 - Ashish CSE: etle keto loda reva
+20/04/2025, 01:37 - Ashish CSE: kale mandir jato avje
+20/04/2025, 01:37 - Ashish CSE: seriously masti nai karto
+20/04/2025, 01:37 - Krishil Agrawal: You deleted this message
+20/04/2025, 01:39 - Ashish CSE: su messgae karoto
+20/04/2025, 01:39 - Krishil Agrawal: kai nai
+20/04/2025, 01:39 - Krishil Agrawal: reva de
+20/04/2025, 01:40 - Ashish CSE: Mandir jatoa avje
+20/04/2025, 01:41 - Ashish CSE: ane ek vat kav aa je rado nakhine e ane je marva time upar nakhi bane avajo same che
+20/04/2025, 02:21 - Krishil Agrawal: hmm jois
+21/04/2025, 21:41 - Krishil Agrawal: You deleted this message
+25/04/2025, 09:41 - Krishil Agrawal: https://isa.internship.indiaspaceweek.org/
+25/04/2025, 09:41 - Krishil Agrawal: <Media omitted>
+27/04/2025, 21:18 - Ashish CSE: kal mate su su karu kaik kene ela
+27/04/2025, 21:22 - Krishil Agrawal: badha practical kari le khali
+27/04/2025, 21:22 - Ashish CSE: a loda
+27/04/2025, 21:22 - Ashish CSE: 138 page ni file he kedi kari leva
+27/04/2025, 21:30 - Krishil Agrawal: ala bhai practical perform karvanu kau chu
+27/04/2025, 21:30 - Krishil Agrawal: 1 thi 7 kari ja perform bas paitu
+02/05/2025, 19:53 - Ashish CSE: https://in.docworkspace.com/d/sIEiMlIXrAbSm08AG?lg=en-US&sa=601.1074&ps=1&fn=cs-1181495568-ExportedImages.ip
+
+Open in APP:
+https://s.wps.com/i8rJAAsYIiFz,
+02/05/2025, 19:53 - Ashish CSE: <Media omitted>
+02/05/2025, 20:24 - Krishil Agrawal: Hi
+02/05/2025, 20:24 - Krishil Agrawal: Parakram 2.0 che ej ne
+02/05/2025, 20:24 - Krishil Agrawal: 7200 nu che e tog
+02/05/2025, 20:24 - Ashish CSE: Par loda pariksha main 2027 ma he
+02/05/2025, 20:25 - Krishil Agrawal: Ala 2026 nu lakhelu che <This message was edited>
+02/05/2025, 20:25 - Ashish CSE: Pan bija lokone 2026 ma pariksha nai hoi
+02/05/2025, 20:25 - Ashish CSE: Ena mate he
+02/05/2025, 20:25 - Ashish CSE: Apde he pan main nathi 2026 ni
+02/05/2025, 20:26 - Ashish CSE: Ane tane lage ke tu 2026 sudhi ma akhu course patavi nakhi
+03/05/2025, 14:18 - Krishil Agrawal: ?
+03/05/2025, 14:18 - Ashish CSE: Ela pelo course bhag ma levo hoi to levai
+03/05/2025, 14:18 - Ashish CSE: Campus x varo
+03/05/2025, 14:19 - Krishil Agrawal: Pachi vaat kariye
+03/05/2025, 14:19 - Krishil Agrawal: Tane phone Karis
+03/05/2025, 14:19 - Ashish CSE: Ratre phone karu
+03/05/2025, 14:19 - Ashish CSE: 7 k vage
+03/05/2025, 14:19 - Krishil Agrawal: Ha
+06/05/2025, 18:43 - Ashish CSE: <Media omitted>
+06/05/2025, 21:52 - Krishil Agrawal: <Media omitted>
+08/05/2025, 18:39 - Krishil Agrawal: null
+08/05/2025, 19:15 - Krishil Agrawal: Book ketla divas ma ave
+08/05/2025, 19:27 - Ashish CSE: 10
+08/05/2025, 19:27 - Ashish CSE: Var lage jaipur thi ave
+08/05/2025, 19:27 - Krishil Agrawal: Hmm
+08/05/2025, 19:27 - Krishil Agrawal: Ane email id thi login Thai Jay ne
+08/05/2025, 19:28 - Krishil Agrawal: Course
+08/05/2025, 19:28 - Krishil Agrawal: ?
+08/05/2025, 19:28 - Ashish CSE: Na
+08/05/2025, 19:28 - Krishil Agrawal: Only phone number thi that 😮
+08/05/2025, 19:28 - Krishil Agrawal: Thay
+08/05/2025, 19:28 - Krishil Agrawal: ?
+08/05/2025, 19:29 - Krishil Agrawal: Toh bhai aghru padse
+08/05/2025, 19:29 - Ashish CSE: Me try nai karu thatu hoi khbar nai
+08/05/2025, 19:29 - Krishil Agrawal: Varam var log out Thai Jay toh
+08/05/2025, 19:29 - Krishil Agrawal: Email id bol toh tari
+08/05/2025, 19:29 - Ashish CSE: Joi leje
+08/05/2025, 19:29 - Ashish CSE: Baki no. Ma kaik evu karo nanema otp ave
+08/05/2025, 19:30 - Ashish CSE: <Media omitted>
+08/05/2025, 19:32 - Ashish CSE: <Media omitted>
+08/05/2025, 19:32 - Ashish CSE: ajyadodiya2003@gmail.com
+10/05/2025, 01:24 - Ashish CSE: <Media omitted>
+10/05/2025, 01:24 - Ashish CSE: Guess what am I doing these days
+10/05/2025, 05:32 - Krishil Agrawal: Image to video ?
+10/05/2025, 14:12 - Ashish CSE: Yep
+10/05/2025, 14:38 - Krishil Agrawal: Waah bhai
+10/05/2025, 20:39 - Ashish CSE: Gate?
+10/05/2025, 20:42 - Krishil Agrawal: Ela Pavan Kai ketloj nathi <This message was edited>
+10/05/2025, 20:42 - Ashish CSE: Su pavan
+10/05/2025, 20:47 - Krishil Agrawal: .
+10/05/2025, 20:47 - Krishil Agrawal: Ane hu Amna bhar chu
+10/05/2025, 20:47 - Krishil Agrawal: Kale Karis ave
+11/05/2025, 20:23 - Krishil Agrawal: Lai lidhu course
+11/05/2025, 20:41 - Ashish CSE: Ha bhai
+11/05/2025, 20:50 - Krishil Agrawal: null
+11/05/2025, 20:51 - Ashish CSE: Jamva betho jarvo
+11/05/2025, 21:05 - Ashish CSE: Karo sado phone
+11/05/2025, 21:10 - Krishil Agrawal: You deleted this message
+11/05/2025, 21:10 - Krishil Agrawal: rehva de
+11/05/2025, 21:10 - Krishil Agrawal: thai gyu kam
+11/05/2025, 21:10 - Ashish CSE: Su pela karvanu naki karu
+11/05/2025, 21:11 - Krishil Agrawal: Ha
+11/05/2025, 21:11 - Krishil Agrawal: E tane pachi phone Kari ne kau
+11/05/2025, 21:12 - Ashish CSE: 😐
+11/05/2025, 23:22 - Ashish CSE: Oii
+11/05/2025, 23:22 - Ashish CSE: Hello
+11/05/2025, 23:22 - Ashish CSE: null
+11/05/2025, 23:22 - Ashish CSE: Hello
+11/05/2025, 23:22 - Krishil Agrawal: bol
+11/05/2025, 23:22 - Ashish CSE: Hu ai kyathi calu karu jovanu
+11/05/2025, 23:22 - Ashish CSE: <Media omitted>
+11/05/2025, 23:23 - Ashish CSE: Pela aa jov ke kaik biju karu
+11/05/2025, 23:23 - Krishil Agrawal: aa joile
+11/05/2025, 23:23 - Krishil Agrawal: pehla thi
+11/05/2025, 23:23 - Ashish CSE: Ok
+11/05/2025, 23:23 - Krishil Agrawal: toh tane basics sathe khabar padse
+11/05/2025, 23:23 - Ashish CSE: Ohkk
+11/05/2025, 23:23 - Ashish CSE: Jova de mane have
+11/05/2025, 23:23 - Krishil Agrawal: ane aa gate vadi vaat koine kehvanu nathi
+11/05/2025, 23:24 - Ashish CSE: Dhaval ne pan nai?
+11/05/2025, 23:24 - Krishil Agrawal: khali apde 3j vache rehavu joye
+11/05/2025, 23:24 - Ashish CSE: Aditya ne pan nai?
+11/05/2025, 23:24 - Krishil Agrawal: na
+11/05/2025, 23:24 - Krishil Agrawal: ene toh khabar j che ne
+11/05/2025, 23:24 - Ashish CSE: Dhaval ne kevu padse e nai Kai koine nakar pavan kai dese
+11/05/2025, 23:24 - Ashish CSE: Nai ela khbar ene
+11/05/2025, 23:24 - Krishil Agrawal: ohk kai deje
+11/05/2025, 23:24 - Ashish CSE: Ohk
+11/05/2025, 23:24 - Ashish CSE: Tane khbar
+11/05/2025, 23:25 - Ashish CSE: Hu gate karu e mara roommate ne pan nai khbar
+11/05/2025, 23:25 - Krishil Agrawal: hmm barobar
+11/05/2025, 23:25 - Ashish CSE: Kevi rite taiyari karto hade vichar kar
+11/05/2025, 23:25 - Ashish CSE: Room ma manai
+11/05/2025, 23:25 - Krishil Agrawal: ane Dhaval thi agad vaat nai javu joye
+11/05/2025, 23:25 - Ashish CSE: Hu library ma karto
+11/05/2025, 23:25 - Krishil Agrawal: hmm
+11/05/2025, 23:25 - Ashish CSE: E nai jai e Mari kathiwadi ni juban
+11/05/2025, 23:25 - Krishil Agrawal: ohk
+11/05/2025, 23:25 - Ashish CSE: Ek minit gate no group jo Ema hu kaik moklu hu
+11/05/2025, 23:25 - Krishil Agrawal: ha
+11/05/2025, 23:27 - Ashish CSE: Nai bhegu thai
+11/05/2025, 23:27 - Krishil Agrawal: su ?
+11/05/2025, 23:27 - Ashish CSE: Topper notes ma AI and Ds nai
+11/05/2025, 23:27 - Ashish CSE: Khali cs it he
+11/05/2025, 23:28 - Krishil Agrawal: topper notes ?
+11/05/2025, 23:28 - Krishil Agrawal: tara account ma credits add thya
+11/05/2025, 23:28 - Krishil Agrawal: check kar toh
+11/05/2025, 23:29 - Ashish CSE: Ok
+11/05/2025, 23:30 - Ashish CSE: Kyay batavta nai
+11/05/2025, 23:30 - Ashish CSE: Em Kai next course purchase ma eligible thase
+11/05/2025, 23:42 - Krishil Agrawal: ha
+11/05/2025, 23:42 - Krishil Agrawal: kale vaat kariye chal ne
+13/05/2025, 13:58 - Krishil Agrawal: Buy karyu course ?
+13/05/2025, 13:59 - Ashish CSE: Na
+13/05/2025, 13:59 - Ashish CSE: Baki
+13/05/2025, 14:00 - Krishil Agrawal: ohk
+13/05/2025, 14:00 - Krishil Agrawal: khali ek correction hatu ke e 2 virtual internship provide nathi karta
+13/05/2025, 14:01 - Ashish CSE: Ok
+13/05/2025, 14:01 - Krishil Agrawal: Kyare levano ?
+13/05/2025, 14:02 - Ashish CSE: Aj sudhima
+13/05/2025, 14:32 - Krishil Agrawal: Hmm
+13/05/2025, 17:44 - Krishil Agrawal: Hi
+13/05/2025, 17:44 - Krishil Agrawal: Ayush rathod no number che ?
+13/05/2025, 17:44 - Krishil Agrawal: cse 2 ma che e
+13/05/2025, 17:44 - Krishil Agrawal: hoyyy toh mokal ne
+13/05/2025, 17:47 - Krishil Agrawal: madi gyu rehva deje
+13/05/2025, 20:06 - Ashish CSE: Rathod?
+13/05/2025, 20:08 - Krishil Agrawal: ha
+13/05/2025, 20:10 - Ashish CSE: Purchi dav
+13/05/2025, 20:18 - Krishil Agrawal: .
+13/05/2025, 20:18 - Ashish CSE: Nai Malta
+13/05/2025, 20:19 - Krishil Agrawal: Ala madi gyu no.
+13/05/2025, 20:19 - Krishil Agrawal: .
+13/05/2025, 20:20 - Ashish CSE: Khaine levo
+13/05/2025, 20:20 - Ashish CSE: Phone karu
+14/05/2025, 17:56 - Ashish CSE: <Media omitted>
+14/05/2025, 17:56 - Ashish CSE: Lai lidho <This message was edited>
+14/05/2025, 17:57 - Krishil Agrawal: Waah bete
+14/05/2025, 17:57 - Ashish CSE: Du
+14/05/2025, 17:57 - Ashish CSE: Su
+14/05/2025, 17:57 - Krishil Agrawal: Discord group join Kari le
+14/05/2025, 17:57 - Ashish CSE: Ha
+14/05/2025, 17:58 - Ashish CSE: <Media omitted>
+14/05/2025, 18:11 - Ashish CSE: Mare lalhelu hatu included books
+14/05/2025, 18:11 - Ashish CSE: Course 14k no avo
+14/05/2025, 18:12 - Krishil Agrawal: Ave shresth batch ma Jo toh lakhelu che ke nai
+14/05/2025, 18:12 - Ashish CSE: Ha lakhel che
+14/05/2025, 18:13 - Krishil Agrawal: Pn maru address toh mangyu nathi
+14/05/2025, 18:13 - Krishil Agrawal: Toh Kai rite deliver thvani book
+14/05/2025, 18:13 - Ashish CSE: Lagbhag tare nath included
+14/05/2025, 18:14 - Krishil Agrawal: Amna toh kidhu tu e ke che
+14/05/2025, 18:15 - Ashish CSE: Mara course ma lakhel che
+14/05/2025, 18:15 - Ashish CSE: Tara course ma me jiyu kyay dekhtu nai etle kav
+14/05/2025, 18:15 - Krishil Agrawal: Waah bhai same price che apde banev na course ni to pn 😥
+14/05/2025, 18:16 - Ashish CSE: Ds ai ni pyq book ave he?
+14/05/2025, 18:16 - Krishil Agrawal: Ane pachu amaru content tarthi ochu che
+14/05/2025, 18:16 - Ashish CSE: Elaaaaa
+14/05/2025, 18:16 - Krishil Agrawal: Are nai pn avti hoyy toh pn practice mate kaik to apva joye
+14/05/2025, 18:16 - Krishil Agrawal: Tara batch nu naam su hatu
+14/05/2025, 18:17 - Ashish CSE: Shreshth 2.0 Cs & it
+14/05/2025, 18:17 - Krishil Agrawal: Ohk
+14/05/2025, 18:41 - Ashish CSE: Kantaro ave ml ma yar
+14/05/2025, 18:41 - Ashish CSE: Badhu theory theory karave
+14/05/2025, 18:41 - Ashish CSE: Supervised unsupervised blah blah
+14/05/2025, 18:43 - Krishil Agrawal: bhai ml ma most of theory j che
+14/05/2025, 18:43 - Krishil Agrawal: and some calculations
+14/05/2025, 18:43 - Krishil Agrawal: implementation mate toh libraries che
+14/05/2025, 18:44 - Ashish CSE: 🙃🙃🙃
+14/05/2025, 18:44 - Ashish CSE: Esa kya
+14/05/2025, 18:45 - Ashish CSE: Tu hu industry level model kyare banavu
+14/05/2025, 18:48 - Krishil Agrawal: time lagse bhai
+14/05/2025, 18:48 - Krishil Agrawal: vacation no akho time ane ale toh kaik med thay
+14/05/2025, 18:49 - Ashish CSE: Placement ai ma ?
+14/05/2025, 18:54 - Krishil Agrawal: After Mtech 🙃 <This message was edited>
+14/05/2025, 19:01 - Ashish CSE: Life Is jhand 🙃
+14/05/2025, 19:16 - Krishil Agrawal: yess
+15/05/2025, 00:27 - Ashish CSE: null
+17/05/2025, 00:59 - Ashish CSE: null
+18/05/2025, 17:19 - Ashish CSE: null
+18/05/2025, 17:22 - Ashish CSE: discord username mokal
+18/05/2025, 17:23 - Krishil Agrawal: Krishil98
+18/05/2025, 19:26 - Ashish CSE: Tara password mokal
+18/05/2025, 19:26 - Ashish CSE: Hu kholine rakhu
+18/05/2025, 19:26 - Krishil Agrawal: reva de
+18/05/2025, 19:26 - Krishil Agrawal: amna hu active chu
+18/05/2025, 19:27 - Krishil Agrawal: match kyare patse ?
+18/05/2025, 19:27 - Krishil Agrawal: dc v;s gt
+18/05/2025, 19:30 - Ashish CSE: 11
+18/05/2025, 19:52 - Krishil Agrawal: bhai 867 thai gya
+18/05/2025, 19:52 - Krishil Agrawal: 801 na
+18/05/2025, 19:52 - Krishil Agrawal: 883
+18/05/2025, 19:58 - Ashish CSE: Ha vandho nai jarav
+18/05/2025, 20:24 - Krishil Agrawal: ala oyy gate ma calculator ape che
+18/05/2025, 20:24 - Krishil Agrawal: ?
+18/05/2025, 20:25 - Ashish CSE: Ha
+18/05/2025, 20:25 - Ashish CSE: Computer based hoi lagga
+18/05/2025, 20:25 - Ashish CSE: Jee jevij hoi
+18/05/2025, 20:26 - Krishil Agrawal: ha e toh khabar che
+18/05/2025, 20:26 - Krishil Agrawal: pn computer ma calculator hoyy ke nai
+18/05/2025, 20:27 - Krishil Agrawal: <Media omitted>
+18/05/2025, 20:27 - Krishil Agrawal: <Media omitted>
+18/05/2025, 20:30 - Krishil Agrawal: ..
+18/05/2025, 20:38 - Ashish CSE: ha
+18/05/2025, 20:38 - Ashish CSE: ketla male he
+18/05/2025, 20:39 - Krishil Agrawal: ubhore
+18/05/2025, 20:39 - Krishil Agrawal: 685
+18/05/2025, 20:39 - Ashish CSE: mara 125 minus ma he
+18/05/2025, 20:39 - Krishil Agrawal: kai nai rah joyee
+18/05/2025, 20:46 - Ashish CSE: -23
+18/05/2025, 20:46 - Ashish CSE: you?
+18/05/2025, 20:46 - Ashish CSE: -5
+18/05/2025, 20:46 - Ashish CSE: null
+18/05/2025, 20:47 - Krishil Agrawal: null
+18/05/2025, 20:47 - Ashish CSE: null
+18/05/2025, 20:51 - Ashish CSE: 200+
+18/05/2025, 20:52 - Krishil Agrawal: 547
+18/05/2025, 20:53 - Krishil Agrawal: -253
+18/05/2025, 20:53 - Ashish CSE: Ohk Kai problem nai
+18/05/2025, 20:55 - Ashish CSE: +300
+18/05/2025, 20:55 - Krishil Agrawal: -346
+18/05/2025, 20:56 - Ashish CSE: Biji inning ma jovu jose
+18/05/2025, 20:57 - Ashish CSE: Mare 10 k vage mara mamane bus stand mukva javanu he
+18/05/2025, 20:57 - Ashish CSE: Etle tu maru account kholine rakhje e samaye
+18/05/2025, 20:58 - Ashish CSE: tare vadhu hase
+18/05/2025, 21:02 - Krishil Agrawal: hmmm
+18/05/2025, 21:15 - Ashish CSE: Ketla jade he
+18/05/2025, 21:18 - Krishil Agrawal: 516
+18/05/2025, 21:18 - Krishil Agrawal: -384
+18/05/2025, 21:22 - Ashish CSE: Refree
+18/05/2025, 21:40 - Ashish CSE: Six lagi gyoooooo
+18/05/2025, 21:40 - Ashish CSE: Have gt harvu joie
+18/05/2025, 21:40 - Ashish CSE: To pure pura Paisa ave
+18/05/2025, 21:44 - Krishil Agrawal: krishilagrawal026@gmail.com
+18/05/2025, 21:44 - Krishil Agrawal: K@026rishil
+18/05/2025, 21:45 - Ashish CSE: code
+18/05/2025, 21:45 - Ashish CSE: code
+18/05/2025, 21:45 - Ashish CSE: code
+18/05/2025, 21:45 - Ashish CSE: code
+18/05/2025, 21:45 - Ashish CSE: code
+18/05/2025, 22:48 - Krishil Agrawal: 1206
+18/05/2025, 22:48 - Krishil Agrawal: + 405
+18/05/2025, 22:48 - Krishil Agrawal: Tare ketlu che
+18/05/2025, 22:49 - Ashish CSE: -800
+18/05/2025, 22:49 - Ashish CSE: Aje nuksan thase thoduk
+18/05/2025, 22:49 - Krishil Agrawal: Bau ocha Thai gya bhaii 🤯
+18/05/2025, 22:49 - Ashish CSE: Vandho nai
+18/05/2025, 22:49 - Ashish CSE: 200 300 nu thai avu
+18/05/2025, 22:49 - Ashish CSE: Hala rakhe
+18/05/2025, 22:49 - Krishil Agrawal: Maru chashout thay toh Kari nakh
+18/05/2025, 22:53 - Ashish CSE: Na
+18/05/2025, 22:53 - Ashish CSE: Taaru pure pura avse
+18/05/2025, 22:54 - Krishil Agrawal: Gt j jikse bhai
+18/05/2025, 22:55 - Ashish CSE: 330- ma haliy aje apde
+18/05/2025, 22:55 - Ashish CSE: vandho nai
+18/05/2025, 22:55 - Krishil Agrawal: Tane pan madvu joye ne 
+
+Dc e pehla 2 over 6 Mari hase ne
+18/05/2025, 22:55 - Ashish CSE: kale cover thai jahe
+18/05/2025, 22:55 - Krishil Agrawal: Ohk
+18/05/2025, 22:55 - Ashish CSE: nai mara
+18/05/2025, 22:55 - Krishil Agrawal: Ohk
+18/05/2025, 23:06 - Ashish CSE: gt jiti gyu
+18/05/2025, 23:06 - Ashish CSE: ajnu -350
+18/05/2025, 23:07 - Ashish CSE: am jova jaiye to kai etlu pan nath hara
+18/05/2025, 23:07 - Ashish CSE: karan ke bapore hu jiti gyo
+18/05/2025, 23:17 - Krishil Agrawal: 521 prof
+18/05/2025, 23:17 - Krishil Agrawal: 521-350 = 171
+18/05/2025, 23:18 - Krishil Agrawal: 171-93charges = 78
+18/05/2025, 23:18 - Krishil Agrawal: 78 net profit of today
+18/05/2025, 23:21 - Ashish CSE: 850 nakhta me e akha vaya gya
+18/05/2025, 23:21 - Ashish CSE: 850 - 521  =379
+18/05/2025, 23:21 - Ashish CSE: kalnu jovu jose
+19/05/2025, 12:39 - Krishil Agrawal: CoinDCX: Deposit ₹900 (0% fee) → Buy USDT via DCXinsta (0% fee, 0.5% spread = ₹4.5 loss) → ₹895.5 left. Trade at 0.5% (₹4.48 fee) → ₹891.
+WazirX: Deposit ₹900 (0% fee) → P2P USDT (1% premium = ₹9 loss) → ₹891. Trade at 0.2% (₹1.78 fee) → ₹889.22.
+Binance (Current): Deposit ₹900 → ₹817 (9.11% loss). Trade at 0.1% (₹0.82 fee) → ₹816.18.
+19/05/2025, 12:41 - Krishil Agrawal: Warix saru che em jova jaiye toh
+19/05/2025, 21:42 - Krishil Agrawal: Score su thyu
+19/05/2025, 21:42 - Krishil Agrawal: Mara ma net nathi haltu
+19/05/2025, 21:42 - Ashish CSE: Ej jov su
+19/05/2025, 21:42 - Ashish CSE: Jarav peli 2 over hale
+19/05/2025, 21:42 - Krishil Agrawal: Hmm
+20/05/2025, 03:24 - Ashish CSE: tara mail kholj eema stake bonus claim karvani link avi hase
+20/05/2025, 03:24 - Ashish CSE: ane jo accout ma paisa credit thai gya to ok
+20/05/2025, 10:05 - Krishil Agrawal: Ohk
+20/05/2025, 11:38 - Krishil Agrawal: Nathi ayvi
+20/05/2025, 11:38 - Krishil Agrawal: Ane credit oy nai thya
+20/05/2025, 12:06 - Ashish CSE: Ok
+20/05/2025, 12:11 - Krishil Agrawal: Claim Kai rite karvanu
+20/05/2025, 12:20 - Ashish CSE: null
+20/05/2025, 19:26 - Ashish CSE: null
+20/05/2025, 19:42 - Ashish CSE: null
+20/05/2025, 23:25 - Ashish CSE: null
+20/05/2025, 23:31 - Krishil Agrawal: null
+21/05/2025, 23:00 - Ashish CSE: null
+21/05/2025, 23:00 - Ashish CSE: mail check kar ava
+21/05/2025, 23:01 - Ashish CSE: hello
+21/05/2025, 23:01 - Ashish CSE: ava
+21/05/2025, 23:06 - Krishil Agrawal: tane pachi phone karu
+21/05/2025, 23:06 - Ashish CSE: Mail check kari le
+21/05/2025, 23:38 - Krishil Agrawal: nathi ayo
+22/05/2025, 17:30 - Ashish CSE: <Media omitted>
+22/05/2025, 17:30 - Ashish CSE: 2 star coder hurehhhh
+22/05/2025, 17:49 - Krishil Agrawal: 393989
+22/05/2025, 17:50 - Krishil Agrawal: Tane phone karu pachi
+22/05/2025, 17:50 - Ashish CSE: Bet lagadvi
+22/05/2025, 17:50 - Krishil Agrawal: Hu bimar chu etla mate phone silent Karine unghi gaylo
+22/05/2025, 17:50 - Ashish CSE: 6 vaga pela
+22/05/2025, 17:50 - Ashish CSE: Code apje
+22/05/2025, 17:50 - Krishil Agrawal: .. aa withdrawal code che aje msg ayo
+22/05/2025, 17:50 - Ashish CSE: Bijo avse
+22/05/2025, 17:51 - Ashish CSE: App
+22/05/2025, 17:51 - Ashish CSE: Jaldi
+22/05/2025, 17:52 - Krishil Agrawal: 991384
+22/05/2025, 17:52 - Krishil Agrawal: Tane ek mail moyklo che
+22/05/2025, 17:52 - Ashish CSE: Sui ja hal
+22/05/2025, 17:52 - Ashish CSE: Mane
+22/05/2025, 17:52 - Krishil Agrawal: College id par joi leje
+22/05/2025, 17:53 - Krishil Agrawal: Ha
+22/05/2025, 18:03 - Krishil Agrawal: Joyu ?
+22/05/2025, 18:06 - Ashish CSE: Otp varo he
+22/05/2025, 18:07 - Krishil Agrawal: Na la
+22/05/2025, 18:07 - Ashish CSE: Bijo ekay nath avo
+22/05/2025, 18:07 - Krishil Agrawal: Ha
+22/05/2025, 18:07 - Ashish CSE: Pacho mokal
+22/05/2025, 18:07 - Krishil Agrawal: Su ?
+22/05/2025, 18:07 - Ashish CSE: Otp varo avo bijo ekay anth
+22/05/2025, 18:08 - Ashish CSE: Bonus no email avo kai check karta
+22/05/2025, 18:08 - Krishil Agrawal: Nathi ayo ..
+22/05/2025, 18:09 - Ashish CSE: Screen share kar
+22/05/2025, 18:09 - Krishil Agrawal: Amna nai pachi
+22/05/2025, 18:09 - Ashish CSE: Ik
+22/05/2025, 18:09 - Ashish CSE: Ok
+25/05/2025, 19:34 - Ashish CSE: Bol
+25/05/2025, 19:47 - Krishil Agrawal: <Media omitted>
+30/05/2025, 00:17 - Krishil Agrawal: ..
+30/05/2025, 00:17 - Krishil Agrawal: Mokalne bhai
+30/05/2025, 00:51 - Krishil Agrawal: You deleted this message
+30/05/2025, 00:51 - Krishil Agrawal: Reva deje madi gyu
+02/06/2025, 17:55 - Ashish CSE: null
+09/06/2025, 01:43 - Ashish CSE: Mane thodok samay de
+09/06/2025, 01:43 - Ashish CSE: Mane dengue thyo he
+09/06/2025, 01:43 - Ashish CSE: Thodak samay ma paisa kadhi lai
+09/06/2025, 09:51 - Krishil Agrawal: Ha bhai vandho nai
+09/06/2025, 09:51 - Krishil Agrawal: Kai utavad nathi
+09/06/2025, 09:51 - Krishil Agrawal: Aram thi karisu
+09/06/2025, 09:51 - Krishil Agrawal: <Media omitted>
+14/06/2025, 18:40 - Ashish CSE: null
+16/06/2025, 22:31 - Ashish CSE: At Hospital
+16/06/2025, 22:31 - Krishil Agrawal: Okay
+28/06/2025, 17:51 - Krishil Agrawal: https://forms.gle/bxq43zpwYjvZ8U8A7
+28/06/2025, 17:51 - Krishil Agrawal: google form amna nai bharto
+29/06/2025, 21:16 - Krishil Agrawal: <Media omitted>
+29/06/2025, 21:16 - Krishil Agrawal: <Media omitted>
+29/06/2025, 21:17 - Krishil Agrawal: Sorry bhuli gyo toh
+01/07/2025, 14:40 - Krishil Agrawal: Students those who have not joined google classroom of Competitve programming, kindly join : https://classroom.google.com/c/Nzg3NjU5MTkwODMx?cjc=c4b4fn2a
+01/07/2025, 20:39 - Krishil Agrawal: <Media omitted>
+01/07/2025, 20:39 - Krishil Agrawal: Ave Aditya nu photo mokal
+01/07/2025, 20:39 - Krishil Agrawal: <Media omitted>
+01/07/2025, 20:40 - Krishil Agrawal: ..
+01/07/2025, 20:40 - Krishil Agrawal: Kai kidhar vagar
+01/07/2025, 20:40 - Krishil Agrawal: ..
+01/07/2025, 20:42 - Krishil Agrawal: bhai
+01/07/2025, 20:49 - Ashish CSE: <Media omitted>
+01/07/2025, 20:49 - Krishil Agrawal: bija badha pn mokal made toh
+01/07/2025, 20:49 - Ashish CSE: Bija year
+01/07/2025, 20:50 - Ashish CSE: Delete Thai gya hase toi jov chu
+01/07/2025, 20:50 - Krishil Agrawal: hmm
+01/07/2025, 20:50 - Krishil Agrawal: ek vaar bhega karine folder banai le
+01/07/2025, 20:50 - Ashish CSE: Joi lav
+01/07/2025, 20:52 - Ashish CSE: This message was deleted
+01/07/2025, 20:52 - Ashish CSE: Sorry wrong picture
+01/07/2025, 20:52 - Ashish CSE: Bija nathi malta
+01/07/2025, 20:52 - Krishil Agrawal: be sala
+01/07/2025, 20:52 - Ashish CSE: Nai Malta
+01/07/2025, 20:52 - Krishil Agrawal: kai nai chalse
+01/07/2025, 20:53 - Ashish CSE: Me hene maru private folder delete Kari nakhi mobile marhi
+01/07/2025, 20:53 - Ashish CSE: Ema ghanu kharu hatu
+01/07/2025, 20:53 - Krishil Agrawal: hmm kai nai
+01/07/2025, 20:53 - Ashish CSE: Ok
+01/07/2025, 22:46 - Krishil Agrawal: Bhai tu stake mathi paisa nikadi de
+01/07/2025, 22:59 - Ashish CSE: Kal suthi ma kadhi de
+01/07/2025, 23:00 - Krishil Agrawal: thik che
+03/07/2025, 07:08 - Krishil Agrawal: Happy Birthday Bro 🎉🥳
+03/07/2025, 09:07 - Krishil Agrawal: null
+03/07/2025, 09:07 - Krishil Agrawal: <Media omitted>
+03/07/2025, 09:07 - Krishil Agrawal: <Media omitted>
+03/07/2025, 09:07 - Krishil Agrawal: <Media omitted>
+03/07/2025, 09:07 - Krishil Agrawal: <Media omitted>
+03/07/2025, 09:07 - Krishil Agrawal: <Media omitted>
+05/07/2025, 14:46 - Krishil Agrawal: <Media omitted>
+05/07/2025, 14:46 - Krishil Agrawal: ave save karine rakhje
+05/07/2025, 14:46 - Krishil Agrawal: <Media omitted>
+05/07/2025, 15:34 - Ashish CSE: Hello
+05/07/2025, 15:34 - Ashish CSE: Oi
+05/07/2025, 15:34 - Ashish CSE: Mara number upar fatafat 19 varu recharge nakhi de
+05/07/2025, 15:34 - Ashish CSE: Jaldi
+05/07/2025, 15:34 - Krishil Agrawal: Bhul
+05/07/2025, 15:34 - Ashish CSE: Hu tane karu
+05/07/2025, 15:34 - Krishil Agrawal: Jio?
+05/07/2025, 15:34 - Ashish CSE: Same pacha
+05/07/2025, 15:34 - Ashish CSE: Ha
+05/07/2025, 15:35 - Krishil Agrawal: Ubh
+05/07/2025, 15:35 - Krishil Agrawal: Thai gya
+05/07/2025, 15:47 - Ashish CSE: Ok
+05/07/2025, 17:40 - Krishil Agrawal: *🗓️ Delhi/NCR Tech Events (June –July  2025)*
+Last updated 4   July    2025 
+
+4july 2025 4:30pm
+https://lu.ma/vwd08erx?tk=4hWVim
+Openx ai Develoepr  meetup
+Online event 
+
+4 July 2025
+Microsoft Noida 
+https://reskilll.com/event/aiandfuture
+
+4 July 2025
+D2c event https://lu.ma/qucqxbxx?tk=2yTbyy
+
+
+https://lu.ma/qxqb80jw?tk=GkEKm0 
+4july 2025
+Web3 and ai 
+
+
+Technology mixer for Business Owners - Entrepreneurs https://meetu.ps/e/P6twx/15xdQh/i
+4july 2025
+
+
+5 July 2025
+Build with snapxr | bharatxr 
+https://lu.ma/hrufaqx4?tk=IZdLcO
+
+https://lu.ma/w5hbprzt?tk=2fvhxm 
+5  July 2025
+Mlops agents 
+
+
+5july 2025
+NFT and ai 
+https://lu.ma/8jpg5eps?tk=Kxb0ns
+
+5july 2025 
+https://bit.ly/ffdg-builder-series-session-1
+Online event 
+
+5july 2025
+https://lu.ma/3xpn0caz?tk=oCY9jQ 
+For startup founders 
+
+https://lu.ma/ct9wcnvf?tk=t6a4DC 
+5 July 2025
+For early startup founders
+
+5july 2025 
+https://reskilll.com/event/azuredevdaynoida
+
+https://lu.ma/m028v5vf?tk=HD3AfA 
+6 July 2025
+Online event
+
+9 July 2025
+https://lu.ma/dbkobule?tk=faL2Ub 
+Foundx delhi meetup 
+
+
+11 July 2025
+CloudStack India User Group 2025 https://meetu.ps/e/P68KX/15xdQh/i
+
+12 July 2025
+https://lu.ma/4pt77ncq?tk=1HkXPD
+Ai stack for India
+
+
+Saturday, 12th Jul, 2025
+https://www.commudle.com/communities/gdg-cloud-noida/events/google-cloud-community-days-2025
+9:00 AM - 4:00 PM IST
+
+
+12 July 2025
+https://lu.ma/bsc6bd57?tk=pSGKTu +  
+Mandatory to register in Microsoft site  https://reskilll.com/event/aimeetupggn
+Location - Microsoft  venue 
+
+https://lu.ma/PSC7122025?tk=TvFCHL 
+12 July 2025
+Community meetup 
+
+https://lu.ma/ubdt2yi2?tk=uVD14H 
+19 July 2025
+Echoes of intelligence 
+
+https://lu.ma/rmolb0s8?tk=0dPMee 
+19 July  2025
+Legal tech 
+
+19 July 2025
+https://lu.ma/1o4evfqc?tk=46uG8E 
+Carrerverse event 
+https://lu.ma/ubdt2yi2?tk=uVD14H
+ July 19, 2025,
+ R&I Park, IIT Delhi
+
+
+https://lu.ma/g565cbcd?tk=HGFWOc 
+26 July 2025
+Venue IIT delhi
+
+https://lu.ma/loqsywnz?tk=aCGoLQ 
+26 July 2025
+Creators adds meetup 
+
+https://lu.ma/8ybtk2ye?tk=lJ7b2E 
+27july 2025
+Product folks 
+
+27 July 2025
+https://lu.ma/no47sxw5?tk=KbCqxg 
+She build event 
+
+https://lu.ma/b9tnoyl2?tk=UYt5St 
+30july 2025
+Etherum meetup 
+
+17 August 2025
+Public speaking circle 
+https://lu.ma/ju9zmp0u?tk=Regimx 
+
+https://lu.ma/wok3vp34?tk=H1GAJw 
+23 aug 2025
+
+25 sep 2025
+https://lu.ma/ethglobal-happy-hour-newdelhi?tk=QbQXc8
+07/07/2025, 12:50 - Ashish CSE: null
+07/07/2025, 15:05 - Ashish CSE: <Media omitted>
+07/07/2025, 23:53 - Ashish CSE: <Media omitted>
+07/07/2025, 23:53 - Ashish CSE: Dhyan thi joje
+07/07/2025, 23:54 - Krishil Agrawal: Disha che ?
+08/07/2025, 00:02 - Ashish CSE: Y
+08/07/2025, 00:04 - Krishil Agrawal: Chu**o che e
+08/07/2025, 00:04 - Krishil Agrawal: Ek thi man nath bhartu enu
+08/07/2025, 09:14 - Krishil Agrawal: <Media omitted>
+09/07/2025, 20:51 - Krishil Agrawal: https://vision.hack2skill.com/event/bah2025?utm_source=hack2skill&utm_medium=homepage#about
+09/07/2025, 20:51 - Krishil Agrawal: register kari deje
+09/07/2025, 21:05 - Ashish CSE: Meeting sari hales
+09/07/2025, 21:05 - Krishil Agrawal: ha land
+09/07/2025, 21:06 - Krishil Agrawal: tu nath ayo ne
+09/07/2025, 21:12 - Ashish CSE: khabr na rakho bhai tame
+09/07/2025, 21:12 - Ashish CSE: banavo banavo discord
+09/07/2025, 21:13 - Krishil Agrawal: be land sharm nat avti bijani vaato sambhde che
+09/07/2025, 21:17 - Ashish CSE: ha img vmg share karo
+09/07/2025, 21:17 - Krishil Agrawal: kaya img ?
+09/07/2025, 21:18 - Ashish CSE: Level bhai level
+09/07/2025, 21:18 - Krishil Agrawal: be land band tha bor nat kar
+09/07/2025, 21:18 - Krishil Agrawal: kaam karva de
+09/07/2025, 21:18 - Krishil Agrawal: tu toh ayo nai team ma
+09/07/2025, 21:18 - Ashish CSE: ha bhai mota manso na kam
+09/07/2025, 21:19 - Krishil Agrawal: moto toh tu che 😂
+09/07/2025, 21:19 - Ashish CSE: <Media omitted>
+09/07/2025, 21:23 - Ashish CSE: hu kai dai tame vue js vaparvna cho
+09/07/2025, 21:23 - Krishil Agrawal: kone kevano ?
+09/07/2025, 21:34 - Ashish CSE: jene kevanu che ene
+09/07/2025, 21:40 - Ashish CSE: avag to thaase je karvu hoi te kari le
+10/07/2025, 20:13 - Ashish CSE: <Media omitted>
+10/07/2025, 20:19 - Krishil Agrawal: Pehla kevu joye ne
+10/07/2025, 20:33 - Ashish CSE: Level bhai levl
+10/07/2025, 21:04 - Krishil Agrawal: bhai stake ma thi paisa kyare nikadvano <This message was edited>
+11/07/2025, 00:34 - Ashish CSE: Bhuli gyo to bhai
+11/07/2025, 00:34 - Ashish CSE: Kal upar rakh
+11/07/2025, 09:52 - Ashish CSE: <Media omitted>
+11/07/2025, 09:54 - Ashish CSE: <Media omitted>
+11/07/2025, 09:56 - Ashish CSE: null
+13/07/2025, 06:11 - Ashish CSE: <Media omitted>
+13/07/2025, 07:59 - Krishil Agrawal: Who is she
+13/07/2025, 08:02 - Krishil Agrawal: You deleted this message
+13/07/2025, 08:20 - Krishil Agrawal: Kya thi pakdi
+13/07/2025, 08:51 - Krishil Agrawal: Waah bhai jordar waat Kai ri
+13/07/2025, 08:52 - Krishil Agrawal: I proud of u
+13/07/2025, 08:52 - Krishil Agrawal: Mne vachtaj 10-15 thyu
+13/07/2025, 08:52 - Krishil Agrawal: <Media omitted>
+13/07/2025, 12:06 - Krishil Agrawal: Joyne reply nat karatu
+13/07/2025, 13:23 - Ashish CSE: Dekh rahe ho hamara power
+13/07/2025, 13:24 - Ashish CSE: <Media omitted>
+13/07/2025, 13:58 - Ashish CSE: <Media omitted>
+13/07/2025, 13:58 - Ashish CSE: <Media omitted>
+13/07/2025, 13:58 - Ashish CSE: <Media omitted>
+13/07/2025, 14:00 - Krishil Agrawal: oho bhai
+13/07/2025, 14:00 - Krishil Agrawal: sharam ave che
+13/07/2025, 14:00 - Krishil Agrawal: girle ne bully karo chp
+13/07/2025, 14:00 - Krishil Agrawal: *cho
+13/07/2025, 14:02 - Ashish CSE: Loda pachi chat vachme
+13/07/2025, 14:03 - Krishil Agrawal: hmm
+13/07/2025, 14:03 - Krishil Agrawal: tne phone karu pachi
+13/07/2025, 14:03 - Ashish CSE: <Media omitted>
+13/07/2025, 14:05 - Krishil Agrawal: vachi lidhu tu video mathi akhu
+15/07/2025, 09:05 - Krishil Agrawal: <Media omitted>
+15/07/2025, 09:53 - Ashish CSE: <Media omitted>
+15/07/2025, 10:39 - Krishil Agrawal: <Media omitted>
+15/07/2025, 10:45 - Krishil Agrawal: <Media omitted>
+15/07/2025, 10:53 - Ashish CSE: <Media omitted>
+15/07/2025, 11:02 - Ashish CSE: <Media omitted>
+15/07/2025, 11:07 - Ashish CSE: <Media omitted>
+15/07/2025, 12:28 - Ashish CSE: null
+15/07/2025, 12:28 - Ashish CSE: null
+15/07/2025, 12:29 - Krishil Agrawal: null
+15/07/2025, 12:42 - Ashish CSE: null
+15/07/2025, 12:42 - Ashish CSE: null
+16/07/2025, 14:00 - Ashish CSE: <Media omitted>
+18/07/2025, 11:08 - Ashish CSE: Frankie na Paisa mokal
+18/07/2025, 11:10 - Krishil Agrawal: Thai gya
+18/07/2025, 11:10 - Ashish CSE: Fail thai gya pacha mokal
+18/07/2025, 11:10 - Krishil Agrawal: <Media omitted>
+18/07/2025, 11:10 - Krishil Agrawal: Gand mar toh
+20/07/2025, 10:46 - Ashish CSE: Join thayo
+20/07/2025, 10:46 - Ashish CSE: Ela
+20/07/2025, 10:47 - Krishil Agrawal: ha bhai
+20/07/2025, 10:48 - Ashish CSE: Thai gyo join he?
+20/07/2025, 10:49 - Krishil Agrawal: Are e andarj nat leti
+20/07/2025, 10:49 - Ashish CSE: Ela gohel nath
+20/07/2025, 10:49 - Ashish CSE: To kon he
+20/07/2025, 10:50 - Krishil Agrawal: External
+20/07/2025, 10:50 - Ashish CSE: Ohhhh
+20/07/2025, 10:50 - Ashish CSE: Evu he
+20/07/2025, 10:50 - Ashish CSE: Ok hal
+20/07/2025, 13:48 - Your security code with Ashish CSE changed. Tap to learn more.
+20/07/2025, 20:42 - Krishil Agrawal: <Media omitted>
+20/07/2025, 20:43 - Krishil Agrawal: You deleted this message
+20/07/2025, 20:43 - Ashish CSE: <Media omitted>
+20/07/2025, 20:44 - Ashish CSE: This message was deleted
+20/07/2025, 20:47 - Ashish CSE: This message was deleted
+20/07/2025, 20:47 - Ashish CSE: This message was deleted
+20/07/2025, 20:47 - Ashish CSE: This message was deleted
+20/07/2025, 20:47 - Ashish CSE: This message was deleted
+20/07/2025, 20:50 - Ashish CSE: null
+20/07/2025, 20:57 - Krishil Agrawal: sorry galti se cut ho gaya
+20/07/2025, 20:57 - Ashish CSE: <Media omitted>
+20/07/2025, 20:57 - Krishil Agrawal: band tha land
+20/07/2025, 20:57 - Ashish CSE: <Media omitted>
+20/07/2025, 20:58 - Krishil Agrawal: <Media omitted>
+20/07/2025, 20:58 - Krishil Agrawal: be land kyare band karse
+20/07/2025, 20:58 - Ashish CSE: report writing ma su karvanu he
+20/07/2025, 20:58 - Krishil Agrawal: ..
+20/07/2025, 20:58 - Ashish CSE: jyre tu mara levl par avi jais
+20/07/2025, 20:58 - Ashish CSE: eto khabr pan actully karvanu su
+20/07/2025, 20:59 - Ashish CSE: are aj ek freind no message mane key ke
+20/07/2025, 20:59 - Krishil Agrawal: vachi leje report
+20/07/2025, 20:59 - Ashish CSE: sala s25 lai lidho have hostel vari chokrina panty photo aramthi avi jase charusat ma
+20/07/2025, 20:59 - Ashish CSE: em kai mane
+20/07/2025, 21:00 - Krishil Agrawal: sachi vaat che
+20/07/2025, 21:00 - Ashish CSE: maru nam che devo su tare maro levo
+23/07/2025, 23:45 - Ashish CSE: null
+23/07/2025, 23:47 - Ashish CSE: null
+24/07/2025, 00:01 - Krishil Agrawal: be extra calculator nu bandobast karje ne
+24/07/2025, 00:01 - Krishil Agrawal: kale mate khali
+24/07/2025, 00:02 - Krishil Agrawal: ??
+24/07/2025, 20:09 - Ashish CSE: https ://w ww.isro.gov.in/media_isro/pdf/FinalistTeamsforBAH-2025.pdf
+24/07/2025, 20:11 - Krishil Agrawal: reva de thai gyu
+24/07/2025, 20:11 - Krishil Agrawal: You deleted this message
+24/07/2025, 20:27 - Krishil Agrawal: galti thi lagigyu
+24/07/2025, 20:30 - Ashish CSE: null
+24/07/2025, 22:00 - Ashish CSE: <Media omitted>
+24/07/2025, 22:16 - Krishil Agrawal: tri pasand atli change kem thay kare
+25/07/2025, 09:57 - Krishil Agrawal: hotspot nu pass bol
+25/07/2025, 09:58 - Krishil Agrawal: .
+25/07/2025, 09:58 - Krishil Agrawal: .
+25/07/2025, 09:58 - Ashish CSE: diagram mokal
+25/07/2025, 09:58 - Ashish CSE: ashish5151 hotspot nu nam s25 utltra
+25/07/2025, 09:59 - Ashish CSE: moklane loda
+25/07/2025, 09:59 - Krishil Agrawal: ruk bhai
+25/07/2025, 10:00 - Ashish CSE: el moklne
+25/07/2025, 10:00 - Ashish CSE: loda
+25/07/2025, 10:02 - Ashish CSE: loda reva de submit kari nakhu me
+25/07/2025, 10:06 - Krishil Agrawal: <Media omitted>
+25/07/2025, 10:06 - Krishil Agrawal: <Media omitted>
+25/07/2025, 10:06 - Ashish CSE: maro lodo le have
+25/07/2025, 10:06 - Ashish CSE: kav kamnu
+25/07/2025, 10:06 - Ashish CSE: kyarno message karto
+25/07/2025, 10:06 - Krishil Agrawal: be land kyar me send kari didha hat
+25/07/2025, 10:06 - Krishil Agrawal: net na lidhe evu thyu
+25/07/2025, 10:07 - Ashish CSE: ek img moklva ma 5 minit thai
+25/07/2025, 10:07 - Krishil Agrawal: ha bhai
+25/07/2025, 10:07 - Krishil Agrawal: ss nathi baki tne dekhadt
+27/07/2025, 19:53 - Krishil Agrawal: <Media omitted>
+28/07/2025, 12:31 - Ashish CSE: null
+28/07/2025, 13:52 - Ashish CSE: null
+28/07/2025, 19:01 - Ashish CSE: Mokalne loda
+28/07/2025, 19:01 - Krishil Agrawal: https://youtu.be/CzRQ9mnmh44?si=SHIRqLgbq46KljMb
+28/07/2025, 20:56 - Krishil Agrawal: Hi
+28/07/2025, 20:57 - Ashish CSE: <Media omitted>
+28/07/2025, 20:57 - Ashish CSE: <Media omitted>
+28/07/2025, 20:57 - Ashish CSE: <Media omitted>
+28/07/2025, 20:57 - Krishil Agrawal: Ek secret khbr padi
+28/07/2025, 20:57 - Ashish CSE: <Media omitted>
+28/07/2025, 20:57 - Krishil Agrawal: Bs enik vaat che
+28/07/2025, 20:58 - Krishil Agrawal: Khyati nu affair chale che
+28/07/2025, 20:58 - Ashish CSE: <Media omitted>
+28/07/2025, 20:58 - Ashish CSE: <Media omitted>
+28/07/2025, 20:58 - Krishil Agrawal: Koni sathe che e khbr che
+28/07/2025, 20:59 - Ashish CSE: <Media omitted>
+28/07/2025, 20:59 - Ashish CSE: This message was deleted
+28/07/2025, 21:00 - Ashish CSE: <Media omitted>
+28/07/2025, 21:00 - Krishil Agrawal: Le bhai vishwas nathi
+28/07/2025, 21:01 - Krishil Agrawal: ?
+29/07/2025, 00:02 - Ashish CSE: null
+29/07/2025, 00:02 - Ashish CSE: null
+29/07/2025, 00:02 - Ashish CSE: Loda hu bathroom ma hu
+29/07/2025, 00:02 - Krishil Agrawal: are chalse mane
+29/07/2025, 00:02 - Ashish CSE: Jaldi camera bandh Kari dai
+29/07/2025, 00:02 - Ashish CSE: Kai koto nai
+29/07/2025, 00:05 - Ashish CSE: Ek vat kav su
+29/07/2025, 00:05 - Ashish CSE: Tirth tane kese kale
+29/07/2025, 00:05 - Krishil Agrawal: tu kene on
+29/07/2025, 00:05 - Ashish CSE: Pan atyre hu kav su
+29/07/2025, 00:05 - Krishil Agrawal: h ni vaat che
+29/07/2025, 00:05 - Krishil Agrawal: ?
+29/07/2025, 00:05 - Krishil Agrawal: khali e ke
+29/07/2025, 00:05 - Ashish CSE: Eniye paj same message hetvi ne nakha he
+29/07/2025, 00:06 - Ashish CSE: Kya good?
+29/07/2025, 00:06 - Krishil Agrawal: br sala
+29/07/2025, 00:06 - Krishil Agrawal: be
+29/07/2025, 00:06 - Krishil Agrawal: land
+29/07/2025, 00:06 - Krishil Agrawal: chodu
+29/07/2025, 00:06 - Krishil Agrawal: sharm nat avti
+29/07/2025, 00:06 - Ashish CSE: Mane su ke
+29/07/2025, 00:06 - Krishil Agrawal: besharam
+29/07/2025, 00:06 - Ashish CSE: Loda eni feelings he
+29/07/2025, 00:06 - Krishil Agrawal: ene ke toh land
+29/07/2025, 00:06 - Krishil Agrawal: toh gand ma ghale feelings
+29/07/2025, 00:06 - Ashish CSE: Eniye kai api
+29/07/2025, 00:06 - Ashish CSE: Loda e nai ha pade
+29/07/2025, 00:07 - Krishil Agrawal: ene evi nthi feelings
+29/07/2025, 00:07 - Krishil Agrawal: khbr che bhai mne
+29/07/2025, 00:07 - Krishil Agrawal: but evu direct msg nai karay brooooo
+29/07/2025, 00:07 - Krishil Agrawal: smj tu
+29/07/2025, 00:07 - Ashish CSE: Bhai tad ni fad have
+29/07/2025, 00:07 - Krishil Agrawal: reply ayu kai
+29/07/2025, 00:07 - Krishil Agrawal: ?
+29/07/2025, 00:07 - Ashish CSE: Na api Dey Etle bije divse vat pan nai
+29/07/2025, 00:08 - Ashish CSE: Ek vat kav
+29/07/2025, 00:08 - Krishil Agrawal: ala bhai jetli e friendly thay che e pn nai thay
+29/07/2025, 00:08 - Krishil Agrawal: bolll
+29/07/2025, 00:08 - Ashish CSE: E messages mej lkha Ena phone mathi
+29/07/2025, 00:09 - Krishil Agrawal: be chutiya
+29/07/2025, 00:09 - Krishil Agrawal: land
+29/07/2025, 00:09 - Krishil Agrawal: ave kone gado alu
+29/07/2025, 00:10 - Ashish CSE: Ek vat kav
+29/07/2025, 00:10 - Ashish CSE: Messages su lkha khbar
+29/07/2025, 00:10 - Krishil Agrawal: su ??
+29/07/2025, 00:10 - Ashish CSE: Hey
+29/07/2025, 00:10 - Krishil Agrawal: pchi
+29/07/2025, 00:10 - Ashish CSE: I just wanna tell you that I have feeling for you
+29/07/2025, 00:10 - Ashish CSE: I am awaiting your response
+29/07/2025, 00:11 - Krishil Agrawal: be sala
+29/07/2025, 00:11 - Ashish CSE: And please dont tell this conversation to anyone even krishil and aditya
+29/07/2025, 00:11 - Ashish CSE: If your ans Is no than I'll never contact you again
+29/07/2025, 00:11 - Krishil Agrawal: be sala chut che tu
+29/07/2025, 00:11 - Ashish CSE: Love ij blind bro
+29/07/2025, 00:11 - Krishil Agrawal: e toh ave no j avanu
+29/07/2025, 00:12 - Ashish CSE: Toi e modha upar no nai kai
+29/07/2025, 00:12 - Krishil Agrawal: tme blind thai nej love kro cho
+29/07/2025, 00:12 - Krishil Agrawal: kese wait
+29/07/2025, 00:12 - Ashish CSE: Loda tu pan nakhi de
+29/07/2025, 00:12 - Ashish CSE: Jeni dhel thai eni
+29/07/2025, 08:52 - Krishil Agrawal: <Media omitted>
+29/07/2025, 09:22 - Krishil Agrawal: <Media omitted>
+29/07/2025, 09:46 - Krishil Agrawal: <Media omitted>
+29/07/2025, 10:59 - Ashish CSE: <Media omitted>
+30/07/2025, 12:41 - Krishil Agrawal: Hi Sir,  I hope you're doing well! I'm a B.Tech Computer Science student currently working on a project for our Software Engineering course. As part of the project, we are required to interview an industry professional to understand real-world software development practices.  Given your experience at Google, I believe your insights would be incredibly valuable for our learning. I was wondering if you would be open to a short virtual interview (15–20 minutes) at a time that suits you. It would really help us bridge the gap between academic concepts and industry practices.  Please let me know if you’d be comfortable with this. I’d be truly grateful for your time and support.  Best regards, Krishil Agrawal
+30/07/2025, 15:41 - Ashish CSE: <Media omitted>
+30/07/2025, 15:42 - Ashish CSE: Linkdn kholine profile joi le
+30/07/2025, 15:54 - Krishil Agrawal: Sanu 🧐 ?
+30/07/2025, 15:57 - Ashish CSE: Profile check kar
+30/07/2025, 15:57 - Ashish CSE: Software engineer nu
+30/07/2025, 15:58 - Krishil Agrawal: Hmm
+30/07/2025, 15:59 - Krishil Agrawal: Be e toh internship nu che
+30/07/2025, 16:00 - Krishil Agrawal: Baki company ma toh 2j year nu che
+30/07/2025, 16:00 - Ashish CSE: 2 years akgamu ma he
+30/07/2025, 16:00 - Krishil Agrawal: Hmm
+30/07/2025, 16:00 - Ashish CSE: Niche 1 varas nu che ek
+30/07/2025, 16:01 - Krishil Agrawal: Ane bija ma internship karelu che
+30/07/2025, 16:01 - Krishil Agrawal: E internship j che
+30/07/2025, 16:01 - Ashish CSE: Hmm
+30/07/2025, 16:02 - Krishil Agrawal: Koi bija ne hodh
+30/07/2025, 18:23 - Krishil Agrawal: Bol bhai
+30/07/2025, 17:40 - Ashish CSE: <Media omitted>
+30/07/2025, 17:41 - Ashish CSE: Ene nathi karvu to Mari profile sa mate jove che
+30/07/2025, 17:45 - Ashish CSE: 🥲
+30/07/2025, 18:23 - Ashish CSE: Aa badhu nahi dekhatu
+30/07/2025, 18:24 - Krishil Agrawal: Thaya kare
+30/07/2025, 18:24 - Krishil Agrawal: Tu maan pr nai le
+30/07/2025, 18:24 - Ashish CSE: Pan sa mate yarrrrr
+30/07/2025, 19:02 - Krishil Agrawal: Vadhare sapna nai bunto
+30/07/2025, 19:06 - Ashish CSE: Tu Sui ja ela
+30/07/2025, 19:16 - Krishil Agrawal: be sala ana sivay kai avdtu nathi tne
+30/07/2025, 19:16 - Ashish CSE: <Media omitted>
+30/07/2025, 19:16 - Krishil Agrawal: gand ma chan hoy toh ene msg kr
+30/07/2025, 19:16 - Krishil Agrawal: ke kem jove che profile
+30/07/2025, 19:16 - Ashish CSE: Tu Sui ja kavse
+31/07/2025, 13:28 - Krishil Agrawal: <Media omitted>
+31/07/2025, 21:21 - Krishil Agrawal: *🚀 TechTonic 2025* – Join the Ultimate Hackathon Challenge!
+
+Ready to code, create, and collaborate?
+Whether you’re a beginner or a pro, *TechTonic 2025* is your chance to solve real-world problems, connect with innovators, and win amazing prizes!
+
+🔥 What’s in store?
+
+Thrilling coding challenges & teamwork
+
+Inspiring mentors and expert judges
+
+Exciting prizes, goodies, and opportunities
+
+Network with fellow tech enthusiasts and expand your horizons
+
+*🗓️ Date: 30 August 2025*
+🌐 *Register Now:*  https://techtonic2025.web.app/
+*🫡 Last Date to Register: 11 August 2025*
+
+Spread the word — tag your friends and share this invite!
+
+`We may NOT be the ONE yet, but we are striving to be the BEST ONE.`
+
+Let’s code the future together at *#TeamTechTonic2025! 🚀*
+31/07/2025, 21:21 - Krishil Agrawal: <Media omitted>
+31/07/2025, 21:24 - Ashish CSE: null
+31/07/2025, 22:42 - Ashish CSE: <Media omitted>
+31/07/2025, 22:58 - Krishil Agrawal: pchd na singer ne ke ke Indian idol nu audition apyave
+01/08/2025, 10:10 - Krishil Agrawal: Tari attendance Thai gai che
+01/08/2025, 10:10 - Krishil Agrawal: Avi jaje break pchi
+01/08/2025, 10:45 - Ashish CSE: Ok
+01/08/2025, 14:05 - Ashish CSE: <Media omitted>
+01/08/2025, 15:16 - Krishil Agrawal: https://techtonic2025.web.app/
+02/08/2025, 17:58 - Ashish CSE: null
+02/08/2025, 18:07 - Ashish CSE: <Media omitted>
+02/08/2025, 18:12 - Ashish CSE: https://docs.google.com/spreadsheets/u/0/d/160ISS_cxS3wlq7FqgIGW2K04auXlWb0xIoIkLwK3nVw/htmlview#gid=0
+02/08/2025, 21:28 - Ashish CSE: null
+02/08/2025, 21:28 - Ashish CSE: <Media omitted>
+02/08/2025, 21:28 - Ashish CSE: <Media omitted>
+02/08/2025, 21:28 - Ashish CSE: <Media omitted>
+02/08/2025, 21:29 - Krishil Agrawal: waah beta
+02/08/2025, 21:29 - Krishil Agrawal: kro moj
+02/08/2025, 21:29 - Ashish CSE: null
+02/08/2025, 21:29 - Ashish CSE: Bhul mathi
+02/08/2025, 21:33 - Krishil Agrawal: https://meet.google.com/nnr-wfzj-nvv
+02/08/2025, 21:50 - Ashish CSE: null
+02/08/2025, 21:50 - Ashish CSE: null
+02/08/2025, 21:50 - Ashish CSE: Loda reffral api deje
+02/08/2025, 21:50 - Krishil Agrawal: hmm
+02/08/2025, 21:50 - Ashish CSE: <Media omitted>
+02/08/2025, 21:59 - Krishil Agrawal: ave nai alu loda
+02/08/2025, 22:53 - Krishil Agrawal: chal ave recording banava nai bes
+02/08/2025, 22:54 - Ashish CSE: Pikina aa je hoine ene samajvi daje
+02/08/2025, 22:54 - Ashish CSE: Eni gand to hu nari
+02/08/2025, 22:54 - Ashish CSE: Hu sam khaav je hoi ene samjavi daje
+02/08/2025, 22:54 - Ashish CSE: Kota vyakti hara pango ley che
+02/08/2025, 22:54 - Ashish CSE: <Media omitted>
+02/08/2025, 23:13 - Ashish CSE: null
+02/08/2025, 23:13 - Ashish CSE: null
+03/08/2025, 12:48 - Ashish CSE: null
+03/08/2025, 14:50 - Ashish CSE: <Media omitted>
+03/08/2025, 14:51 - Ashish CSE: <Media omitted>
+03/08/2025, 15:23 - Krishil Agrawal: Band tha lodaa
+03/08/2025, 15:23 - Ashish CSE: Kem
+03/08/2025, 15:23 - Ashish CSE: Su thyau
+03/08/2025, 20:46 - Krishil Agrawal: msg kryu che
+03/08/2025, 20:46 - Krishil Agrawal: reply ave toh kau
+03/08/2025, 21:48 - Ashish CSE: null
+03/08/2025, 21:51 - Krishil Agrawal: <Media omitted>
+04/08/2025, 13:06 - Ashish CSE: Mad ma proxy puravje
+04/08/2025, 19:11 - Krishil Agrawal: Tari Thai gai la Attendance
+04/08/2025, 19:11 - Ashish CSE: Kema
+04/08/2025, 19:11 - Ashish CSE: Kai lab
+04/08/2025, 19:13 - Krishil Agrawal: Seminar ma
+05/08/2025, 09:17 - Ashish CSE: pani apne
+05/08/2025, 09:17 - Ashish CSE: taras lagi
+05/08/2025, 12:45 - Krishil Agrawal: Be loda list ma thi peli nu naam hatav loda
+05/08/2025, 12:45 - Krishil Agrawal: Tne na kidhu toh pn backchodi krto jay
+05/08/2025, 12:45 - Ashish CSE: <Media omitted>
+05/08/2025, 12:45 - Krishil Agrawal: null
+05/08/2025, 12:46 - Ashish CSE: null
+05/08/2025, 12:47 - Krishil Agrawal: Ave joh hu chalu keu
+05/08/2025, 12:48 - Ashish CSE: <Media omitted>
+05/08/2025, 14:21 - Krishil Agrawal: Kyare javano ghare
+05/08/2025, 14:21 - Ashish CSE: Nakk8 nath
+05/08/2025, 14:21 - Ashish CSE: Tivkit no bhav 1800 he
+05/08/2025, 20:43 - Ashish CSE: null
+05/08/2025, 20:43 - Ashish CSE: null
+05/08/2025, 20:54 - Ashish CSE: null
+05/08/2025, 21:22 - Ashish CSE: mokli daje tari varine je gorup ma moklu he
+05/08/2025, 21:33 - Ashish CSE: e mokline ke
+05/08/2025, 21:33 - Ashish CSE: <Media omitted>
+05/08/2025, 21:34 - Ashish CSE: <Media omitted>
+05/08/2025, 21:35 - Krishil Agrawal: are bhai jois
+06/08/2025, 09:15 - Ashish CSE: Kya
+06/08/2025, 09:15 - Ashish CSE: null
+06/08/2025, 09:30 - Krishil Agrawal: Hostel
+06/08/2025, 09:30 - Ashish CSE: <Media omitted>
+06/08/2025, 09:30 - Ashish CSE: <Media omitted>
+06/08/2025, 09:31 - Krishil Agrawal: Kai nai chlse
+06/08/2025, 09:31 - Krishil Agrawal: Tum kem ayo
+06/08/2025, 09:31 - Krishil Agrawal: Tu toh nai avano hato ne
+06/08/2025, 09:31 - Ashish CSE: Ek photo mokli
+06/08/2025, 09:31 - Krishil Agrawal: Mkl
+06/08/2025, 09:37 - Ashish CSE: <Media omitted>
+06/08/2025, 09:48 - Krishil Agrawal: Loda
+06/08/2025, 09:48 - Krishil Agrawal: Bs ava kam dandha kr
+06/08/2025, 09:49 - Ashish CSE: Maja avine
+07/08/2025, 02:27 - Krishil Agrawal: Be lode
+07/08/2025, 14:20 - Ashish CSE: <Media omitted>
+07/08/2025, 14:24 - Ashish CSE: <Media omitted>
+07/08/2025, 14:28 - Ashish CSE: Group ma moklu aa
+07/08/2025, 14:29 - Ashish CSE: Tirth ne no keto
+08/08/2025, 14:31 - Ashish CSE: null
+10/08/2025, 23:57 - Ashish CSE: null
+11/08/2025, 00:21 - Ashish CSE: Joke will continue later
+11/08/2025, 00:21 - Krishil Agrawal: Ohk
+11/08/2025, 00:21 - Krishil Agrawal: I also have to sleep
+11/08/2025, 12:44 - Ashish CSE: Ela meeting no avaj nath avto mare
+11/08/2025, 13:10 - Krishil Agrawal: hmm
+11/08/2025, 13:10 - Krishil Agrawal: <Media omitted>
+11/08/2025, 13:11 - Ashish CSE: Elaaaa
+11/08/2025, 13:57 - Ashish CSE: This message was deleted
+11/08/2025, 13:57 - Krishil Agrawal: be sala su che
+11/08/2025, 13:58 - Ashish CSE: Kai nai
+11/08/2025, 13:58 - Krishil Agrawal: khyati pr hato ne tu toh
+11/08/2025, 13:58 - Ashish CSE: Chuj
+11/08/2025, 13:58 - Krishil Agrawal: toh saumya su ex che ?
+11/08/2025, 13:58 - Ashish CSE: Saumya didi
+11/08/2025, 13:58 - Krishil Agrawal: didi didi bolta jao madto labh leta jao
+11/08/2025, 13:58 - Ashish CSE: Na ela
+11/08/2025, 13:58 - Ashish CSE: Didi e didi
+11/08/2025, 13:59 - Ashish CSE: Ane kyati e khyati
+11/08/2025, 13:59 - Krishil Agrawal: be ja didi vado
+11/08/2025, 13:59 - Krishil Agrawal: tara irada mne khbr che
+11/08/2025, 13:59 - Ashish CSE: Ma kasam kai irada hoi to
+11/08/2025, 13:59 - Ashish CSE: Magaj sara vichar lavo to saruj thase
+11/08/2025, 13:59 - Krishil Agrawal: ohh
+11/08/2025, 14:00 - Krishil Agrawal: kyar thi sudhri gyo
+11/08/2025, 14:00 - Ashish CSE: Jyathi peliye na padi
+11/08/2025, 14:00 - Ashish CSE: 🥲
+11/08/2025, 14:00 - Ashish CSE: Chut mare chutiya mard mare muthuya
+11/08/2025, 14:00 - Krishil Agrawal: eni toh kyar ni na hti
+11/08/2025, 14:01 - Krishil Agrawal: khali tne late kbr padi
+11/08/2025, 14:01 - Ashish CSE: Taro bhai mard nu fadiyu che
+11/08/2025, 14:01 - Ashish CSE: Havethi no londiyabazi only didibazi
+11/08/2025, 14:03 - Krishil Agrawal: su kidhu sir e
+11/08/2025, 14:05 - Ashish CSE: You can leave attendance is taken sir e kidhu
+11/08/2025, 14:05 - Krishil Agrawal: ha bhai
+11/08/2025, 14:05 - Krishil Agrawal: pdi khbr
+11/08/2025, 14:05 - Ashish CSE: Evu he
+11/08/2025, 14:05 - Krishil Agrawal: hmm evu che
+11/08/2025, 14:05 - Ashish CSE: Hu ke hetvi na chahek nindar me he
+11/08/2025, 14:06 - Krishil Agrawal: kni vaat kre che
+11/08/2025, 14:06 - Krishil Agrawal: e specify kr
+11/08/2025, 14:06 - Ashish CSE: Kai nai
+11/08/2025, 14:06 - Krishil Agrawal: ena chahak bau che
+11/08/2025, 14:06 - Ashish CSE: This message was deleted
+11/08/2025, 14:06 - Ashish CSE: This message was deleted
+11/08/2025, 14:06 - Krishil Agrawal: be loda band tha
+11/08/2025, 14:06 - Krishil Agrawal: ghare chu
+11/08/2025, 14:06 - Ashish CSE: Horny
+11/08/2025, 14:07 - Krishil Agrawal: sala hudaili hand
+11/08/2025, 14:08 - Ashish CSE: Heeeeeee?
+11/08/2025, 14:08 - Krishil Agrawal: replace h with c and then with r
+11/08/2025, 14:08 - Ashish CSE: Ka pikina
+11/08/2025, 14:15 - Krishil Agrawal: Bolne handi
+11/08/2025, 14:15 - Ashish CSE: <Media omitted>
+11/08/2025, 14:15 - Ashish CSE: <Media omitted>
+11/08/2025, 14:16 - Ashish CSE: Himmat he taru laptop tari rite kholine saf karvani
+11/08/2025, 14:16 - Krishil Agrawal: Tara ma hoy toh pehla macbook nu kar
+11/08/2025, 14:16 - Ashish CSE: Enuy karvu
+11/08/2025, 14:16 - Ashish CSE: Pan after 6 minths
+11/08/2025, 14:16 - Ashish CSE: Ane plus ema no fans
+11/08/2025, 14:17 - Krishil Agrawal: Kem fati gai
+11/08/2025, 14:17 - Ashish CSE: Etle dust etli build up na thai beta
+11/08/2025, 14:17 - Ashish CSE: Taru laptop hu kholi jo
+11/08/2025, 14:17 - Ashish CSE: Khali jova mate
+11/08/2025, 14:17 - Krishil Agrawal: Be ja handi
+11/08/2025, 14:17 - Krishil Agrawal: Hand tari
+11/08/2025, 14:17 - Krishil Agrawal: Himmat hoy toh kri me batav
+11/08/2025, 14:17 - Ashish CSE: Pakune
+11/08/2025, 14:18 - Ashish CSE: This message was deleted
+11/08/2025, 14:18 - Ashish CSE: This message was deleted
+11/08/2025, 14:18 - Ashish CSE: Levo maro
+11/08/2025, 14:18 - Krishil Agrawal: Pikii ?
+11/08/2025, 14:18 - Krishil Agrawal: Loda
+11/08/2025, 14:18 - Ashish CSE: Na lodo
+11/08/2025, 14:19 - Krishil Agrawal: Sachi vastu modha pr aij jay
+11/08/2025, 14:19 - Ashish CSE: Eto hetvi ni chat taye hu manu tane
+11/08/2025, 14:19 - Ashish CSE: Mane ek vat ke
+11/08/2025, 14:19 - Ashish CSE: Hetvi tane chatvanu ke tu chat ke no chat
+11/08/2025, 14:19 - Krishil Agrawal: Eni pehla ene levu pde
+11/08/2025, 14:20 - Ashish CSE: Ha e lai lese
+11/08/2025, 14:20 - Ashish CSE: Tu chat ke no chat
+11/08/2025, 14:48 - Ashish CSE: practicle to thai gyo have
+11/08/2025, 14:48 - Krishil Agrawal: kai nai sui ja
+11/08/2025, 14:49 - Ashish CSE: aditya ne ke
+11/08/2025, 14:49 - Krishil Agrawal: e lodo le maro
+11/08/2025, 14:49 - Ashish CSE: hehee
+11/08/2025, 14:49 - Ashish CSE: tu kene chat ke no chat eni
+11/08/2025, 14:49 - Ashish CSE: tane key to e
+11/08/2025, 14:49 - Krishil Agrawal: e pehla le pchi vicharu
+11/08/2025, 14:49 - Ashish CSE: Hal lai lidho pachi
+11/08/2025, 14:50 - Krishil Agrawal: mne maja avi joye
+11/08/2025, 14:50 - Ashish CSE: to tu chatne eno matlab
+11/08/2025, 14:51 - Krishil Agrawal: tne su krvu che jani ne
+11/08/2025, 14:51 - Ashish CSE: jo bhai hu to chati lav khyati ni
+11/08/2025, 14:51 - Krishil Agrawal: e toh amna oy chatas
+11/08/2025, 14:52 - Ashish CSE: Tu chatas ke nai ha ke na
+11/08/2025, 14:52 - Krishil Agrawal: jou mood pr depend kare
+11/08/2025, 14:52 - Ashish CSE: <Media omitted>
+11/08/2025, 14:52 - Ashish CSE: Aa group ma jase
+11/08/2025, 14:52 - Ashish CSE: Photo
+11/08/2025, 14:53 - Krishil Agrawal: tri gand loda
+11/08/2025, 14:53 - Ashish CSE: 101%
+11/08/2025, 14:53 - Krishil Agrawal: bakchodi nai joye
+11/08/2025, 14:53 - Ashish CSE: Moklu chu
+11/08/2025, 14:53 - Krishil Agrawal: brbr
+11/08/2025, 14:53 - Ashish CSE: 1 minit
+11/08/2025, 14:53 - Ashish CSE: Eto joiye
+11/08/2025, 14:53 - Krishil Agrawal: be loda mari khai jais
+11/08/2025, 14:53 - Ashish CSE: Tane khbar hu ketlo nago manas chu
+11/08/2025, 14:53 - Krishil Agrawal: pchi mne pn mokalta ave che
+11/08/2025, 14:54 - Ashish CSE: Tare je moklvu hoi e mokli daje
+11/08/2025, 14:54 - Krishil Agrawal: nago nai naggi che tu
+11/08/2025, 14:54 - Ashish CSE: Idc
+11/08/2025, 14:54 - Ashish CSE: Hu emay nago chu
+11/08/2025, 14:54 - Krishil Agrawal: ohk done toh
+11/08/2025, 14:54 - Krishil Agrawal: tne delete nai krvnu brbr
+11/08/2025, 14:54 - Ashish CSE: Jo
+11/08/2025, 15:35 - Ashish CSE: Oi
+11/08/2025, 15:36 - Ashish CSE: Hu hagva jav chu
+11/08/2025, 15:36 - Krishil Agrawal: toh jani
+11/08/2025, 15:36 - Ashish CSE: Mam avene kai key ke attendence lai to kai daje washroom ma che
+11/08/2025, 15:36 - Ashish CSE: Sabhar to khari hetvi
+11/08/2025, 15:36 - Krishil Agrawal: be loda nai ke
+11/08/2025, 15:36 - Ashish CSE: Ave to kije
+11/08/2025, 15:36 - Ashish CSE: Baki no keto
+11/08/2025, 15:36 - Krishil Agrawal: attendance autofill rhavani
+11/08/2025, 15:36 - Ashish CSE: Ok
+11/08/2025, 15:36 - Ashish CSE: Toi
+11/08/2025, 15:36 - Krishil Agrawal: hmm
+11/08/2025, 15:38 - Krishil Agrawal: You deleted this message
+11/08/2025, 15:43 - Ashish CSE: Su moklu
+11/08/2025, 15:44 - Ashish CSE: Chodu mare pan notification history ave
+11/08/2025, 15:44 - Ashish CSE: Su sticker moklu jaldi mokal
+11/08/2025, 15:47 - Krishil Agrawal: ala kai nat moyklu tu
+11/08/2025, 15:50 - Krishil Agrawal: <Media omitted>
+11/08/2025, 15:50 - Ashish CSE: What
+11/08/2025, 15:50 - Krishil Agrawal: bju mathi waad erase kri de
+11/08/2025, 15:50 - Ashish CSE: A chodu
+11/08/2025, 15:50 - Krishil Agrawal: and also background
+11/08/2025, 15:50 - Ashish CSE: Pikina
+11/08/2025, 15:50 - Krishil Agrawal: be lodu kr ni
+11/08/2025, 15:50 - Ashish CSE: Karu
+11/08/2025, 15:50 - Krishil Agrawal: <Media omitted>
+11/08/2025, 15:51 - Ashish CSE: Background pan kadhvu akhu
+11/08/2025, 15:51 - Ashish CSE: To rakhvu su
+11/08/2025, 15:51 - Krishil Agrawal: koi professional hoy toh e muki de
+11/08/2025, 15:51 - Ashish CSE: Ok
+11/08/2025, 15:55 - Ashish CSE: <Media omitted>
+11/08/2025, 15:56 - Ashish CSE: Bg mane med nai avto muki daje kaik
+11/08/2025, 15:56 - Krishil Agrawal: koi sru background nat maidu
+11/08/2025, 15:56 - Ashish CSE: Mane pan
+11/08/2025, 15:56 - Ashish CSE: Pela flowers vada he
+11/08/2025, 15:56 - Krishil Agrawal: ala mara ma nai mukay
+11/08/2025, 15:56 - Ashish CSE: Jov joiye
+11/08/2025, 15:56 - Krishil Agrawal: mkl
+11/08/2025, 15:58 - Krishil Agrawal: linked in jo toh
+11/08/2025, 16:04 - Ashish CSE: Joyu
+11/08/2025, 16:05 - Krishil Agrawal: kevu che
+11/08/2025, 16:05 - Krishil Agrawal: ?
+11/08/2025, 16:06 - Ashish CSE: Saru
+11/08/2025, 16:06 - Ashish CSE: Clearity ochi he
+11/08/2025, 16:06 - Krishil Agrawal: ok
+11/08/2025, 16:08 - Ashish CSE: Attendence levai gai?
+11/08/2025, 18:58 - Krishil Agrawal: https://teams.microsoft.com/l/message/19:8Z5P1VbRJwqD0zV_Vol1rZqvT3w6pXg120G7qN6Dux01@thread.tacv2/1754918875402?tenantId=8dbd2884-120c-413b-80b2-1117dd3469a4&groupId=7df3b428-1c61-40b1-9928-3ab0191ec8d6&parentMessageId=1754918875402&teamName=SE%20Project&channelName=General&createdTime=1754918875402
+11/08/2025, 18:58 - Krishil Agrawal: join at 7:30
+11/08/2025, 19:42 - Krishil Agrawal: https://chatgpt.com/share/6899fa36-e0c8-8012-a9b5-b8c688c60f99
+11/08/2025, 19:55 - Krishil Agrawal: <Media omitted>
+11/08/2025, 20:02 - Ashish CSE: Meeting calu thai he?
+11/08/2025, 20:02 - Krishil Agrawal: na
+11/08/2025, 20:02 - Krishil Agrawal: relax
+11/08/2025, 20:21 - Krishil Agrawal: chal meeting ma av
+11/08/2025, 20:26 - Krishil Agrawal: https://chatgpt.com/share/6899fa36-e0c8-8012-a9b5-b8c688c60f99
+11/08/2025, 20:27 - Krishil Agrawal: <Media omitted>
+11/08/2025, 20:27 - Krishil Agrawal: <Media omitted>
+11/08/2025, 20:27 - Krishil Agrawal: <Media omitted>
+11/08/2025, 20:31 - Ashish CSE: can you inshight me about how your work is divided among your team members in a project
+11/08/2025, 20:33 - Ashish CSE: mam accordingt to you what skill are the most important for the software engineer entering the industry today
+11/08/2025, 20:39 - Krishil Agrawal: https://meet.google.com/won-xqws-bnh
+12/08/2025, 09:11 - Ashish CSE: Hu sui jav chu
+12/08/2025, 09:11 - Ashish CSE: Kai kam hoi to phone karine uthadje
+12/08/2025, 09:15 - Krishil Agrawal: hmm
+12/08/2025, 09:23 - Krishil Agrawal: be loda grp mathi hatav
+12/08/2025, 09:23 - Krishil Agrawal: tya mokal vanin jrur nthi
+12/08/2025, 09:23 - Ashish CSE: kem
+12/08/2025, 09:24 - Krishil Agrawal: smjh la
+12/08/2025, 09:24 - Ashish CSE: flex kariye thoduk
+12/08/2025, 09:24 - Krishil Agrawal: hu photo mkli dav
+12/08/2025, 09:24 - Krishil Agrawal: aa muk
+12/08/2025, 09:24 - Ashish CSE: kari dhidhi ne bakchodi calu ajni
+12/08/2025, 09:25 - Krishil Agrawal: be loda hu meeting na photo ni vaat krto toh
+12/08/2025, 09:25 - Ashish CSE: Bane video he
+12/08/2025, 09:25 - Ashish CSE: Photo nath
+12/08/2025, 09:31 - Krishil Agrawal: ala oy hu hagva jau chu
+12/08/2025, 09:31 - Ashish CSE: mare pan javu he
+12/08/2025, 09:31 - Krishil Agrawal: sir kai puche toh kai deje
+12/08/2025, 09:31 - Krishil Agrawal: be loda
+12/08/2025, 09:31 - Ashish CSE: hu su karu
+12/08/2025, 09:31 - Ashish CSE: hu jav chu
+12/08/2025, 09:37 - Krishil Agrawal: ja loda
+12/08/2025, 09:37 - Krishil Agrawal: mre thai gyu
+12/08/2025, 09:37 - Ashish CSE: Bathroom maj betho
+12/08/2025, 10:18 - Ashish CSE: 8th mokal
+12/08/2025, 10:37 - Krishil Agrawal: pchi moklu
+12/08/2025, 10:37 - Ashish CSE: aditya e mokli dhidh
+12/08/2025, 10:37 - Ashish CSE: tari pela
+12/08/2025, 10:37 - Ashish CSE: bo hae
+12/08/2025, 10:44 - Krishil Agrawal: su mokli dhidh
+12/08/2025, 10:44 - Ashish CSE: This message was deleted
+12/08/2025, 10:44 - Ashish CSE: This message was deleted
+12/08/2025, 10:44 - Ashish CSE: This message was deleted
+12/08/2025, 10:44 - Krishil Agrawal: toh frd kr aiya
+12/08/2025, 10:45 - Ashish CSE: Frd?
+12/08/2025, 10:46 - Krishil Agrawal: forward
+12/08/2025, 10:58 - Krishil Agrawal: file mkl
+12/08/2025, 10:58 - Ashish CSE: <Media omitted>
+12/08/2025, 10:59 - Krishil Agrawal: be loda aa cie no che
+12/08/2025, 10:59 - Krishil Agrawal: prct 8 no vaat kre che sir
+12/08/2025, 10:59 - Ashish CSE: 8 j che
+12/08/2025, 11:00 - Krishil Agrawal: gnd tri
+12/08/2025, 11:01 - Krishil Agrawal: vch ps khbr pdse
+12/08/2025, 11:01 - Krishil Agrawal: hmm 8 che
+12/08/2025, 12:22 - Ashish CSE: React kem thai
+12/08/2025, 12:28 - Krishil Agrawal: are bhai tya react nu option che upar
+12/08/2025, 13:19 - Ashish CSE: Hu jamava jav chu
+12/08/2025, 13:19 - Ashish CSE: 10 minit ma avi
+12/08/2025, 13:20 - Ashish CSE: Maru kai puche to kai daje
+12/08/2025, 13:20 - Ashish CSE: Ke am che
+12/08/2025, 13:20 - Ashish CSE: Kaik
+12/08/2025, 13:20 - Ashish CSE: Ho
+12/08/2025, 13:21 - Ashish CSE: hu avi gyo
+12/08/2025, 13:21 - Ashish CSE: reva dije
+12/08/2025, 13:22 - Krishil Agrawal: bau vehla
+12/08/2025, 13:22 - Ashish CSE: cancel karu
+12/08/2025, 13:22 - Ashish CSE: cp ma vat
+12/08/2025, 19:09 - Ashish CSE: null
+12/08/2025, 19:10 - Ashish CSE: null
+12/08/2025, 21:19 - Ashish CSE: <Media omitted>
+12/08/2025, 21:19 - Ashish CSE: Guess?
+12/08/2025, 21:45 - Krishil Agrawal: Any iot device
+12/08/2025, 21:46 - Ashish CSE: project
+12/08/2025, 21:46 - Ashish CSE: upcoming
+12/08/2025, 21:46 - Ashish CSE: surprise
+12/08/2025, 21:49 - Ashish CSE: null
+12/08/2025, 21:53 - Ashish CSE: null
+12/08/2025, 21:54 - Krishil Agrawal: Bhar chu
+12/08/2025, 21:54 - Krishil Agrawal: Pchi call kru
+12/08/2025, 22:54 - Ashish CSE: <Media omitted>
+13/08/2025, 07:15 - Krishil Agrawal: Su thyu
+13/08/2025, 09:13 - Ashish CSE: Oi
+13/08/2025, 09:13 - Ashish CSE: Krishil
+13/08/2025, 09:13 - Ashish CSE: Hu sui jav chu
+13/08/2025, 09:13 - Ashish CSE: Maru nam liye na
+13/08/2025, 09:13 - Krishil Agrawal: Sui ja toh
+13/08/2025, 09:13 - Ashish CSE: To phone marjje
+13/08/2025, 09:13 - Krishil Agrawal: Ha bhai
+13/08/2025, 09:13 - Ashish CSE: Uthi to kaik kari
+13/08/2025, 09:39 - Krishil Agrawal: jagyo ...? <This message was edited>
+13/08/2025, 11:17 - Ashish CSE: Su thayu
+13/08/2025, 11:17 - Ashish CSE: Attendence avi gaine
+13/08/2025, 11:17 - Krishil Agrawal: ha
+13/08/2025, 11:17 - Ashish CSE: Ok
+13/08/2025, 11:17 - Krishil Agrawal: ..
+13/08/2025, 11:17 - Krishil Agrawal: su thyu tu
+13/08/2025, 11:17 - Ashish CSE: E chutiyo he
+13/08/2025, 11:17 - Ashish CSE: Mare ena bhegu gd na group ma pan nath 4evu
+13/08/2025, 11:17 - Krishil Agrawal: e toh che
+13/08/2025, 11:17 - Ashish CSE: Tare revu hou to reje
+13/08/2025, 11:18 - Ashish CSE: Jarav haji utho chu
+13/08/2025, 12:11 - Ashish CSE: Lab calu thai
+13/08/2025, 12:11 - Krishil Agrawal: na
+13/08/2025, 12:12 - Ashish CSE: null
+13/08/2025, 12:14 - Krishil Agrawal: https://meet.google.com/tvg-ihqu-pby
+13/08/2025, 12:30 - Ashish CSE: aa hu chutiyaveda he
+13/08/2025, 13:19 - Krishil Agrawal: be tirth jode vaat thai
+13/08/2025, 13:19 - Krishil Agrawal: ?
+13/08/2025, 13:29 - Ashish CSE: Hangava de
+13/08/2025, 13:29 - Krishil Agrawal: upad ne
+13/08/2025, 13:29 - Krishil Agrawal: 1min khali
+13/08/2025, 13:29 - Ashish CSE: 2 minit to jarav yarrrr
+13/08/2025, 13:33 - Krishil Agrawal: kr phone pchi
+13/08/2025, 13:33 - Ashish CSE: Ha
+13/08/2025, 13:49 - Ashish CSE: null
+13/08/2025, 13:57 - Ashish CSE: Ek minit calu rakho jrak
+13/08/2025, 13:58 - Ashish CSE: Ghadik reyne vat karu
+13/08/2025, 14:23 - Ashish CSE: Group alagj rakhje ho
+13/08/2025, 14:23 - Ashish CSE: Bhega karvanu na pade pavan
+13/08/2025, 14:24 - Krishil Agrawal: loda tu na pade che
+13/08/2025, 14:24 - Krishil Agrawal: pavan e kidhu mne
+13/08/2025, 14:24 - Ashish CSE: Ela yar
+13/08/2025, 14:24 - Ashish CSE: Samjne thoduk mitra
+13/08/2025, 14:27 - Krishil Agrawal: kai nai bhai khadai kro
+13/08/2025, 14:27 - Krishil Agrawal: 🤧
+13/08/2025, 14:27 - Ashish CSE: Me nath kari khaddai
+13/08/2025, 14:27 - Ashish CSE: Chodu
+13/08/2025, 14:27 - Ashish CSE: Tame kari je
+13/08/2025, 14:27 - Ashish CSE: Pela hatu e group rakhu hot to
+13/08/2025, 14:27 - Krishil Agrawal: me su kri
+13/08/2025, 14:27 - Ashish CSE: Ek jana ni vahe bandhani gand mari lidhi
+13/08/2025, 14:27 - Krishil Agrawal: toh amna pn ej che bhai
+13/08/2025, 14:27 - Ashish CSE: Kon
+13/08/2025, 14:27 - Krishil Agrawal: joi le
+13/08/2025, 14:27 - Krishil Agrawal: khali 10 na 11 thya
+13/08/2025, 14:27 - Ashish CSE: Su
+13/08/2025, 14:28 - Krishil Agrawal: banev group match kri le
+13/08/2025, 14:28 - Krishil Agrawal: ej che
+13/08/2025, 14:28 - Krishil Agrawal: khali emay Aditya nthi
+13/08/2025, 14:28 - Ashish CSE: Hachu kavne
+13/08/2025, 14:28 - Krishil Agrawal: ha bhai
+13/08/2025, 14:28 - Krishil Agrawal: joi le
+13/08/2025, 14:28 - Ashish CSE: Mane e dhyan ane dheyansh bhegu uncomfortable lage
+13/08/2025, 14:28 - Krishil Agrawal: vishwas nthi tne
+13/08/2025, 14:28 - Krishil Agrawal: su chokri jevu kre che
+13/08/2025, 14:28 - Ashish CSE: Ela e ji hoi
+13/08/2025, 14:28 - Ashish CSE: Tane sachi vat kari dhidh9
+13/08/2025, 14:29 - Krishil Agrawal: toh pehla su kam ha pdi hse loda
+13/08/2025, 14:29 - Ashish CSE: Kya ha padi
+13/08/2025, 14:29 - Ashish CSE: Mane lagu ke ama bahda he etle
+13/08/2025, 14:30 - Ashish CSE: Pachi joyu to ek 2 khute he etle
+13/08/2025, 14:30 - Ashish CSE: Tu amara ma avto rene
+13/08/2025, 14:30 - Krishil Agrawal: srry bro
+13/08/2025, 14:30 - Ashish CSE: Why
+13/08/2025, 14:30 - Krishil Agrawal: hu khadai nai kru
+13/08/2025, 14:30 - Ashish CSE: Etle tane e loko vadhare game amra karta ka
+13/08/2025, 14:31 - Ashish CSE: Vandho yad rakhis
+13/08/2025, 14:31 - Krishil Agrawal: evu nthi loda
+13/08/2025, 14:31 - Ashish CSE: Euj he
+13/08/2025, 14:31 - Krishil Agrawal: juban ni vaat che
+13/08/2025, 14:31 - Ashish CSE: Jubann na hoi aa kai nath movie
+13/08/2025, 14:32 - Krishil Agrawal: be ha pdi hu na kau toh emne on khotu lgse
+13/08/2025, 14:33 - Ashish CSE: Nai lage
+13/08/2025, 14:33 - Ashish CSE: Ame hene
+13/08/2025, 14:33 - Ashish CSE: Ene lage to
+13/08/2025, 14:33 - Krishil Agrawal: pchi vaat kryiye
+13/08/2025, 14:33 - Ashish CSE: Ka
+13/08/2025, 14:33 - Krishil Agrawal: amna muk yar
+13/08/2025, 14:33 - Ashish CSE: Ka
+13/08/2025, 14:33 - Krishil Agrawal: kantadi gyo
+13/08/2025, 14:33 - Ashish CSE: Kem
+13/08/2025, 14:33 - Ashish CSE: Me kidhu taye kantali gyo ka
+13/08/2025, 14:33 - Ashish CSE: Bhai vat tu lambi kheche he
+13/08/2025, 14:33 - Ashish CSE: Hu nath khechto
+13/08/2025, 14:34 - Ashish CSE: Bija su vichare e ma chodava jai
+13/08/2025, 14:34 - Krishil Agrawal: joi le mr thi vadhar tara msg che
+13/08/2025, 14:34 - Ashish CSE: Mr?
+13/08/2025, 14:34 - Ashish CSE: Ela muk to
+13/08/2025, 14:34 - Ashish CSE: Chodu che tu pan
+13/08/2025, 14:53 - Ashish CSE: Aa su karave he lodo
+13/08/2025, 14:53 - Ashish CSE: Kai nath samjatu
+13/08/2025, 14:53 - Krishil Agrawal: clustering
+13/08/2025, 14:53 - Ashish CSE: A loda eto avde
+13/08/2025, 14:54 - Ashish CSE: Pan aa bhosdino kaik vichitra karave
+13/08/2025, 14:54 - Krishil Agrawal: toh pn kbhr nat pdti
+13/08/2025, 14:54 - Krishil Agrawal: hmm e toh che
+13/08/2025, 14:54 - Ashish CSE: Pan ela underoot kyathi ave
+13/08/2025, 14:54 - Krishil Agrawal: distance ..
+13/08/2025, 14:54 - Ashish CSE: Ma chodva jai distance taru
+13/08/2025, 14:54 - Ashish CSE: Ane avdtuj nath kai
+13/08/2025, 14:54 - Ashish CSE: Abhan haro
+13/08/2025, 14:55 - Ashish CSE: Hu shrap apu ane
+13/08/2025, 14:55 - Ashish CSE: Ana bai ni piki black jevdi karine vayo jai koo
+13/08/2025, 14:59 - Ashish CSE: Ha have kaik saro mal lavo he
+13/08/2025, 14:59 - Ashish CSE: Chodu su underroot root samjavto
+13/08/2025, 14:59 - Ashish CSE: Avu pela kadhto hoi to pikino
+13/08/2025, 15:00 - Krishil Agrawal: ene tra jetlu nat avdtu ne
+13/08/2025, 15:00 - Ashish CSE: Ela chuth Marino he
+13/08/2025, 15:00 - Ashish CSE: Ane ke hati jai hu clustering samajvu
+13/08/2025, 15:01 - Krishil Agrawal: tuj ke
+13/08/2025, 15:03 - Ashish CSE: thai jai to mokalje
+13/08/2025, 15:03 - Krishil Agrawal: hmm
+13/08/2025, 15:04 - Ashish CSE: solve kya iteration sudhi karvanu he
+13/08/2025, 15:04 - Krishil Agrawal: i think 3 sudhi
+13/08/2025, 15:04 - Ashish CSE: 3 sudhi
+13/08/2025, 15:04 - Ashish CSE: ela pan bov vadhare he
+13/08/2025, 15:04 - Ashish CSE: tu jaldi karine mokal
+13/08/2025, 15:07 - Ashish CSE: <Media omitted>
+13/08/2025, 15:11 - Krishil Agrawal: shabash bete
+13/08/2025, 15:18 - Krishil Agrawal: <Media omitted>
+13/08/2025, 15:18 - Ashish CSE: Ela eyyy
+13/08/2025, 15:18 - Krishil Agrawal: sala ek sathe badhna msg ave
+13/08/2025, 15:22 - Ashish CSE: Mare excel sheet moklav
+13/08/2025, 15:22 - Ashish CSE: Tare bhaie hathe banavi khbar che
+13/08/2025, 15:22 - Krishil Agrawal: ohoo bhai
+13/08/2025, 15:23 - Ashish CSE: Loda keto to khari clustering avde
+13/08/2025, 15:23 - Ashish CSE: Pan aa pikino su samjavto ema kai khbar na padi
+13/08/2025, 15:23 - Krishil Agrawal: <Media omitted>
+13/08/2025, 15:23 - Krishil Agrawal: <Media omitted>
+13/08/2025, 15:23 - Ashish CSE: Smart work karo excel command vapro
+13/08/2025, 15:23 - Krishil Agrawal: ha bhai e hara eucledian distance thi krvto toh
+13/08/2025, 15:24 - Ashish CSE: <Media omitted>
+13/08/2025, 15:24 - Krishil Agrawal: e cmd tmra gand ma ghalo
+13/08/2025, 16:09 - Krishil Agrawal: <Media omitted>
+13/08/2025, 17:38 - Ashish CSE: Ok
+13/08/2025, 17:47 - Krishil Agrawal: Vandho nthi ne ave kai
+13/08/2025, 17:47 - Krishil Agrawal: ?
+13/08/2025, 17:47 - Ashish CSE: Ela pan nathi revu na to padu
+13/08/2025, 17:47 - Ashish CSE: Ketluk tu key yar mane
+13/08/2025, 17:48 - Ashish CSE: Ane loda puchvanu hatu e kem na puchyu
+13/08/2025, 17:49 - Krishil Agrawal: Ej toh puchyu loda...
+13/08/2025, 17:49 - Ashish CSE: 11 jana ma ha padi
+13/08/2025, 17:49 - Ashish CSE: Chodu eto jo
+13/08/2025, 17:49 - Krishil Agrawal: Ha toh su vando che
+13/08/2025, 17:49 - Ashish CSE: Ela bhai
+13/08/2025, 17:49 - Ashish CSE: Ha avisu bus rakh 11 jana
+13/08/2025, 17:50 - Krishil Agrawal: Are shabash dika
+13/08/2025, 17:50 - Krishil Agrawal: <Media omitted>
+14/08/2025, 09:36 - Krishil Agrawal: are bro
+14/08/2025, 09:36 - Krishil Agrawal: sir kai ke toh keje
+14/08/2025, 09:36 - Ashish CSE: Su
+14/08/2025, 09:36 - Krishil Agrawal: be sir mne bolave toh msg krje mne
+14/08/2025, 09:37 - Ashish CSE: Ha
+14/08/2025, 10:18 - Ashish CSE: quetion mokal ela
+14/08/2025, 10:18 - Ashish CSE: fatafat
+14/08/2025, 11:34 - Krishil Agrawal: Be e loda ne ek divas mate grp mathi nikdi de
+14/08/2025, 11:34 - Krishil Agrawal: Chil chik band Thai jse
+14/08/2025, 11:34 - Ashish CSE: Tu admin che jo
+14/08/2025, 11:35 - Krishil Agrawal: Main admin tuj cho
+14/08/2025, 11:35 - Ashish CSE: Jo
+14/08/2025, 11:35 - Krishil Agrawal: Su bive che la
+14/08/2025, 11:35 - Krishil Agrawal: Mard nthi ke su
+14/08/2025, 11:35 - Ashish CSE: Karvu hoi to nakar reva de
+14/08/2025, 11:35 - Krishil Agrawal: Bhai hu hot ne
+14/08/2025, 11:35 - Ashish CSE: Mare nasto karvo he
+14/08/2025, 11:35 - Krishil Agrawal: Toh paki nikadi det
+14/08/2025, 11:35 - Ashish CSE: <Media omitted>
+14/08/2025, 11:36 - Krishil Agrawal: Le chadvto nthi bhai 😂
+14/08/2025, 11:36 - Ashish CSE: null
+14/08/2025, 11:36 - Krishil Agrawal: Kai nai nsto kri le
+14/08/2025, 22:10 - Ashish CSE: <Media omitted>
+16/08/2025, 23:03 - Ashish CSE: null
+16/08/2025, 23:07 - Ashish CSE: Aunty tamro chokro cigrate pi
+18/08/2025, 13:57 - Krishil Agrawal: <Media omitted>
+19/08/2025, 12:29 - Krishil Agrawal: Bol loda
+19/08/2025, 12:30 - Ashish CSE: Lab ma procy
+19/08/2025, 12:31 - Krishil Agrawal: Su?
+19/08/2025, 12:31 - Ashish CSE: Mari?
+19/08/2025, 12:31 - Ashish CSE: Proxy
+19/08/2025, 12:31 - Ashish CSE: Na puravi ne
+19/08/2025, 12:31 - Krishil Agrawal: Be loda tru chelu no. Htu
+19/08/2025, 12:32 - Krishil Agrawal: Ene khbr padi jat
+19/08/2025, 12:33 - Ashish CSE: Loda
+19/08/2025, 12:33 - Ashish CSE: Khadda
+19/08/2025, 12:33 - Krishil Agrawal: Chodu
+19/08/2025, 12:33 - Krishil Agrawal: Bhos
+19/08/2025, 12:33 - Ashish CSE: <Media omitted>
+19/08/2025, 19:45 - Krishil Agrawal: su krvu che bhai tne
+19/08/2025, 19:45 - Krishil Agrawal: next wed ne rakhvu che ?
+19/08/2025, 20:04 - Krishil Agrawal: bhai su narazgi che tne
+19/08/2025, 20:04 - Ashish CSE: Tane kidhu kai bhai
+19/08/2025, 20:04 - Ashish CSE: Modhe kav taye kaje
+19/08/2025, 20:04 - Krishil Agrawal: pn loda indirectly mne j ke che
+19/08/2025, 20:04 - Krishil Agrawal: ne
+19/08/2025, 20:05 - Krishil Agrawal: su thyu e kene
+19/08/2025, 20:05 - Krishil Agrawal: nat krvu kale ?
+19/08/2025, 20:05 - Ashish CSE: <Media omitted>
+19/08/2025, 20:05 - Krishil Agrawal: na bolto hoy to nai karye
+19/08/2025, 20:05 - Ashish CSE: Na kalej karvu bus
+19/08/2025, 20:05 - Krishil Agrawal: ok
+19/08/2025, 20:05 - Ashish CSE: Ha bus em
+19/08/2025, 20:05 - Ashish CSE: Kara rakho
+19/08/2025, 20:13 - Ashish CSE: Chodu che tu pan
+19/08/2025, 20:14 - Krishil Agrawal: su thyu loda
+19/08/2025, 20:14 - Ashish CSE: Khali emnam tane chodu kevanu man thyu
+19/08/2025, 20:14 - Ashish CSE: Maro vahlo🥰 chodu
+19/08/2025, 20:14 - Krishil Agrawal: aha bau prem umde che
+19/08/2025, 20:14 - Ashish CSE: Chodu e chidu
+19/08/2025, 20:15 - Ashish CSE: Tu haji kav samji ja
+19/08/2025, 20:15 - Ashish CSE: Reffral api de
+19/08/2025, 20:15 - Ashish CSE: Mari dua lagse
+19/08/2025, 20:15 - Krishil Agrawal: em toh mne tri marvani pn man thay che
+19/08/2025, 20:15 - Krishil Agrawal: nath joyti
+19/08/2025, 20:15 - Krishil Agrawal: tari dua tri gand ma nakh
+19/08/2025, 20:20 - Ashish CSE: null
+19/08/2025, 20:20 - Ashish CSE: null
+20/08/2025, 09:17 - Ashish CSE: Gd nu na padav
+20/08/2025, 09:17 - Ashish CSE: Ela game tem
+20/08/2025, 09:22 - Krishil Agrawal: Ha bhai
+20/08/2025, 11:10 - Krishil Agrawal: Thai gai loda
+20/08/2025, 11:10 - Krishil Agrawal: Tri attendance
+20/08/2025, 13:31 - Krishil Agrawal: jikitsha@gmail.com
+20/08/2025, 13:32 - Krishil Agrawal: 9998802996
+20/08/2025, 13:40 - Krishil Agrawal: <Media omitted>
+20/08/2025, 13:47 - Ashish CSE: https://github.com/ashish2656/Ai-Carrier-Coach
+20/08/2025, 17:06 - Ashish CSE: This message was deleted
+21/08/2025, 21:03 - Krishil Agrawal: https://unstop.com/o/FR0jPbM?utm_medium=Share&utm_source=dharmgoh2106&utm_campaign=Innovation_challenge
+21/08/2025, 21:27 - Ashish CSE: null
+21/08/2025, 21:46 - Ashish CSE: null
+21/08/2025, 21:52 - Ashish CSE: <Media omitted>
+21/08/2025, 22:00 - Krishil Agrawal: You deleted this message
+21/08/2025, 22:00 - Krishil Agrawal: You deleted this message
+21/08/2025, 22:00 - Krishil Agrawal: You deleted this message
+21/08/2025, 22:00 - Krishil Agrawal: You deleted this message
+21/08/2025, 22:00 - Krishil Agrawal: You deleted this message
+21/08/2025, 22:00 - Krishil Agrawal: You deleted this message
+21/08/2025, 22:00 - Krishil Agrawal: You deleted this message
+21/08/2025, 22:00 - Krishil Agrawal: You deleted this message
+21/08/2025, 22:01 - Krishil Agrawal: loda kevu video pade
+21/08/2025, 22:01 - Krishil Agrawal: video padta pn nat avdtu tne
+21/08/2025, 22:01 - Ashish CSE: <Media omitted>
+21/08/2025, 22:02 - Krishil Agrawal: You deleted this message
+22/08/2025, 01:08 - Ashish CSE: Chodu
+22/08/2025, 01:08 - Ashish CSE: Sui ja
+22/08/2025, 01:08 - Ashish CSE: 1 04 vagya he
+22/08/2025, 01:08 - Ashish CSE: Pikina
+22/08/2025, 13:39 - Ashish CSE: Oi
+22/08/2025, 13:39 - Ashish CSE: Lab ma su chale
+22/08/2025, 13:39 - Krishil Agrawal: nudes dekhade che
+22/08/2025, 13:39 - Krishil Agrawal: khyati ni
+22/08/2025, 13:39 - Ashish CSE: Hrrr
+22/08/2025, 13:39 - Krishil Agrawal: badhana demand pr
+22/08/2025, 13:39 - Ashish CSE: Avu chu jarav
+22/08/2025, 13:39 - Ashish CSE: <Media omitted>
+22/08/2025, 13:40 - Ashish CSE: Toc ma roll number pramane besvanu he?
+22/08/2025, 13:41 - Krishil Agrawal: hmm
+22/08/2025, 13:42 - Ashish CSE: Bolme
+22/08/2025, 13:43 - Krishil Agrawal: ha la
+22/08/2025, 14:07 - Ashish CSE: Nikarne loda have
+22/08/2025, 14:07 - Ashish CSE: Ketlu bhanis
+22/08/2025, 21:46 - Ashish CSE: null
+22/08/2025, 21:47 - Ashish CSE: null
+22/08/2025, 22:13 - Krishil Agrawal: <Media omitted>
+22/08/2025, 22:34 - Ashish CSE: This message was deleted
+22/08/2025, 22:45 - Krishil Agrawal: You deleted this message
+22/08/2025, 22:48 - Ashish CSE: bencho Badhu delete mari de
+22/08/2025, 22:49 - Ashish CSE: hVE VdhRE IJJt ni java devai
+22/08/2025, 22:49 - Krishil Agrawal: su delete mru
+22/08/2025, 22:49 - Ashish CSE: EVERYTHING
+22/08/2025, 22:49 - Krishil Agrawal: na bhai reva de
+22/08/2025, 22:49 - Ashish CSE: Kai nai
+22/08/2025, 22:49 - Ashish CSE: mara tirth badha na video
+22/08/2025, 22:49 - Ashish CSE: Tirth he
+22/08/2025, 22:49 - Krishil Agrawal: emay badha e joi lidhu che
+22/08/2025, 22:49 - Ashish CSE: na to pan bahi mari de
+22/08/2025, 22:50 - Krishil Agrawal: reva de ne bhai yaar
+22/08/2025, 22:51 - Ashish CSE: tara video nathi etle bhai
+22/08/2025, 22:51 - Ashish CSE: aavu karis
+22/08/2025, 22:51 - Krishil Agrawal: be yaar mn ne
+22/08/2025, 22:51 - Krishil Agrawal: bro
+22/08/2025, 22:51 - Krishil Agrawal: reva de
+22/08/2025, 22:51 - Ashish CSE: na bhai mara plzzzzzzz
+22/08/2025, 22:51 - Krishil Agrawal: mru hot toh pn hu atyare delete nat karat
+22/08/2025, 22:51 - Ashish CSE: pleaseeeee
+22/08/2025, 22:51 - Ashish CSE: na je hoi te badhu delete kari de
+22/08/2025, 22:52 - Ashish CSE: last 20 mari chats delete mari de
+22/08/2025, 22:53 - Ashish CSE: tane peli na summ
+22/08/2025, 22:53 - Krishil Agrawal: mne kai fark nai pdtu
+22/08/2025, 22:53 - Ashish CSE: to pan bhai kari de
+22/08/2025, 22:55 - Ashish CSE: Bolome ela
+22/08/2025, 22:55 - Ashish CSE: Su thayu
+22/08/2025, 23:30 - Ashish CSE: Aa videos pacha mokal
+22/08/2025, 23:30 - Ashish CSE: Je ti moklata
+22/08/2025, 23:31 - Krishil Agrawal: pchi moklu
+23/08/2025, 14:06 - Krishil Agrawal: You deleted this message
+25/08/2025, 13:39 - Ashish CSE: Proxy
+25/08/2025, 13:51 - Krishil Agrawal: hu fd ma nat jvano
+25/08/2025, 13:51 - Krishil Agrawal: jois
+25/08/2025, 13:51 - Ashish CSE: Avnr
+25/08/2025, 13:51 - Ashish CSE: Chodu
+25/08/2025, 13:51 - Krishil Agrawal: lodu
+25/08/2025, 13:52 - Ashish CSE: Navrina hostel su kari halne
+25/08/2025, 13:52 - Krishil Agrawal: na bhau
+25/08/2025, 13:52 - Krishil Agrawal: kadtado avto che
+25/08/2025, 13:52 - Ashish CSE: Halne
+25/08/2025, 13:52 - Krishil Agrawal: na ela
+25/08/2025, 13:52 - Krishil Agrawal: force nai kr
+25/08/2025, 13:52 - Krishil Agrawal: tne jau hoy toh ja
+25/08/2025, 13:53 - Krishil Agrawal: mri icha nthi
+25/08/2025, 13:53 - Ashish CSE: Halne chodu
+25/08/2025, 13:53 - Krishil Agrawal: be lodaaaaaaaaaaaaaaaaaaaa
+25/08/2025, 13:53 - Krishil Agrawal: nat javu
+25/08/2025, 13:53 - Krishil Agrawal: smjjjjjjjjjjjjjjj
+25/08/2025, 13:53 - Krishil Agrawal: navrina
+25/08/2025, 13:54 - Ashish CSE: Kon ch3 bajuma
+25/08/2025, 14:00 - Krishil Agrawal: dgyan
+25/08/2025, 14:01 - Krishil Agrawal: be loda nindar ave che
+25/08/2025, 14:01 - Krishil Agrawal: jaine unghis aram thi
+25/08/2025, 14:01 - Ashish CSE: Avu chu
+25/08/2025, 14:01 - Ashish CSE: Pakdi rakhi
+25/08/2025, 14:01 - Krishil Agrawal: be ja
+25/08/2025, 14:01 - Krishil Agrawal: hu nikdi jais
+25/08/2025, 14:01 - Ashish CSE: Pugi gyo
+25/08/2025, 14:01 - Ashish CSE: Bhar upho
+25/08/2025, 14:02 - Krishil Agrawal: be loda jato reh chup chap
+25/08/2025, 14:02 - Ashish CSE: Chodi dejo shedha e amara gaje nai vage tamara
+25/08/2025, 14:02 - Ashish CSE: <Media omitted>
+25/08/2025, 14:03 - Ashish CSE: Avu chu
+25/08/2025, 14:07 - Ashish CSE: Jaldi nikrne
+25/08/2025, 14:09 - Ashish CSE: Kya betho ela
+25/08/2025, 17:23 - Krishil Agrawal: <Media omitted>
+25/08/2025, 17:24 - Krishil Agrawal: <Media omitted>
